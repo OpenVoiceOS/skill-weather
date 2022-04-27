@@ -25,7 +25,7 @@ provided, precluding us from having to do the conversions.
 import os
 from mycroft.api import Api
 from .weather import WeatherReport
-from .ovosapiservice import OVOSApiService
+from .ovosapiservice import OvosService
 from json_database import JsonStorageXDG
 import threading
 import datetime as dt
@@ -89,7 +89,7 @@ class OpenWeatherMapApi(Api):
     def __init__(self):
         super().__init__(path="owm")
         self.language = "en"
-        self.localbackend = OVOSApiService()
+        self.localbackend = OvosService()
         self.cache_response_location = JsonStorageXDG(
             "skill-weather-response-cache")
 
