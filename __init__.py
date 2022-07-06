@@ -66,7 +66,7 @@ class WeatherSkill(MycroftSkill):
 
     def initialize(self):
         """Do these things after the skill is loaded."""
-        self.bus.on("homescreen.weather.update.request",
+        self.bus.on("skill-ovos-weather.openvoiceos.weather.request",
                     self.get_current_weather_homescreen)
 
         self.weather_api = OpenWeatherMapApi()
