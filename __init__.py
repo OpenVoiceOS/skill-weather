@@ -1110,7 +1110,7 @@ class WeatherSkill(MycroftSkill):
                 system_unit=system_unit
             )
 
-            self.bus.emit(Message("homescreen.weather.update.response",
+            self.bus.emit(Message("skill-ovos-weather.openvoiceos.weather.response",
                                   {"report": result}))
             return result
         except Exception:
