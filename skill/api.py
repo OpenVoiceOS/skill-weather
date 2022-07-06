@@ -121,10 +121,18 @@ class OpenWeatherMapApi(Api):
                 try:
                     api_request = dict(path="/onecall", query=query_parameters)
                     response = self.request(api_request)
-                    weather_cache_response = {'time': time.mktime(dt.datetime.now(
-                    ).timetuple()), 'lat': latitude, 'lon': longitude, 'response': response}
-                    self.cache_weather_results(weather_cache_response)
-                    local_weather = WeatherReport(response)
+                    if response == {}:
+                        response = self.localbackend.get_report_for_weather_onecall_type(
+                            query=query_parameters)
+                        weather_cache_response = {'time': time.mktime(dt.datetime.now(
+                        ).timetuple()), 'lat': latitude, 'lon': longitude, 'response': response}
+                        self.cache_weather_results(weather_cache_response)
+                        local_weather = WeatherReport(response)
+                    else:
+                        weather_cache_response = {'time': time.mktime(dt.datetime.now(
+                        ).timetuple()), 'lat': latitude, 'lon': longitude, 'response': response}
+                        self.cache_weather_results(weather_cache_response)
+                        local_weather = WeatherReport(response)
                 except:
                     response = self.localbackend.get_report_for_weather_onecall_type(
                         query=query_parameters)
@@ -138,10 +146,18 @@ class OpenWeatherMapApi(Api):
             try:
                 api_request = dict(path="/onecall", query=query_parameters)
                 response = self.request(api_request)
-                weather_cache_response = {'time': time.mktime(dt.datetime.now(
-                ).timetuple()), 'lat': latitude, 'lon': longitude, 'response': response}
-                self.cache_weather_results(weather_cache_response)
-                local_weather = WeatherReport(response)
+                if response == {}:
+                    response = self.localbackend.get_report_for_weather_onecall_type(
+                        query=query_parameters)
+                    weather_cache_response = {'time': time.mktime(dt.datetime.now(
+                    ).timetuple()), 'lat': latitude, 'lon': longitude, 'response': response}
+                    self.cache_weather_results(weather_cache_response)
+                    local_weather = WeatherReport(response)
+                else:
+                    weather_cache_response = {'time': time.mktime(dt.datetime.now(
+                    ).timetuple()), 'lat': latitude, 'lon': longitude, 'response': response}
+                    self.cache_weather_results(weather_cache_response)
+                    local_weather = WeatherReport(response)
             except:
                 response = self.localbackend.get_report_for_weather_onecall_type(
                     query=query_parameters)
