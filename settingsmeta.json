@@ -14,6 +14,17 @@
                         "label": "Temperature units",
                         "options": "Default (from Basic Settings)|default;Celsius|celsius;Fahrenheit|fahrenheit",
                         "value": "default"
+                    },
+                    {
+                        "type": "label",
+                        "laabel": "This is to override the system setting for units effecting wind speed.  Currently it uses 'system_units' for this setting"
+                    },
+                    {
+                        "name": "speed_units",
+                        "type": "select",
+                        "label": "Wind speed units",
+                        "options": "Default (from Basic Settings)|default;Metric|metric;Imperial|imperial",
+                        "value": "default"
                     }
                 ]
             }

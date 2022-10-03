@@ -13,6 +13,7 @@
 # limitations under the License.
 """Parse the device configuration and skill settings to determine the """
 FAHRENHEIT = "fahrenheit"
+IMPERIAL = "imperial"
 CELSIUS = "celsius"
 METRIC = "metric"
 METERS_PER_SECOND = "meters per second"
@@ -57,11 +58,17 @@ class WeatherConfig:
 
         Returns: (str) 'meters_sec' or 'mph'
         """
+        unit_from_settings = self.settings.get("speed_units")
         system_unit = self.core_config["system_unit"]
         if system_unit == METRIC:
             speed_unit = METERS_PER_SECOND
         else:
             speed_unit = MILES_PER_HOUR
+        if unit_from_settings is not None and unit_from_settings != "default":
+            if unit_from_settings.lower() == METRIC:
+                speed_unit = METERS_PER_SECOND
+            elif unit_from_settings.lower() = IMPERIAL:
+                speed_unit = MILES_PER_HOUR
 
         return speed_unit
 
