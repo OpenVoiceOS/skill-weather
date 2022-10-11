@@ -38,7 +38,7 @@ WeatherDelegate {
             width: parent.width - (Kirigami.Units.largeSpacing + 1)
             height: parent.height
             color: dayNightTime == "day" ? "black" : "white"
-            text: "HOURLY"
+            text: qsTr("HOURLY")
         }
     }
 
