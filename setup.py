@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from setuptools import setup
-from os import path, walk
+import os
+from os import walk, path
+
 
 URL = "https://github.com/OpenVoiceOS/skill-ovos-weather"
 SKILL_CLAZZ = "WeatherSkill"  # needs to match __init__.py class name
