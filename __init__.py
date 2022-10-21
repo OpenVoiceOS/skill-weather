@@ -961,7 +961,7 @@ class WeatherSkill(MycroftSkill):
         dialog = get_dialog_for_timeframe(intent_data.timeframe, dialog_args)
         intent_match = self.voc_match(weather.condition.category.lower(), condition)
         dialog.build_condition_dialog(intent_match)
-        dialog.data.update(condition=self.translate(weather.condition.description))
+        dialog.data.update(condition=weather.condition.description)
 
         return dialog
 
