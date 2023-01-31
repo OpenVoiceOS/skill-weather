@@ -19,11 +19,13 @@ proxies its calls to the API through Mycroft's officially supported API,
 Selene.  The Selene API is also used to get geographical information about the
 city name provided in the request.
 """
+import os.path
 from datetime import datetime
 from time import sleep
 from typing import List, Tuple
 
 from requests import HTTPError
+from json_database import JsonStorageXDG
 
 from mycroft.skills import MycroftSkill, intent_handler, skill_api_method
 from mycroft.skills.intent_services import AdaptIntent
@@ -57,6 +59,17 @@ TWELVE_HOUR = "half"
 
 class WeatherSkill(MycroftSkill):
     """Main skill code for the weather skill."""
+    @classproperty
+    def network_requirements(self):
+        has_cache = os.path.isfile(JsonStorageXDG(
+            "skill-weather-response-cache").path)
+        SkillNetworkRequirements(internet_before_load=not has_cache,
+                                 network_before_load=not has_cache,
+                                 requires_internet=True,
+                                 requires_network=True,
+                                 no_internet_fallback=True,
+                                 no_network_fallback=True)
+        return SkillNetworkRequirements()
 
     def __init__(self):
         super().__init__("WeatherSkill")
