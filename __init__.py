@@ -31,6 +31,7 @@ from mycroft.skills import MycroftSkill, intent_handler, skill_api_method
 from mycroft.skills.intent_services import AdaptIntent
 from mycroft.messagebus.message import Message
 from mycroft.util.parse import extract_number
+from ovos_workshop.skills.ovos import SkillNetworkRequirements, classproperty
 from .skill import (
     CurrentDialog,
     DAILY,
