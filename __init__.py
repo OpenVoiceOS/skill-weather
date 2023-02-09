@@ -31,7 +31,9 @@ from mycroft.skills import MycroftSkill, intent_handler, skill_api_method
 from mycroft.skills.intent_services import AdaptIntent
 from mycroft.messagebus.message import Message
 from mycroft.util.parse import extract_number
-from ovos_workshop.skills.base import SkillNetworkRequirements, classproperty
+from ovos_utils.process_utils import RuntimeRequirements
+from ovos_utils import classproperty
+
 from .skill import (
     CurrentDialog,
     DAILY,
@@ -60,17 +62,20 @@ TWELVE_HOUR = "half"
 
 class WeatherSkill(MycroftSkill):
     """Main skill code for the weather skill."""
+    
     @classproperty
-    def network_requirements(self):
+    def runtime_requirements(self):
         has_cache = os.path.isfile(JsonStorageXDG(
             "skill-weather-response-cache").path)
-        SkillNetworkRequirements(internet_before_load=not has_cache,
+        return RuntimeRequirements(internet_before_load=not has_cache,
                                  network_before_load=not has_cache,
+                                 gui_before_load=False,
                                  requires_internet=True,
                                  requires_network=True,
+                                 requires_gui=False,
                                  no_internet_fallback=True,
-                                 no_network_fallback=True)
-        return SkillNetworkRequirements()
+                                 no_network_fallback=True,
+                                 no_gui_fallback=True)
 
     def __init__(self):
         super().__init__("WeatherSkill")
