@@ -1,113 +1,15 @@
-/*
-    SPDX-FileCopyrightText: 2023 Aditya Mehra <aix.m@outlook.com>
-    SPDX-License-Identifier: Apache-2.0
-*/
+import QtQuick.Layouts 1.4
+import QtQuick 2.4
+import QtQuick.Controls 2.0
+import org.kde.kirigami 2.4 as Kirigami
 
-import QtQuick.Layouts 1.15
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import org.kde.kirigami 2.19 as Kirigami
 import Mycroft 1.0 as Mycroft
 import org.kde.lottie 1.0
 
 WeatherDelegate {
     id: root
     weatherCode: sessionData.weatherCode
-
-    Column {
-        id: locBoxDetailsArea
-        anchors.top: parent.top
-        anchors.right: parent.right
-        width: parent.width / 4
-        height: locBoxHeight + locBoxHeight * 0.5
-        spacing: Kirigami.Units.smallSpacing * 0.5
-
-        Row {
-            id: windRow
-            spacing: Mycroft.Units.gridUnit
-            height: parent.height / 2
-            width: parent.width
-
-            Item {
-                id: windIconBox
-                width: parent.width / 2
-                height: parent.height
-
-                Image {
-                    id: windIcon
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: parent.height * 0.90
-                    height: width
-                    fillMode: Image.PreserveAspectFit
-                    source: "images/wind.svg"
-                }
-            }
-
-            Item {
-                width: parent.width - (windIconBox.width + Mycroft.Units.gridUnit)
-                height: parent.height
-                anchors.bottom: parent.bottom
-
-                Label {
-                    id: windSpeed
-                    width: parent.width
-                    height: parent.height
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    font.weight: Font.Bold
-                    font.pixelSize: parent.width > parent.height ? height * 0.90 : width * 0.90
-                    color: dayNightTime == "day" ? "black" : "white"
-                    text: sessionData.windSpeed
-                }
-            }
-        }
-
-        Kirigami.Separator {
-            width: parent.width
-            height: 1
-        }
-
-        Row {
-            id: humidityRow
-            spacing: Mycroft.Units.gridUnit
-            height: parent.height / 2
-            width: parent.width
-
-            Item {
-                id: humidityIconBox
-                width: parent.width / 2
-                height: parent.height
-
-                Image {
-                    id: humidityIcon
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: parent.height * 0.90
-                    height: width
-                    fillMode: Image.PreserveAspectFit
-                    source: "images/humidity.svg"
-                }
-            }
-
-            Item {
-                width: parent.width - (humidityIconBox.width + Mycroft.Units.gridUnit)
-                height: parent.height
-
-                Label {
-                    id: humidityPercentage
-                    width: parent.width
-                    height: parent.height
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    font.weight: Font.Bold
-                    font.pixelSize: parent.width > parent.height ? height * 0.90 : width * 0.90
-                    color: dayNightTime == "day" ? "black" : "white"
-                    text: sessionData.humidity
-                }
-            }
-        }
-    }
+    dateTimeLabelText: sessionData.weatherDate
 
     Rectangle {
         anchors.top: parent.top
@@ -144,7 +46,7 @@ WeatherDelegate {
             height: parent.height
 
             Label {
-                id: temperature
+                id: precipitation
                 width: parent.width
                 height: parent.height
                 anchors.centerIn: parent
@@ -154,7 +56,7 @@ WeatherDelegate {
                 font.pixelSize: parent.width > parent.height ? height * 0.60 : width * 0.60
                 rightPadding: -font.pixelSize * 0.1
                 color: dayNightTime == "day" ? "black" : "white"
-                text: sessionData.currentTemperature + "°"
+                text: sessionData.chanceOfPrecipitation + "%"
             }
         }
 

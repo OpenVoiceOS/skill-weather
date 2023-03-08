@@ -1,18 +1,14 @@
-/*
-    SPDX-FileCopyrightText: 2023 Aditya Mehra <aix.m@outlook.com>
-    SPDX-License-Identifier: Apache-2.0
-*/
+import QtQuick.Layouts 1.4
+import QtQuick 2.4
+import QtQuick.Controls 2.0
+import org.kde.kirigami 2.4 as Kirigami
 
-import QtQuick.Layouts 1.15
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import org.kde.kirigami 2.19 as Kirigami
 import Mycroft 1.0 as Mycroft
 import org.kde.lottie 1.0
 
 WeatherDelegate {
     id: root
-    weatherCode: sessionData.weatherCode ? sessionData.weatherCode : sessionData.hourlyForecast.hours[0].weatherCondition
+    weatherCode: sessionData.weatherCode ? sessionData.weatherCode : sessionData.forecast.all[0].weatherCondition
 
     Rectangle {
         id: locBoxDetailsArea
@@ -32,7 +28,7 @@ WeatherDelegate {
         }
 
         Label {
-            id: hourlyLabelTop
+            id: dailyLabelTop
             font.styleName: "Bold"
             font.pixelSize: parent.height * 0.70
             anchors.left: colSpt.right
@@ -42,7 +38,7 @@ WeatherDelegate {
             width: parent.width - (Kirigami.Units.largeSpacing + 1)
             height: parent.height
             color: dayNightTime == "day" ? "black" : "white"
-            text: qsTr("HOURLY")
+            text: qsTr("DAILY")
         }
     }
 
@@ -54,25 +50,25 @@ WeatherDelegate {
         anchors.bottom: parent.bottom
         spacing: Kirigami.Units.smallSpacing * 1.5
 
-        HourlyForecastColumnDelegate {
+        DailyForecastColumnDelegate {
             width: parent.width / 4
             height: parent.height
-            forecastData: sessionData.hourlyForecast.hours[0]
+            forecastData: sessionData.forecast.all[0]
         }
-        HourlyForecastColumnDelegate {
+        DailyForecastColumnDelegate {
             width: parent.width / 4
             height: parent.height
-            forecastData: sessionData.hourlyForecast.hours[1]
+            forecastData: sessionData.forecast.all[1]
         }
-        HourlyForecastColumnDelegate {
+        DailyForecastColumnDelegate {
             width: parent.width / 4
             height: parent.height
-            forecastData: sessionData.hourlyForecast.hours[2]
+            forecastData: sessionData.forecast.all[2]
         }
-        HourlyForecastColumnDelegate {
+        DailyForecastColumnDelegate {
             width: parent.width / 4
             height: parent.height
-            forecastData: sessionData.hourlyForecast.hours[3]
+            forecastData: sessionData.forecast.all[3]
         }
     }
 }

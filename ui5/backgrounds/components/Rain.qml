@@ -1,5 +1,5 @@
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
+import QtQuick 2.0
+import QtQuick.Layouts 1.2
 
 Canvas {
     id: mycanvas
@@ -11,7 +11,7 @@ Canvas {
     onPaint: {
         var ctx = getContext("2d");
         ctx.strokeStyle = 'rgba(255,255,255,0.5)';
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2;
         ctx.lineCap = 'round';
         ctx.clearRect(0, 0, width, height);
 
@@ -19,9 +19,9 @@ Canvas {
             for (var c = 0; c < particles.length; c++) {
                 var p = particles[c];
                 ctx.beginPath();
-                context.arc(p.x, p.y + p.ys, p.l, 0, 2 * Math.PI, false);
-                context.fillStyle = Qt.rgba(255,255,255,p.a);
-                context.fill();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p.x, p.y + p.l * p.ys);
+                ctx.stroke();
             }
             move();
         }
@@ -48,15 +48,13 @@ Canvas {
 
     Component.onCompleted: {
         var init = [];
-        var maxParts = 80;
-
+        var maxParts = 40;
         for (var a = 0; a < maxParts; a++) {
             init.push({
                           x: Math.random() * width,
                           y: Math.random() * height,
-                          l: 5 + Math.random() * 10,
-                          ys: Math.random(),
-                          a: 0.4 + Math.random() * 0.6
+                          l: 2 + Math.random() * 2,
+                          ys: Math.random() * 10 + 10
                       })
         }
 
