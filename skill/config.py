@@ -15,6 +15,7 @@
 FAHRENHEIT = "fahrenheit"
 CELSIUS = "celsius"
 METRIC = "metric"
+IMPERIAL = "imperial"
 METERS_PER_SECOND = "meters per second"
 MILES_PER_HOUR = "miles per hour"
 
@@ -53,11 +54,15 @@ class WeatherConfig:
     
     @property
     def scale(self) -> str:
-        unit_from_settings = self.settings.get("units")
-        if unit_from_settings is not None and unit_from_settings != "default":
-            return unit_from_settings
+        skill_setting = self.settings.get("units", "default")
+        core_setting = self.core_config["system_unit"]
 
-        return self.core_config["system_unit"]
+        system = skill_setting if skill_setting is not "default" \
+            else core_setting
+        
+        if system not in (METRIC, IMPERIAL):
+            return METRIC
+        return system
     
     def speed_unit(self, scale=None) -> str:
         """Use the core configuration to determine the unit of speed.
