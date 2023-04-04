@@ -100,7 +100,6 @@ class CurrentDialog(WeatherDialog):
     def build_weather_dialog(self):
         """Build the components necessary to speak current weather."""
         self.name += "-weather"
-        custom_scale = self.intent_data.scale
         self.data = dict(
             condition=self.weather.condition.description,
             temperature=self.weather.temperature,
