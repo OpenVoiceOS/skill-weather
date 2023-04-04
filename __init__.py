@@ -100,6 +100,7 @@ class WeatherSkill(MycroftSkill):
         .one_of("weather", "forecast")
         .optionally("location")
         .optionally("today")
+        .optionally("unit")
     )
     def handle_current_weather(self, message: Message):
         """Handle current weather requests such as: what is the weather like?
@@ -115,6 +116,7 @@ class WeatherSkill(MycroftSkill):
         .require("like")
         .require("outside")
         .optionally("location")
+        .optionally("unit")
     )
     def handle_like_outside(self, message: Message):
         """Handle current weather requests such as: what's it like outside?
@@ -130,6 +132,7 @@ class WeatherSkill(MycroftSkill):
         .one_of("weather", "forecast")
         .require("number-days")
         .optionally("location")
+        .optionally("unit")
     )
     def handle_number_days_forecast(self, message: Message):
         """Handle multiple day forecast without specified location.
@@ -155,6 +158,7 @@ class WeatherSkill(MycroftSkill):
         .one_of("weather", "forecast")
         .require("relative-day")
         .optionally("location")
+        .optionally("unit")
     )
     def handle_one_day_forecast(self, message):
         """Handle forecast for a single day.
@@ -174,6 +178,7 @@ class WeatherSkill(MycroftSkill):
         .require("weather")
         .require("later")
         .optionally("location")
+        .optionally("unit")
     )
     def handle_weather_later(self, message: Message):
         """Handle future weather requests such as: what's the weather later?
@@ -190,6 +195,7 @@ class WeatherSkill(MycroftSkill):
         .require("relative-time")
         .optionally("relative-day")
         .optionally("location")
+        .optionally("unit")
     )
     def handle_weather_at_time(self, message: Message):
         """Handle future weather requests such as: what's the weather tonight?
@@ -205,6 +211,7 @@ class WeatherSkill(MycroftSkill):
         .one_of("weather", "forecast")
         .require("weekend")
         .optionally("location")
+        .optionally("unit")
     )
     def handle_weekend_forecast(self, message: Message):
         """Handle requests for the weekend forecast.
@@ -220,6 +227,7 @@ class WeatherSkill(MycroftSkill):
         .one_of("weather", "forecast")
         .require("week")
         .optionally("location")
+        .optionally("unit")
     )
     def handle_week_weather(self, message: Message):
         """Handle weather for week (i.e. seven days).
@@ -275,6 +283,7 @@ class WeatherSkill(MycroftSkill):
         .require("relative-time")
         .optionally("relative-day")
         .optionally("location")
+        .optionally("unit")
     )
     def handle_hourly_temperature(self, message: Message):
         """Handle requests for current temperature at a relative time.
@@ -1017,6 +1026,7 @@ class WeatherSkill(MycroftSkill):
         except ValueError:
             self.speak_dialog("cant.get.forecast")
         else:
+            unit = message.data.get("unit")
             if self.voc_match(intent_data.utterance, "relative-time"):
                 intent_data.timeframe = HOURLY
             elif self.voc_match(intent_data.utterance, "later"):
@@ -1024,6 +1034,10 @@ class WeatherSkill(MycroftSkill):
             elif self.voc_match(intent_data.utterance, "relative-day"):
                 if not self.voc_match(intent_data.utterance, "today"):
                     intent_data.timeframe = DAILY
+            if unit and self.voc_match(unit, "fahrenheit"):
+                intent_data.scale = "imperial"
+            elif unit and self.voc_match(unit, "celsius"):
+                intent_data.scale = "metric"
 
         return intent_data
 
@@ -1041,7 +1055,8 @@ class WeatherSkill(MycroftSkill):
             try:
                 latitude, longitude = self._determine_weather_location(intent_data)
                 weather = self.weather_api.get_weather_for_coordinates(
-                    self.config_core.get("system_unit"), latitude, longitude
+                    intent_data.scale or self.weather_config.scale,
+                    latitude, longitude
                 )
             except HTTPError as api_error:
                 self.log.exception("Weather API failure")

@@ -50,37 +50,32 @@ class WeatherConfig:
     def state(self):
         """The current value of the state name in the device configuration."""
         return self.core_config["location"]["city"]["state"]["name"]
-
+    
     @property
-    def speed_unit(self) -> str:
+    def scale(self) -> str:
+        unit_from_settings = self.settings.get("units")
+        if unit_from_settings is not None and unit_from_settings != "default":
+            return unit_from_settings
+
+        return self.core_config["system_unit"]
+    
+    def speed_unit(self, scale=None) -> str:
         """Use the core configuration to determine the unit of speed.
 
         Returns: (str) 'meters_sec' or 'mph'
         """
-        system_unit = self.core_config["system_unit"]
-        if system_unit == METRIC:
-            speed_unit = METERS_PER_SECOND
+        scale = scale or self.scale
+        if self.scale == METRIC:
+            return METERS_PER_SECOND
         else:
-            speed_unit = MILES_PER_HOUR
+            return MILES_PER_HOUR
 
-        return speed_unit
-
-    @property
-    def temperature_unit(self) -> str:
+    def temperature_unit(self, scale=None) -> str:
         """Use the core configuration to determine the unit of temperature.
 
-        Returns: "celsius" or "fahrenheit"
-        """
-        unit_from_settings = self.settings.get("units")
-        measurement_system = self.core_config["system_unit"]
-        if measurement_system == METRIC:
-            temperature_unit = CELSIUS
+        Returns: "celsius" or "fahrenheit"""
+        scale = scale or self.scale
+        if scale == METRIC:
+            return CELSIUS
         else:
-            temperature_unit = FAHRENHEIT
-        if unit_from_settings is not None and unit_from_settings != "default":
-            if unit_from_settings.lower() == FAHRENHEIT:
-                temperature_unit = FAHRENHEIT
-            elif unit_from_settings.lower() == CELSIUS:
-                temperature_unit = CELSIUS
-
-        return temperature_unit
+            return FAHRENHEIT

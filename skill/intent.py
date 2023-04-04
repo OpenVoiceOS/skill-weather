@@ -38,7 +38,7 @@ class WeatherIntent:
         self.utterance = message.data["utterance"]
         self.location = message.data.get("location")
         self.language = language
-        self.unit = message.data.get("unit")
+        self.scale = None
         self.timeframe = CURRENT
 
     @property
