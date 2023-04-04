@@ -65,7 +65,7 @@ class WeatherConfig:
         Returns: (str) 'meters_sec' or 'mph'
         """
         scale = scale or self.scale
-        if self.scale == METRIC:
+        if scale == METRIC:
             return METERS_PER_SECOND
         else:
             return MILES_PER_HOUR
