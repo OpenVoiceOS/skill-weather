@@ -443,7 +443,7 @@ class WeatherSkill(MycroftSkill):
         self._report_weather_condition(message, "clouds")
 
     @intent_handler(
-        AdaptIntent().require("ConfirmQuery").require("Fog").optionally("location")
+        AdaptIntent().require("confirm-query").require("fog").optionally("location")
     )
     def handle_is_it_foggy(self, message: Message):
         """Handler for weather requests such as: is it foggy today?
@@ -454,7 +454,7 @@ class WeatherSkill(MycroftSkill):
         self._report_weather_condition(message, "fog")
 
     @intent_handler(
-        AdaptIntent().require("ConfirmQuery").require("Rain").optionally("location")
+        AdaptIntent().require("confirm-query").require("rain").optionally("location")
     )
     def handle_is_it_raining(self, message: Message):
         """Handler for weather requests such as: is it raining today?
@@ -475,9 +475,9 @@ class WeatherSkill(MycroftSkill):
 
     @intent_handler(
         AdaptIntent()
-        .require("ConfirmQuery")
-        .require("Thunderstorm")
-        .optionally("Location")
+        .require("confirm-query")
+        .require("thunderstorm")
+        .optionally("location")
     )
     def handle_is_it_storming(self, message: Message):
         """Handler for weather requests such as:  is it storming today?
@@ -489,10 +489,10 @@ class WeatherSkill(MycroftSkill):
 
     @intent_handler(
         AdaptIntent()
-        .require("When")
-        .optionally("Next")
-        .require("Precipitation")
-        .optionally("Location")
+        .require("when")
+        .optionally("next")
+        .require("precipitation")
+        .optionally("location")
     )
     def handle_next_precipitation(self, message: Message):
         """Handler for weather requests such as: when will it rain next?
@@ -516,10 +516,10 @@ class WeatherSkill(MycroftSkill):
 
     @intent_handler(
         AdaptIntent()
-        .require("Query")
-        .require("Humidity")
-        .optionally("RelativeDay")
-        .optionally("Location")
+        .require("query")
+        .require("humidity")
+        .optionally("relative-day")
+        .optionally("location")
     )
     def handle_humidity(self, message: Message):
         """Handler for weather requests such as: how humid is it?
@@ -543,11 +543,11 @@ class WeatherSkill(MycroftSkill):
 
     @intent_handler(
         AdaptIntent()
-        .one_of("Query", "When")
-        .optionally("Location")
-        .require("Sunrise")
-        .optionally("Today")
-        .optionally("RelativeDay")
+        .one_of("query", "when")
+        .optionally("location")
+        .require("sunrise")
+        .optionally("today")
+        .optionally("relative-day")
     )
     def handle_sunrise(self, message: Message):
         """Handler for weather requests such as: when is the sunrise?
@@ -568,11 +568,11 @@ class WeatherSkill(MycroftSkill):
 
     @intent_handler(
         AdaptIntent()
-        .one_of("Query", "When")
-        .require("Sunset")
-        .optionally("Location")
-        .optionally("Today")
-        .optionally("RelativeDay")
+        .one_of("query", "when")
+        .require("sunset")
+        .optionally("location")
+        .optionally("today")
+        .optionally("relative-day")
     )
     def handle_sunset(self, message: Message):
         """Handler for weather requests such as: when is the sunset?
