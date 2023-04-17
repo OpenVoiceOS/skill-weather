@@ -205,7 +205,7 @@ class OpenWeatherMapApi(Api):
             threading.Timer(900, self.clear_cache).start()
 
     def clear_cache(self):
-        os.remove(self.cache_response_location.path)
+        self.cache_response_location.clear()
 
     def set_language_parameter(self, language_config: str):
         """
