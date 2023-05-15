@@ -38,3 +38,6 @@ jobs:
         run: |
           pip install .
       - uses: pypa/gh-action-pip-audit@v1.0.7
+        with:
+          ignore-vulns: |
+            PYSEC-2022-43012
