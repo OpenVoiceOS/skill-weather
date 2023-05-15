@@ -15,7 +15,7 @@ on:
       - 'scripts/**'
   push:
     branches:
-      - master
+      - dev
     paths-ignore:
       - 'version.py'
       - 'requirements/**'
