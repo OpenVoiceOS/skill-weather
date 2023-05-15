@@ -1,4 +1,4 @@
 # auto translated from en-us to es-es
-Actualmente es {temperature} grados {temperature_unit}.
-Actualmente hace 0 grados.
-Ahora mismo, está a 0 grados.
+Actualmente hay {temperature} grados {temperature_unit}.
+Actualmente hay {temperature} grados.
+Ahora mismo, hay {temperature} grados.
