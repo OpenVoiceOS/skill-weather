@@ -1,7 +1,7 @@
 # <img src='https://rawgithub.com/FortAwesome/Font-Awesome/master/svgs/solid/sun.svg' card_color='#FEE255' width='50' height='50' style='vertical-align:bottom'/> Weather
 Weather conditions and forecasts
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![codecov](https://codecov.io/gh/OpenVoiceOS/skill-ovos-weather/branch/dev/graph/badge.svg?token=FGP9AY9RE9)](https://codecov.io/gh/OpenVoiceOS/skill-ovos-weather)
 
 ## About 
 Get weather conditions, forecasts, expected precipitation and more!  By default, it will tell
