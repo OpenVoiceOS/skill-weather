@@ -1,0 +1,5 @@
+pytest
+pytest-cov
+pytest-timeout
+ovos-plugin-manager
+ovos-skills-manager
