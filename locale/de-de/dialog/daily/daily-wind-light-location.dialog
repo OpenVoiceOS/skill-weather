@@ -1,2 +1,3 @@
-Es wird nicht sehr windig {day} in {location}
-In {location} wird es {day} keinen Wind geben
+{day} wird in {location} kaum wind erwartet, {speed} {speed_unit} von {direction}
+in {location} gibt es {day} keinen nennenswerten Wind, {speed} {speed_unit} von {direction}
+Mit {speed} {speed_unit} ist es {day} ruhig in {location}. Der wind kommt von {direction}

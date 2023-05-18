@@ -1,2 +1,2 @@
-Derzeit {wind} {wind_unit} in {location}, also etwas windig heute
-Es ist heute etwas windig in {location}, derzeit {wind} {wind_unit}
+in {location} weht der wind mit {speed} {speed_unit} von {direction}, also etwas windig
+in {location} ist momentan etwas windig, {speed} {speed_unit} von {direction}
