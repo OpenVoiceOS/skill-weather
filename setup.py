@@ -53,7 +53,7 @@ def get_requirements(requirements_filename: str):
 
 
 def find_resource_files():
-    resource_base_dirs = ("locale", "ui", "vocab", "dialog", "regex", "skill")
+    resource_base_dirs = ("locale", "ui", "vocab", "dialog", "regex", "weather_helpers")
     package_data = ["*.json"]
     for res in resource_base_dirs:
         if path.isdir(path.join(BASEDIR, res)):

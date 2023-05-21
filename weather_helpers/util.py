@@ -13,45 +13,39 @@
 # limitations under the License.
 """Utility functions for the weather skill."""
 from datetime import datetime, timedelta, tzinfo
-from time import time
 
 import pytz
-
-from mycroft.api import GeolocationApi
-from mycroft.util.format import nice_date
-from mycroft.util.parse import extract_datetime
-from mycroft.util.time import now_local
+from lingua_franca.format import nice_date
+from lingua_franca.parse import extract_datetime
+from ovos_backend_client.api import GeolocationApi
+from ovos_utils.time import now_local, to_local
 
 
 class LocationNotFoundError(ValueError):
     """Raise when the API cannot find the requested location."""
-
     pass
 
 
-def convert_to_local_datetime(timestamp: time, timezone: str) -> datetime:
+def convert_to_local_datetime(isodate: str, timezone: str) -> datetime:
     """Convert a timestamp to a datetime object in the requested timezone.
 
     This function assumes it is passed a timestamp in the UTC timezone.  It
     then adjusts the datetime to match the specified timezone.
 
     Args:
-        timestamp: seconds since epoch
-        timezone: the timezone requested by the user
+        isodate: seconds since epoch
+        timezone: the timezone of the weather report
 
     Returns:
-        A datetime in the passed timezone based on the passed timestamp
+        A datetime in the user timezone
     """
-    naive_datetime = datetime.fromtimestamp(timestamp)
-    utc_datetime = pytz.utc.localize(naive_datetime)
-    local_timezone = pytz.timezone(timezone)
-    local_datetime = utc_datetime.astimezone(local_timezone)
-
-    return local_datetime
+    naive_datetime = datetime.fromisoformat(isodate)
+    tz_datetime = naive_datetime.astimezone(pytz.timezone(timezone))
+    return to_local(tz_datetime)
 
 
 def get_utterance_datetime(
-    utterance: str, timezone: str = None, language: str = None
+        utterance: str, timezone: str = None, language: str = None
 ) -> datetime:
     """Get a datetime representation of a date or time concept in an utterance.
 
@@ -105,9 +99,17 @@ def get_geolocation(location: str):
     geolocation = geolocation_api.get_geolocation(location)
 
     if geolocation is None:
-        raise LocationNotFoundError("Location {} is unknown".format(location))
+        raise LocationNotFoundError(f"Location {location} is unknown")
 
-    return geolocation
+    # convert the dict to a simpler format
+    return {
+        "city": geolocation["city"]["name"],
+        "region": geolocation["city"]["state"]["name"],
+        "country":  geolocation["city"]["state"]["country"]["name"],
+        "latitude": geolocation["coordinate"]["latitude"],
+        "longitude": geolocation["coordinate"]["longitude"],
+        "timezone": geolocation["timezone"]["name"]
+    }
 
 
 def get_time_period(intent_datetime: datetime) -> str:
@@ -130,11 +132,10 @@ def get_time_period(intent_datetime: datetime) -> str:
         period = "evening"
     else:
         period = "overnight"
-
     return period
 
 
-def get_speakable_day_of_week(date_to_speak: datetime):
+def get_speakable_day_of_week(date_to_speak: datetime, lang: str):
     """Convert the time of the a daily weather forecast to a speakable day of week.
 
     Args:
@@ -152,7 +153,7 @@ def get_speakable_day_of_week(date_to_speak: datetime):
     else:
         now_arg = now
 
-    speakable_date = nice_date(date_to_speak, now=now_arg)
+    speakable_date = nice_date(date_to_speak, now=now_arg, lang=lang)
     day_of_week = speakable_date.split(",")[0]
 
     return day_of_week

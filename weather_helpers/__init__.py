@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from .api import OpenWeatherMapApi
+# TODO - get rid of relative imports as soon as skills can be properly packaged with arbitrary module structures
 from .config import WeatherConfig
 from .dialog import (
     CurrentDialog,
@@ -22,6 +22,7 @@ from .dialog import (
     get_dialog_for_timeframe,
 )
 from .intent import WeatherIntent
-from .weather import CURRENT, DAILY, DailyWeather, HOURLY, WeatherReport
 from .util import LocationNotFoundError
-from .ovosapiservice import OvosService
+from .weather import CURRENT, DAILY, Weather, HOURLY, WeatherReport
+from .openmeteo import get_report
+

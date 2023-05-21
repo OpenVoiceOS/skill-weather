@@ -12,20 +12,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """Parse the device configuration and skill settings to determine the """
+from ovos_config import Configuration
+
 FAHRENHEIT = "fahrenheit"
 CELSIUS = "celsius"
 METRIC = "metric"
 IMPERIAL = "imperial"
 METERS_PER_SECOND = "meters per second"
+KILOMETERS_PER_HOUR = "kilometers per hour"
 MILES_PER_HOUR = "miles per hour"
+INCH = "inch"
+MILLIMETERS = "millimeters"
 
 
 class WeatherConfig:
     """Build an object representing the configuration values for the weather skill."""
 
-    def __init__(self, core_config: dict, settings: dict):
-        self.core_config = core_config
-        self.settings = settings
+    def __init__(self, core_config: dict = None, settings: dict = None):
+        self.core_config = core_config or Configuration()
+        self.settings = settings or {}
+
+    @property
+    def lang(self):
+        """The lang of current query"""
+        return self.core_config.get("lang", "en-us")
 
     @property
     def city(self):
@@ -48,10 +58,15 @@ class WeatherConfig:
         return self.core_config["location"]["coordinate"]["longitude"]
 
     @property
+    def timezone(self):
+        """The current value of the timezone location configuration"""
+        return self.core_config["location"]["timezone"]["code"]
+
+    @property
     def state(self):
         """The current value of the state name in the device configuration."""
         return self.core_config["location"]["city"]["state"]["name"]
-    
+
     @property
     def scale(self) -> str:
         skill_setting = self.settings.get("units", "default")
@@ -59,28 +74,38 @@ class WeatherConfig:
 
         system = skill_setting if skill_setting is not "default" \
             else core_setting
-        
+
         if system not in (METRIC, IMPERIAL):
             return METRIC
         return system
-    
-    def speed_unit(self, scale=None) -> str:
+
+    @property
+    def speed_unit(self) -> str:
         """Use the core configuration to determine the unit of speed.
 
         Returns: (str) 'meters_sec' or 'mph'
         """
-        scale = scale or self.scale
-        if scale == METRIC:
+        if self.scale == METRIC:
             return METERS_PER_SECOND
         else:
             return MILES_PER_HOUR
 
-    def temperature_unit(self, scale=None) -> str:
+    @property
+    def temperature_unit(self) -> str:
         """Use the core configuration to determine the unit of temperature.
 
         Returns: "celsius" or "fahrenheit"""
-        scale = scale or self.scale
-        if scale == METRIC:
+        if self.scale == METRIC:
             return CELSIUS
         else:
             return FAHRENHEIT
+
+    @property
+    def precipitation_unit(self) -> str:
+        """Use the core configuration to determine the unit of precipitation.
+
+        Returns: "millimeters" or "inch"""
+        if self.scale == METRIC:
+            return MILLIMETERS
+        else:
+            return INCH

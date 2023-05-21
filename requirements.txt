@@ -1,4 +1,4 @@
 requests
 pytz
 ovos-utils~=0.0, >=0.0.28a4
-ovos_workshop~=0.0, >=0.0.12a7
+ovos_workshop~=0.0, >=0.0.12a27
