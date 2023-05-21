@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a5...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a6...HEAD)
+
+**Implemented enhancements:**
+
+- feat/OpenMeteo [\#42](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/42) ([JarbasAl](https://github.com/JarbasAl))
+
+## [V0.0.1a6](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a6) (2023-05-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a5...V0.0.1a6)
 
 **Merged pull requests:**
 
