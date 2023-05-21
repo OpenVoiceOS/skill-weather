@@ -1,0 +1,4 @@
+# auto translated from en-us to es-es
+en {location} el amanecer será a las {time} {day}
+{day} el sol saldrá a las {time} en {location}
+el sol saldrá a las {time} {day} en {location}

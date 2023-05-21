@@ -1,2 +1,2 @@
-Es gibt keinen nennenswerten Wind in {location}
-Es ist heute überhaupt nicht sehr windig in {location}
+in {location} gibt es gerade keinen nennenswerten Wind, {speed} {speed_unit} von {direction}
+Mit {speed} {speed_unit} ist es gerade ruhig in {location}. Der wind kommt von {direction}
