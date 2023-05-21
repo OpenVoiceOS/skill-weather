@@ -653,8 +653,8 @@ class WeatherSkill(OVOSSkill):
             self.gui["currentTemperature"] = weather.current.temperature
             self.gui["weatherCondition"] = weather.current.condition.image
             self.gui["weatherLocation"] = weather_location
-            self.gui["highTemperature"] = weather.current.high_temperature
-            self.gui["lowTemperature"] = weather.current.low_temperature
+            self.gui["highTemperature"] = weather.current.temperature_high
+            self.gui["lowTemperature"] = weather.current.temperature_low
             self.gui["windSpeed"] = weather.current.wind_speed
             self.gui["humidity"] = weather.current.humidity
             self.gui.show_page(page_name)
@@ -1061,8 +1061,8 @@ class WeatherSkill(OVOSSkill):
 
             result = dict(
                 weather_temp=weather.current.temperature,
-                high_temperature=weather.current.high_temperature,
-                low_temperature=weather.current.low_temperature,
+                high_temperature=weather.current.temperature_high,
+                low_temperature=weather.current.temperature_low,
                 weather_code=weather.current.condition.code,
                 condition_category=weather.current.condition.category,
                 condition_description=weather.current.condition.description,
