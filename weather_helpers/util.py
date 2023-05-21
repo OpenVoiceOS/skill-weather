@@ -101,7 +101,15 @@ def get_geolocation(location: str):
     if geolocation is None:
         raise LocationNotFoundError(f"Location {location} is unknown")
 
-    return geolocation
+    # convert the dict to a simpler format
+    return {
+        "city": geolocation["city"]["name"],
+        "region": geolocation["city"]["state"]["name"],
+        "country":  geolocation["city"]["state"]["country"]["name"],
+        "latitude": geolocation["coordinate"]["latitude"],
+        "longitude": geolocation["coordinate"]["longitude"],
+        "timezone": geolocation["timezone"]["name"]
+    }
 
 
 def get_time_period(intent_datetime: datetime) -> str:

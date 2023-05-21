@@ -366,7 +366,8 @@ class DailyDialog(WeatherDialog):
     def build_humidity_dialog(self):
         """Build the components necessary to speak the percentage humidity."""
         self.data = dict(
-            percent=self.weather.humidity, day=get_speakable_day_of_week(self.weather.date_time, self.lang)
+            percent=self.weather.humidity,
+            day=get_speakable_day_of_week(self.weather.date_time, self.lang)
         )
         self.name += "-humidity"
         self._add_location()
