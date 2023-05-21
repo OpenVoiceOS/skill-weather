@@ -25,14 +25,14 @@ def get_report(cfg: WeatherConfig):
 
     if cfg.temperature_unit == CELSIUS:
         temperature_unit = "celsius"
-    elif cfg.speed_unit == FAHRENHEIT:
+    elif cfg.temperature_unit == FAHRENHEIT:
         temperature_unit = "fahrenheit"
     else:
         raise ValueError("invalid temperature unit")
 
     if cfg.precipitation_unit == MILLIMETERS:
         precipitation_unit = "mm"
-    elif cfg.speed_unit == INCH:
+    elif cfg.precipitation_unit == INCH:
         precipitation_unit = "inch"
     else:
         raise ValueError("invalid precipitation unit")
