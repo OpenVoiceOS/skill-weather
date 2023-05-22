@@ -1,0 +1,6 @@
+# auto translated from en-us to pt-pt
+Esperar {condition}, com um máximo de {high_temperature} e um mínimo de {low_temperature} {day}
+{day} o máximo será {high_temperature} e o mínimo {low_temperature}, com {condition}
+{day} espera {condition}, com um máximo de {high_temperature} e um mínimo de {low_temperature}
+{day} será {condition} com um máximo de {high_temperature} e um mínimo de {low_temperature}
+A previsão {day} é {condition} com uma máxima de {high_temperature} e uma mínima de {low_temperature}

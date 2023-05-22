@@ -1,0 +1,4 @@
+# auto translated from en-us to cs-cz
+{day}, {location} bude mít nejvyšší hodnotu {high_temperature} a nejnižší hodnotu {low_temperature}, přičemž {condition}.
+{day} to bude {condition}, s maximem {high_temperature} a minimem {low_temperature} v {location}
+Předpověď {day} je {high_temperature} pro maximum a {low_temperature} pro minimum v {location}.

@@ -1,0 +1,4 @@
+# auto translated from en-us to fr-fr
+Aujourd'hui a la température atteindra {temperature} degrés dans {location}.
+Un maximum de {temperature} degrés est attendu en {location}.
+Un maximum de {temperature} degrés {temperature_unit} est attendu en {location}.

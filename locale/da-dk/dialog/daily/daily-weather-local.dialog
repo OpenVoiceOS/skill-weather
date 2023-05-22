@@ -1,0 +1,6 @@
+# auto translated from en-us to da-dk
+{day} den højeste værdi vil være {high_temperature} og den laveste {low_temperature}, med {condition}
+Forvent {condition}, med en høj på {high_temperature} og en lav på {low_temperature} {day}
+{day} forventer {condition}, med en højeste værdi på {high_temperature} og en laveste værdi på {low_temperature}
+{day} det vil være {condition} med en høj på {high_temperature} og en lav på {low_temperature}
+Prognosen {day} er {condition} med et højest tal på {high_temperature} og et lavt tal på {low_temperature}

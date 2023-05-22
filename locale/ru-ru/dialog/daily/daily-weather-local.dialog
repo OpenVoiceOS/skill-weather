@@ -1,0 +1,6 @@
+# auto translated from en-us to ru-ru
+{day} ожидать {condition}, с максимумом {high_temperature} и минимумом {low_temperature}
+{day} максимум будет {high_temperature}, а минимум {low_temperature}, с {condition}
+{day} будет {condition} с максимумом {high_temperature} и минимумом {low_temperature}
+Прогноз {day} - {condition} с максимумом {high_temperature} и минимумом {low_temperature}.
+Ожидается {condition}, с максимумом {high_temperature} и минимумом {low_temperature} {day}.

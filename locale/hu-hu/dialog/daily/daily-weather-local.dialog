@@ -1,0 +1,6 @@
+# auto translated from en-us to hu-hu
+{day} ez lesz {condition} a magas {high_temperature} és a mélypont {low_temperature}
+{day} a magas lesz {high_temperature} és az alacsony {low_temperature}, a {condition}
+{day} várja {condition}, a legmagasabb {high_temperature} és a legalacsonyabb {low_temperature}
+Várhatóan {condition}, a legmagasabb {high_temperature}, a legalacsonyabb {low_temperature} {day}
+Az előrejelzés {day} {condition} magas {high_temperature} és alacsony {low_temperature} értékkel.

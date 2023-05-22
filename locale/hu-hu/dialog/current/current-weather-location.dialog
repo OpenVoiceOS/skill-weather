@@ -1,0 +1,4 @@
+# auto translated from en-us to hu-hu
+Jelenleg {condition} és {temperature} fok van {temperature_unit} és {location} között.
+Jelenleg {condition} és {temperature} fok van a {location}-ben.
+A {location}-nak van {condition} és jelenleg {temperature} fokos.

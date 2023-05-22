@@ -1,0 +1,4 @@
+# auto translated from en-us to sv-fi
+{location} on {condition} ja on tällä hetkellä {temperature} astetta.
+Se on tällä hetkellä {condition} ja {temperature} astetta {temperature_unit} ja {location}.
+Juuri nyt se on {condition} ja {temperature} astetta {location}:ssa.

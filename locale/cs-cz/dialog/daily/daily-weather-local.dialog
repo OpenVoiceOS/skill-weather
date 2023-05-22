@@ -1,0 +1,6 @@
+# auto translated from en-us to cs-cz
+Předpověď {day} je {condition} s maximem {high_temperature} a minimem {low_temperature}.
+{day} nejvyšší hodnota bude {high_temperature} a nejnižší {low_temperature}, přičemž {condition}
+{day} bude {condition} s maximem {high_temperature} a minimem {low_temperature}
+{day} očekáváme {condition}, s maximem {high_temperature} a minimem {low_temperature}
+Očekávejte {condition}, s maximem {high_temperature} a minimem {low_temperature} {day}

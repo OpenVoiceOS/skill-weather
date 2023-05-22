@@ -1,0 +1,4 @@
+# auto translated from en-us to sv-fi
+{day}, {location} on korkeimmillaan {high_temperature} ja alhaisimmillaan {low_temperature}, ja {condition}
+{day} se on {condition}, korkeimmillaan {high_temperature} ja matalimmillaan {low_temperature} {location}:ssä.
+Ennuste {day} on {high_temperature} korkealle ja {low_temperature} matalalle {location}:ssa.

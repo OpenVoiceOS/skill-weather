@@ -1,0 +1,4 @@
+# auto translated from en-us to cs-cz
+slunce vyjde v {time} {day} v {location}
+{day} slunce vyjde v {time} v {location}
+v {location} bude východ slunce v {time} {day}

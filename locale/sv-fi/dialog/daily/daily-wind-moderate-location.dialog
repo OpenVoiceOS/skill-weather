@@ -1,0 +1,4 @@
+# auto translated from en-us to sv-fi
+Tuuli on kohtalainen vuonna {location} {day}, noin {speed} {speed_unit} {direction}
+Ennuste {day} ennustaa {location} kohtalaista tuulta {direction}:sta {speed}:sta {speed_unit}:sta {speed}:sta {speed_unit}:sta
+Voit odottaa tuulta noin {speed} {speed_unit} {location} {day}:ssa {speed_unit} {location} {day}:ssa
