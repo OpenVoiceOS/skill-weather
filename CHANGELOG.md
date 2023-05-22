@@ -2,7 +2,19 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a6...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a7...HEAD)
+
+**Implemented enhancements:**
+
+- extend intents [\#47](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/47) ([JarbasAl](https://github.com/JarbasAl))
+
+**Closed issues:**
+
+- refactor away the "skill" subfolder, this standard was contentious under MycroftAI but forced on the community, being an official skill we don't want to give that as an example, a better effort should be done to move to proper python packages and support arbitrary structures  \(right now we can't move init.py or locale folder etc\) [\#27](https://github.com/OpenVoiceOS/skill-ovos-weather/issues/27)
+
+## [V0.0.1a7](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a7) (2023-05-21)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a6...V0.0.1a7)
 
 **Implemented enhancements:**
 
