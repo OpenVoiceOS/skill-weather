@@ -33,12 +33,13 @@ from ovos_workshop.skills import OVOSSkill
 from requests import HTTPError
 
 from .weather_helpers import (
-    CurrentDialog,
+    CURRENT,
     DAILY,
-    DailyDialog,
-    Weather,
     HOURLY,
+    CurrentDialog,
+    DailyDialog,
     HourlyDialog,
+    Weather,
     get_dialog_for_timeframe,
     LocationNotFoundError,
     WeatherConfig,
@@ -88,14 +89,13 @@ class WeatherSkill(OVOSSkill):
         self._report_current_weather(message)
 
     @intent_handler(
-        IntentBuilder("like_outside")
+        IntentBuilder("outside")
         .require("query")
-        .require("like")
         .require("outside")
         .optionally("location")
         .optionally("unit")
     )
-    def handle_like_outside(self, message: Message):
+    def handle_outside(self, message: Message):
         """Handle current weather requests such as: what's it like outside?
 
         Args:
@@ -251,7 +251,7 @@ class WeatherSkill(OVOSSkill):
         Args:
             message: Message Bus event information from the intent parser
         """
-        self._report_temperature(message, temperature_type="current")
+        self._report_temperature(message)
 
     @intent_handler(
         IntentBuilder("hourly_temperature")
@@ -274,11 +274,12 @@ class WeatherSkill(OVOSSkill):
         """
         self._report_temperature(message)
 
+    # TODO high low teperatures really only make sense if tied to a daytime
     @intent_handler(
         IntentBuilder("high_temperature")
         .optionally("query")
         .require("high")
-        .optionally("temperature")
+        .require("temperature")
         .optionally("location")
         .optionally("unit")
         .optionally("relative-day")
@@ -301,7 +302,7 @@ class WeatherSkill(OVOSSkill):
         IntentBuilder("low_temperature")
         .optionally("query")
         .require("low")
-        .optionally("temperature")
+        .require("temperature")
         .optionally("location")
         .optionally("unit")
         .optionally("relative-day")
@@ -321,19 +322,21 @@ class WeatherSkill(OVOSSkill):
         self._report_temperature(message, temperature_type="low")
 
     @intent_handler(
-        IntentBuilder("is_hot")
+        IntentBuilder("is_hot_cold")
         .require("confirm-query-current")
         .one_of("hot", "cold")
         .optionally("location")
         .optionally("today")
     )
-    def handle_is_it_hot(self, message: Message):
+    def handle_is_it_hot_or_cold(self, message: Message):
         """Handler for temperature requests such as: is it going to be hot today?
 
         Args:
             message: Message Bus event information from the intent parser
         """
-        self._report_temperature(message, "current")
+        utterance = message.data["utterance"]
+        temperature_type = "high" if self.voc_match(utterance, "hot") else "low"
+        self._report_temperature(message, temperature_type)
 
     @intent_handler(
         IntentBuilder("how_hot_or_cold")
@@ -483,7 +486,7 @@ class WeatherSkill(OVOSSkill):
         IntentBuilder("next_rain")
         .require("when")
         .optionally("next")
-        .require("precipitation")
+        .one_of("rain", "precipitation")
         .optionally("location")
     )
     def handle_next_precipitation(self, message: Message):
@@ -499,10 +502,6 @@ class WeatherSkill(OVOSSkill):
             intent_data.timeframe = timeframe
             dialog = get_dialog_for_timeframe(intent_data, forecast)
             dialog.build_next_precipitation_dialog()
-            spoken_percentage = self.translate(
-                "percentage-number", data=dict(number=dialog.data["percent"])
-            )
-            dialog.data.update(percent=spoken_percentage)
             self._speak_weather(dialog)
 
     @intent_handler(
@@ -621,12 +620,17 @@ class WeatherSkill(OVOSSkill):
             dialog = CurrentDialog(intent_data,  weather.current)
             dialog.build_weather_dialog()
             self._speak_weather(dialog)
-            dialog = CurrentDialog(intent_data, weather.current)
-            dialog.build_high_low_temperature_dialog()
+            if intent_data.timeframe == CURRENT:
+                dialog = CurrentDialog(intent_data, weather.current)
+                dialog.build_humidity_dialog()
+            else:
+                # lowest/highest daily temperature
+                dialog = DailyDialog(intent_data, weather.daily[0])
+                dialog.build_temperature_dialog()
             self._speak_weather(dialog)
             if self.gui.connected:
                 sleep(5)
-                self._display_hourly_forecast(weather, intent_data.display_location)
+                self._display_hourly_forecast(weather.hourly, intent_data.display_location)
                 sleep(5)
                 four_day_forecast = weather.daily[1:5]
                 self._display_multi_day_forecast(four_day_forecast, intent_data)
@@ -648,8 +652,9 @@ class WeatherSkill(OVOSSkill):
             self.gui["currentTemperature"] = weather.current.temperature
             self.gui["weatherCondition"] = weather.current.condition.image
             self.gui["weatherLocation"] = weather_location
-            self.gui["highTemperature"] = weather.current.temperature_high
-            self.gui["lowTemperature"] = weather.current.temperature_low
+            self.gui["highTemperature"] = weather.daily[0].temperature_high
+            self.gui["lowTemperature"] = weather.daily[0].temperature_low
+            self.gui["chanceOfPrecipitation"] = weather.current.chance_of_precipitation
             self.gui["windSpeed"] = weather.current.wind_speed
             self.gui["humidity"] = weather.current.humidity
             self.gui.show_page(page_name)
@@ -669,15 +674,16 @@ class WeatherSkill(OVOSSkill):
         weather = self._get_weather(intent_data)
         if weather is not None:
             try:
-                forecast = weather.get_forecast_for_hour(intent_data)
+                forecast = weather.get_forecast_for_multiple_hours(intent_data)
             except IndexError:
                 self.speak_dialog("forty-eight-hours-available")
             else:
-                dialog = HourlyDialog(intent_data, forecast)
+                dialog = HourlyDialog(intent_data, forecast[0])
                 dialog.build_weather_dialog()
+                self._display_hourly_forecast(forecast, intent_data.display_location)
                 self._speak_weather(dialog)
 
-    def _display_hourly_forecast(self, weather: WeatherReport, weather_location: str):
+    def _display_hourly_forecast(self, weather: List[Weather], weather_location: str):
         """Display hourly forecast on a device that supports the GUI.
 
         On the Mark II this screen is the final for current weather.  It can
@@ -686,7 +692,7 @@ class WeatherSkill(OVOSSkill):
         :param weather: hourly weather conditions from Open Weather Maps
         """
         hourly_forecast = []
-        for hour_count, hourly in enumerate(weather.hourly):
+        for hour_count, hourly in enumerate(weather):
             if not hour_count:
                 continue
             if hour_count > 4:
@@ -707,7 +713,7 @@ class WeatherSkill(OVOSSkill):
                     weatherCondition=hourly.condition.animated_code,
                 )
             )
-        self.gui["weatherCode"] = weather.current.condition.animated_code
+        self.gui["weatherCode"] = weather[0].condition.animated_code
         self.gui["weatherLocation"] = weather_location
         self.gui["hourlyForecast"] = dict(hours=hourly_forecast)
         self.gui.show_page("HourlyForecast.qml")
@@ -734,14 +740,23 @@ class WeatherSkill(OVOSSkill):
 
         :param forecast: daily forecasts to display
         """
-        self.gui.clear()
-        self.gui["weatherLocation"] = intent_data.display_location
-        self.gui["weatherCondition"] = forecast.condition.animated_code
-        self.gui["weatherDate"] = forecast.date_time.strftime("%a %B %d, %Y")
-        self.gui["highTemperature"] = forecast.temperature_high
-        self.gui["lowTemperature"] = forecast.temperature_low
-        self.gui["chanceOfPrecipitation"] = str(forecast.chance_of_precipitation)
-        self.gui.show_page("SingleDay.qml")
+        if self.gui.connected:
+            self.gui.clear()
+            self.gui["weatherLocation"] = intent_data.display_location
+            self.gui["weatherCondition"] = forecast.condition.animated_code
+            self.gui["weatherDate"] = forecast.date_time.strftime("%a %B %d, %Y")
+            self.gui["highTemperature"] = forecast.temperature_high
+            self.gui["lowTemperature"] = forecast.temperature_low
+            self.gui["chanceOfPrecipitation"] = str(forecast.chance_of_precipitation)
+            self.gui["windSpeed"] = forecast.wind_speed_max
+            self.gui["humidity"] = forecast.humidity
+            self.gui.show_page("SingleDay.qml")
+        else:
+            self.enclosure.deactivate_mouth_events()
+            self.enclosure.weather_display(
+                forecast.condition.code,
+                (forecast.temperature_high + forecast.temperature_low) / 2
+            )
 
     def _report_multi_day_forecast(self, message: Message, days: int):
         """Handles all requests for multiple day forecasts.
@@ -887,6 +902,8 @@ class WeatherSkill(OVOSSkill):
             temperature_type: current, high or low temperature
         """
         intent_data = self._get_intent_data(message)
+        if temperature_type in ("high","low",):
+            intent_data.timeframe = "daily"
         weather = self._get_weather(intent_data)
         if weather is not None:
             intent_weather = weather.get_weather_for_intent(intent_data)
@@ -921,7 +938,6 @@ class WeatherSkill(OVOSSkill):
         dialog = get_dialog_for_timeframe(intent_data, weather)
         intent_match = self.voc_match(weather.condition.category.lower(), condition)
         dialog.build_condition_dialog(intent_match)
-        dialog.data.update(condition=weather.condition.description)
         return dialog
 
     def _report_wind(self, message: Message):
@@ -934,9 +950,6 @@ class WeatherSkill(OVOSSkill):
         weather = self._get_weather(intent_data)
         if weather is not None:
             intent_weather = weather.get_weather_for_intent(intent_data)
-            intent_weather.wind_direction = self.translate(
-                intent_weather.wind_direction
-            )
             dialog = get_dialog_for_timeframe(intent_data, intent_weather)
             dialog.build_wind_dialog()
             self._speak_weather(dialog)
@@ -958,13 +971,14 @@ class WeatherSkill(OVOSSkill):
             self.speak_dialog("cant-get-forecast")
         else:
             unit = message.data.get("unit")
+            if self.voc_match(intent_data.utterance, "relative-day") or \
+                    self.voc_match(intent_data.utterance, "today"):
+                intent_data.timeframe = DAILY
             if self.voc_match(intent_data.utterance, "relative-time"):
                 intent_data.timeframe = HOURLY
             elif self.voc_match(intent_data.utterance, "later"):
                 intent_data.timeframe = HOURLY
-            elif self.voc_match(intent_data.utterance, "relative-day"):
-                if not self.voc_match(intent_data.utterance, "today"):
-                    intent_data.timeframe = DAILY
+                    
             if unit and self.voc_match(unit, "fahrenheit"):
                 intent_data.config.settings["units"] = "imperial"
             elif unit and self.voc_match(unit, "celsius"):
@@ -1056,11 +1070,13 @@ class WeatherSkill(OVOSSkill):
 
             result = dict(
                 weather_temp=weather.current.temperature,
-                high_temperature=weather.current.temperature_high,
-                low_temperature=weather.current.temperature_low,
+                high_temperature=weather.daily[0].temperature_high,
+                low_temperature=weather.daily[0].temperature_low,
                 weather_code=weather.current.condition.code,
                 condition_category=weather.current.condition.category,
-                condition_description=weather.current.condition.description,
+                condition_description=self.translate(
+                    weather.current.condition.description
+                ),
                 system_unit=weather_config.scale
             )
 

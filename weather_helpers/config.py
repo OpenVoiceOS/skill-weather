@@ -18,11 +18,11 @@ FAHRENHEIT = "fahrenheit"
 CELSIUS = "celsius"
 METRIC = "metric"
 IMPERIAL = "imperial"
-METERS_PER_SECOND = "meters per second"
-KILOMETERS_PER_HOUR = "kilometers per hour"
+METER_PER_SECOND = "meter per second"
+KILOMETER_PER_HOUR = "kilometer per hour"
 MILES_PER_HOUR = "miles per hour"
 INCH = "inch"
-MILLIMETERS = "millimeters"
+MILLIMETER = "millimeter"
 
 
 class WeatherConfig:
@@ -86,7 +86,7 @@ class WeatherConfig:
         Returns: (str) 'meters_sec' or 'mph'
         """
         if self.scale == METRIC:
-            return METERS_PER_SECOND
+            return METER_PER_SECOND
         else:
             return MILES_PER_HOUR
 
@@ -106,6 +106,6 @@ class WeatherConfig:
 
         Returns: "millimeters" or "inch"""
         if self.scale == METRIC:
-            return MILLIMETERS
+            return MILLIMETER
         else:
             return INCH

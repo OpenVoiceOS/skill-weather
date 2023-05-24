@@ -8,17 +8,45 @@ from ovos_utils import timed_lru_cache
 #     from .config import *
 # ImportError: attempted relative import with no known parent package
 # so annoying
+from datetime import datetime as dt
+
+from .util import chunk_list
 from .config import *
 from .weather import WeatherReport
+
+def sliced(data: dict) -> dict:
+    """
+    Openmeteo is sending data starting at 00:00 local-time,
+    This slices the hourly data up until the current hour.
+
+    Args:
+        data (dict): the weather json report sent from om
+
+    Returns:
+        dict: the sliced report
+    """
+    time = data.get("current_weather",{}).get("time")
+    hour = dt.fromisoformat(time).hour
+
+    for k, v in data["hourly"].items():
+        # compute missing/nice to have daily parameters
+        if k == "relativehumidity_2m":
+            data["daily"][k] = [int(sum(tup)/len(tup)) for tup
+                                in chunk_list(v, 24)]
+        # slice data
+        if isinstance(v, list):
+            data["hourly"][k] = v[hour:]
+
+    return data
 
 
 @timed_lru_cache(seconds=60 * 15)  # cache for 15 mins
 def get_report(cfg: WeatherConfig):
     if cfg.speed_unit == MILES_PER_HOUR:
         windspeed_unit = "mph"
-    elif cfg.speed_unit == METERS_PER_SECOND:
+    elif cfg.speed_unit == METER_PER_SECOND:
         windspeed_unit = "ms"
-    elif cfg.speed_unit == KILOMETERS_PER_HOUR:
+    elif cfg.speed_unit == KILOMETER_PER_HOUR:
         windspeed_unit = "kmh"
     else:
         raise ValueError("invalid speed unit")
@@ -30,7 +58,7 @@ def get_report(cfg: WeatherConfig):
     else:
         raise ValueError("invalid temperature unit")
 
-    if cfg.precipitation_unit == MILLIMETERS:
+    if cfg.precipitation_unit == MILLIMETER:
         precipitation_unit = "mm"
     elif cfg.precipitation_unit == INCH:
         precipitation_unit = "inch"
@@ -115,5 +143,5 @@ def get_report(cfg: WeatherConfig):
         "timezone": cfg.timezone  # gmt ...
     }
     url = f"https://api.open-meteo.com/v1/forecast"
-    data = requests.get(url, params=args).json()
+    data = sliced(requests.get(url, params=args).json())
     return WeatherReport(data)

@@ -14,7 +14,7 @@
 """Representations and conversions of the data returned by the weather API."""
 from datetime import timedelta
 from pathlib import Path
-from typing import List
+from typing import List, Tuple
 
 # TODO - get rid of relative imports as soon as skills can be properly packaged with arbitrary module structures
 from .config import MILES_PER_HOUR
@@ -169,61 +169,61 @@ class WeatherCondition:
                 self.icon = "11n"
 
         if weather_code == 0:
-            self.description = "clear sky"
+            self.description = "clear-sky"
         elif weather_code == 1:
-            self.description = "mainly clear"
+            self.description = "mainly-clear"
         elif weather_code == 2:
-            self.description = "partly cloudy"
+            self.description = "partly-cloudy"
         elif weather_code == 3:
             self.description = "overcast"
         elif weather_code == 45:
             self.description = "fog"
         elif weather_code == 48:
-            self.description = "depositing rime fog"
+            self.description = "depositing-rime-fog"
         elif weather_code == 51:
-            self.description = "Drizzle, light intensity"
+            self.description = "drizzle-light-intensity"
         elif weather_code == 53:
-            self.description = "Drizzle, moderate intensity"
+            self.description = "drizzle-moderate-intensity"
         elif weather_code == 55:
-            self.description = "Drizzle, dense intensity"
+            self.description = "drizzle-dense-intensity"
         elif weather_code == 56:
-            self.description = "Freezing Drizzle, light intensity"
+            self.description = "freezing-drizzle-light-intensity"
         elif weather_code == 57:
-            self.description = "Freezing Drizzle, dense intensity"
+            self.description = "freezing-drizzle-dense-intensity"
         elif weather_code == 61:
-            self.description = "Slight Rain"
+            self.description = "slight-rain"
         elif weather_code == 63:
-            self.description = "Moderate Rain"
+            self.description = "moderate-rain"
         elif weather_code == 65:
-            self.description = "Heavy Rain"
+            self.description = "heavy-rain"
         elif weather_code == 66:
-            self.description = "Freezing Rain, light intensity"
+            self.description = "freezing-rain-light-intensity"
         elif weather_code == 67:
-            self.description = "Freezing Rain, dense intensity"
+            self.description = "freezing-rain-dense-intensity"
         elif weather_code == 71:
-            self.description = "Slight Snow fall"
+            self.description = "slight-snow-fall"
         elif weather_code == 73:
-            self.description = "Moderate Snow fall"
+            self.description = "moderate-snow-fall"
         elif weather_code == 75:
-            self.description = "Heavy Snow fall"
+            self.description = "heavy-snow-fall"
         elif weather_code == 77:
-            self.description = "Snow grains"
+            self.description = "snow-grains"
         elif weather_code == 80:
-            self.description = "Slight Rain showers"
+            self.description = "slight-rain-showers"
         elif weather_code == 81:
-            self.description = "Moderate Rain showers"
+            self.description = "moderate-rain-showers"
         elif weather_code == 82:
-            self.description = "Violent Rain showers"
+            self.description = "violent-rain-showers"
         elif weather_code == 85:
-            self.description = "Slight Snow showers"
+            self.description = "slight-snow-showers"
         elif weather_code == 86:
-            self.description = "Heavy Snow showers"
+            self.description = "heavy-snow-showers"
         elif weather_code == 95:
-            self.description = "Thunderstorm"
+            self.description = "thunderstorm"
         elif weather_code == 96:
-            self.description = "Thunderstorm with slight hail"
+            self.description = "thunderstorm-with-slight-hail"
         elif weather_code == 99:
-            self.description = "Thunderstorm with heavy hail"
+            self.description = "thunderstorm-with-heavy-hail"
         self.id = weather_code
 
     @property
@@ -276,7 +276,8 @@ class Weather:
         self.dew_point = weather.get("dewpoint_2m")
         self.clouds = weather.get("cloudcover")
         self.wind_speed = weather.get("windspeed_10m")
-        self.wind_direction = weather.get("winddirection_10m")
+        self.wind_speed_max = weather.get("windspeed_10m_max") or self.wind_speed
+        self.wind_direction = weather.get("winddirection_10m") or weather.get("winddirection_10m_dominant")
         if self.wind_direction:
             self.wind_direction = self._determine_wind_direction(self.wind_direction)
         self.sunrise = weather.get("sunrise")
@@ -285,7 +286,7 @@ class Weather:
         self.sunset = weather.get("sunset")
         if self.sunset and isinstance(self.sunset, str):
             self.sunset = convert_to_local_datetime(self.sunset, timezone)
-        self.temperature = weather.get("temperature")
+        self.temperature = weather.get("temperature_2m")
         self.visibility = weather.get("visibility")
         self.temperature_low = weather.get("temperature_2m_min") or self.temperature
         self.temperature_high = weather.get("temperature_2m_max") or self.temperature
@@ -293,6 +294,9 @@ class Weather:
                                        weather.get("precipitation_probability_max") or \
                                        weather.get("precipitation_probability_min") or \
                                        weather.get("precipitation_probability") or 0
+        self.precipitation = weather.get("precipitation_sum") or weather.get("precipitation")
+        self.uvindex = weather.get("uv_index_max") or \
+                int(weather.get("shortwave_radiation") * 3.6 / 27.8 )
         self.condition = WeatherCondition(weather["weathercode"])
 
     @staticmethod
@@ -327,9 +331,11 @@ class Weather:
             limits = dict(strong=20, moderate=11)
         else:
             limits = dict(strong=9, moderate=5)
-        if self.wind_speed >= limits["strong"]:
+
+        speed = self.wind_speed or self.wind_speed_max
+        if speed >= limits["strong"]:
             wind_strength = "strong"
-        elif self.wind_speed >= limits["moderate"]:
+        elif speed >= limits["moderate"]:
             wind_strength = "moderate"
         else:
             wind_strength = "light"
@@ -342,22 +348,9 @@ class WeatherReport:
 
     def __init__(self, report):
         timezone = report["timezone"]
-        curr = report["current_weather"]
-        for k, v in report["daily"].items():
-            if isinstance(v, list):
-                curr[k] = v[0]
-        for k, v in report["hourly"].items():
-            if isinstance(v, list):
-                curr[k] = v[0]
-        self.current = Weather(curr, timezone, report["hourly_units"])
-
         self.hourly = []
         for idx, _ in enumerate(report["hourly"]["time"]):
             r = {k: hour[idx] for k, hour in report["hourly"].items()}
-            # fill missing data with current weather
-            for k, v in self.current.__dict__.items():
-                if k not in r:
-                    r[k] = v
             # ['time', 'temperature_2m', 'relativehumidity_2m', 'dewpoint_2m', 'apparent_temperature',
             # 'pressure_msl', 'surface_pressure', 'cloudcover', 'cloudcover_low', 'cloudcover_mid',
             # 'cloudcover_high', 'windspeed_10m', 'windspeed_80m', 'windspeed_120m', 'windspeed_180m',
@@ -370,14 +363,12 @@ class WeatherReport:
             # 'soil_moisture_0_1cm', 'soil_moisture_1_3cm', 'soil_moisture_3_9cm', 'soil_moisture_9_27cm',
             # 'soil_moisture_27_81cm', 'is_day']
             self.hourly.append(Weather(r, timezone, report["hourly_units"]))
+        
+        self.current = self.hourly[0]
 
         self.daily = []
         for idx, _ in enumerate(report["daily"]["time"]):
             r = {k: hour[idx] for k, hour in report["daily"].items()}
-            if idx == 0:  # fill missing data with current weather for today's prediction
-                for k, v in self.current.__dict__.items():
-                    if k not in r:
-                        r[k] = v
             # ['time', 'temperature_2m_max', 'temperature_2m_min', 'apparent_temperature_max',
             # 'apparent_temperature_min', 'precipitation_sum', 'precipitation_hours', 'weathercode',
             # 'sunrise', 'sunset', 'windspeed_10m_max', 'windgusts_10m_max', 'winddirection_10m_dominant',
@@ -386,7 +377,7 @@ class WeatherReport:
             # 'uv_index_clear_sky_max']
             self.daily.append(Weather(r, timezone, report["daily_units"]))
 
-    def get_weather_for_intent(self, intent_data):
+    def get_weather_for_intent(self, intent_data) -> Weather:
         """Use the intent to determine which forecast satisfies the request.
 
         Args:
@@ -401,7 +392,7 @@ class WeatherReport:
 
         return weather
 
-    def get_forecast_for_date(self, intent_data):
+    def get_forecast_for_date(self, intent_data) -> Weather:
         """Use the intent to determine which daily forecast(s) satisfies the request.
 
         Args:
@@ -436,8 +427,8 @@ class WeatherReport:
 
         return forecast
 
-    def get_forecast_for_hour(self, intent_data):
-        """Use the intent to determine which hourly forecast(s) satisfies the request.
+    def get_forecast_for_hour(self, intent_data) -> Weather:
+        """Use the intent to determine which hourly forecast satisfies the request.
 
         Args:
             intent_data: Parsed intent data
@@ -452,7 +443,24 @@ class WeatherReport:
 
         return report
 
-    def get_weekend_forecast(self):
+    def get_forecast_for_multiple_hours(self, intent_data) ->List[Weather]:
+        """Use the intent to determine which hourly forecasts satisfies the request.
+        The hourly up from the requested timeframe are returned
+
+        Args:
+            intent_data: Parsed intent data
+
+        Returns:
+            List of hourly forecasts
+        """
+        delta = intent_data.intent_datetime - intent_data.location_datetime
+        hour_delta = int(delta / timedelta(hours=1))
+        hour_index = hour_delta + 1
+        forecast = self.hourly[hour_index:]
+
+        return forecast 
+
+    def get_weekend_forecast(self) -> List[Weather]:
         """Use the intent to determine which daily forecast(s) satisfies the request.
 
         Returns:
@@ -466,7 +474,7 @@ class WeatherReport:
 
         return forecast
 
-    def get_next_precipitation(self, intent_data):
+    def get_next_precipitation(self, intent_data) -> Tuple[Weather, str]:
         """Determine when the next chance of precipitation is in the forecast.
 
         Args:
