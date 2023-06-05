@@ -13,6 +13,8 @@
 # limitations under the License.
 """Utility functions for the weather skill."""
 from datetime import datetime, timedelta, tzinfo
+from typing import List
+from itertools import islice
 
 import pytz
 from lingua_franca.format import nice_date
@@ -66,7 +68,6 @@ def get_utterance_datetime(
     extract = extract_datetime(utterance, anchor_date, language)
     if extract is not None:
         utterance_datetime, _ = extract
-
     return utterance_datetime
 
 
@@ -108,7 +109,7 @@ def get_geolocation(location: str):
         "country":  geolocation["city"]["state"]["country"]["name"],
         "latitude": geolocation["coordinate"]["latitude"],
         "longitude": geolocation["coordinate"]["longitude"],
-        "timezone": geolocation["timezone"]["name"]
+        "timezone": geolocation["timezone"]["code"]
     }
 
 
@@ -157,3 +158,17 @@ def get_speakable_day_of_week(date_to_speak: datetime, lang: str):
     day_of_week = speakable_date.split(",")[0]
 
     return day_of_week
+
+
+def chunk_list(it: list, size: int) -> List[tuple]:
+    """Takes in a list and chops it in `size` length tuples
+
+    Args:
+        it (list): list to chop
+        size (int): size of the chunks
+
+    Returns:
+        List[tuple]: a list of tuple containing the chunks
+    """
+    it = iter(it)
+    return list(iter(lambda: tuple(islice(it, size)), ()))

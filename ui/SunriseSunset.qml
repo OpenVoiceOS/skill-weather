@@ -11,83 +11,71 @@ WeatherDelegate {
     GridLayout {
         id: sunriseSunset
         anchors.top: parent.top
-        anchors.topMargin: root.locBoxHeight
+        anchors.topMargin: parent.parent.locBoxHeight
         anchors.bottom: parent.bottom
+        rows: 2
+        columns: 1
+        rowSpacing: 0
         width: parent.width
-        columns: 2
-        columnSpacing: Mycroft.Units.gridUnit * 2
 
-        ColumnLayout {
+        RowLayout {
             id: sunrise
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            spacing: Mycroft.Units.gridUnit
 
-            Image {
-                Layout.preferredWidth: width
-                Layout.preferredHeight: width
+            Rectangle {
+                id: sunriseBackground
+                color: "transparent"
+                Layout.preferredWidth: sunriseSunset.width * 0.15
+                Layout.preferredHeight: sunriseSunset.width * 0.15
+                Layout.leftMargin: sunriseSunset.width * 0.15
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                id: sunriseImage
-                source: "images/sunrise.svg"
+
+                Image {
+                    id: sunriseImage
+                    source: "images/sunrise.svg"
+                    anchors.fill: parent
+                }
             }
 
             Label {
                 id: sunriseTime
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 font.weight: Font.Bold
-                font.pixelSize: width * 0.3
+                font.pixelSize: sunriseSunset.width * 0.1
                 color: dayNightTime == "day" ? "black" : "white"
                 text: sessionData.sunrise
             }
-
-            Label {
-                id: sunriseAm
-                Layout.fillWidth: true
-                horizontalAlignment: Text.AlignHCenter
-                font.styleName: "Thin"
-                font.pixelSize: width * 0.25
-                visible: sessionData.ampm
-                enabled: sessionData.ampm
-                color: dayNightTime == "day" ? "black" : "white"
-                text: sessionData.ampm ? "AM" : ""
-            }
         }
 
-        ColumnLayout {
+        RowLayout {
             id: sunset
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            spacing: Mycroft.Units.gridUnit
 
-            Image {
-                Layout.preferredWidth: width
-                Layout.preferredHeight: width
+            Rectangle {
+                id: sunsetBackground
+                color: "transparent"
+                Layout.preferredWidth: sunriseSunset.width * 0.15
+                Layout.preferredHeight: sunriseSunset.width * 0.15
+                Layout.leftMargin: sunriseSunset.width * 0.15
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                id: sunsetImage
-                source: "images/sunset.svg"
+
+                Image {
+                    id: sunsetImage
+                    source: "images/sunset.svg"
+                    anchors.fill: parent
+                }
             }
 
             Label {
                 id: sunsetTime
+                // Layout.fillWidth: true
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 font.weight: Font.Bold
-                font.pixelSize: width * 0.3
+                font.pixelSize: sunriseSunset.width * 0.1
                 color: dayNightTime == "day" ? "black" : "white"
                 text: sessionData.sunset
-            }
-
-            Label {
-                id: sunsetPm
-                Layout.fillWidth: true
-                horizontalAlignment: Text.AlignHCenter
-                font.styleName: "Thin"
-                font.pixelSize: width * 0.25
-                visible: sessionData.ampm
-                enabled: sessionData.ampm
-                color: dayNightTime == "day" ? "black" : "white"
-                text: sessionData.ampm ? "PM" : ""
             }
         }
     }

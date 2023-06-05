@@ -11,6 +11,101 @@ WeatherDelegate {
     weatherCode: sessionData.weatherCode
     dateTimeLabelText: sessionData.weatherDate
 
+    Column {
+        id: locBoxDetailsArea
+        anchors.top: parent.top
+        anchors.right: parent.right
+        width: parent.width / 4
+        height: locBoxHeight + locBoxHeight * 0.5
+        spacing: Kirigami.Units.smallSpacing * 0.5
+
+        Row {
+            id: windRow
+            spacing: Mycroft.Units.gridUnit
+            height: parent.height / 2
+            width: parent.width
+
+            Item {
+                id: windIconBox
+                width: parent.width / 2
+                height: parent.height
+
+                Image {
+                    id: windIcon
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.height * 0.90
+                    height: width
+                    fillMode: Image.PreserveAspectFit
+                    source: "images/wind.svg"
+                }
+            }
+
+            Item {
+                width: parent.width - (windIconBox.width + Mycroft.Units.gridUnit)
+                height: parent.height
+                anchors.bottom: parent.bottom
+
+                Label {
+                    id: windSpeed
+                    width: parent.width
+                    height: parent.height
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    font.weight: Font.Bold
+                    font.pixelSize: parent.width > parent.height ? height * 0.90 : width * 0.90
+                    color: dayNightTime == "day" ? "black" : "white"
+                    text: sessionData.windSpeed
+                }
+            }
+        }
+
+        Kirigami.Separator {
+            width: parent.width
+            height: 1
+        }
+
+        Row {
+            id: humidityRow
+            spacing: Mycroft.Units.gridUnit
+            height: parent.height / 2
+            width: parent.width
+
+            Item {
+                id: humidityIconBox
+                width: parent.width / 2
+                height: parent.height
+
+                Image {
+                    id: humidityIcon
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.height * 0.90
+                    height: width
+                    fillMode: Image.PreserveAspectFit
+                    source: "images/humidity.svg"
+                }
+            }
+
+            Item {
+                width: parent.width - (humidityIconBox.width + Mycroft.Units.gridUnit)
+                height: parent.height
+
+                Label {
+                    id: humidityPercentage
+                    width: parent.width
+                    height: parent.height
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    font.weight: Font.Bold
+                    font.pixelSize: parent.width > parent.height ? height * 0.90 : width * 0.90
+                    color: dayNightTime == "day" ? "black" : "white"
+                    text: sessionData.humidity
+                }
+            }
+        }
+    }
+
     Rectangle {
         anchors.top: parent.top
         anchors.topMargin: root.locBoxHeight
@@ -39,24 +134,53 @@ WeatherDelegate {
         color: "transparent"
         height: parent.height / 2
 
-        Item {
+        ColumnLayout {
             anchors.left: parent.left
             anchors.right: sept1.left
-            anchors.rightMargin: Mycroft.Units.gridUnit
+            anchors.leftMargin: Mycroft.Units.gridUnit
             height: parent.height
 
-            Label {
-                id: precipitation
-                width: parent.width
-                height: parent.height
-                anchors.centerIn: parent
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                font.weight: Font.Bold
-                font.pixelSize: parent.width > parent.height ? height * 0.60 : width * 0.60
-                rightPadding: -font.pixelSize * 0.1
-                color: dayNightTime == "day" ? "black" : "white"
-                text: sessionData.chanceOfPrecipitation + "%"
+            Row {
+                Layout.fillWidth: true
+                Layout.preferredHeight: parent.height * 0.50
+                spacing: parent.width > parent.height ? Mycroft.Units.gridUnit * 2 : Mycroft.Units.gridUnit
+
+                Rectangle {
+                    id: pricipitationChanceBox
+                    width: parent.width / 4
+                    height: parent.height
+                    color: "transparent"
+
+                    Image {
+                            id: precipitationIcon
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.left
+                            width: parent.height * 0.50
+                            height: width
+                            fillMode: Image.PreserveAspectFit
+                            source: "images/chanceprecipitation.svg"
+                    }
+                }
+
+                Rectangle {
+                    width: parent.width - precipitationIcon.width
+                    height: parent.height
+                    anchors.bottom: parent.bottom
+                    color: "transparent"
+
+                    Label {
+                        id: precipitation
+                        width: parent.width
+                        height: parent.height
+                        horizontalAlignment: precipitationIcon.AlignLeft
+                        verticalAlignment: Text.AlignVCenter
+                        font.weight: Font.Bold
+                        font.pixelSize: parent.width > parent.height ? height * 0.75 : width * 0.75
+                        rightPadding: -font.pixelSize * 0.1
+                        color: dayNightTime == "day" ? "black" : "white"
+                        text: sessionData.chanceOfPrecipitation + "%"
+                    }
+                }
             }
         }
 

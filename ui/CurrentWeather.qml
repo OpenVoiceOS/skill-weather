@@ -19,6 +19,52 @@ WeatherDelegate {
         spacing: Kirigami.Units.smallSpacing * 0.5
 
         Row {
+            id: precipitationRow
+            spacing: Mycroft.Units.gridUnit
+            height: parent.height / 2
+            width: parent.width
+
+            Item {
+                id: precipitationIconBox
+                width: parent.width / 2
+                height: parent.height
+
+                Image {
+                    id: precipitationIcon
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.height * 0.90
+                    height: width
+                    fillMode: Image.PreserveAspectFit
+                    source: "images/chanceprecipitation.svg"
+                }
+            }
+
+            Item {
+                width: parent.width - (windIconBox.width + Mycroft.Units.gridUnit)
+                height: parent.height
+                anchors.bottom: parent.bottom
+
+                Label {
+                    id: precipitation
+                    width: parent.width
+                    height: parent.height
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    font.weight: Font.Bold
+                    font.pixelSize: parent.width > parent.height ? height * 0.90 : width * 0.90
+                    color: dayNightTime == "day" ? "black" : "white"
+                    text: sessionData.chanceOfPrecipitation
+                }
+            }
+        }
+
+        Kirigami.Separator {
+            width: parent.width
+            height: 1
+        }
+
+        Row {
             id: windRow
             spacing: Mycroft.Units.gridUnit
             height: parent.height / 2

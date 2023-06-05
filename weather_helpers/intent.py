@@ -17,12 +17,12 @@
 from datetime import timedelta
 
 from ovos_utils.time import now_local
+from lingua_franca.parse import normalize
 
 from .util import (
     get_utterance_datetime,
     get_geolocation,
-    get_tz_info,
-    LocationNotFoundError,
+    get_tz_info
 )
 from .weather import CURRENT
 from .config import WeatherConfig
@@ -39,7 +39,9 @@ class WeatherIntent:
         :param message: Intent data from the message bus
         :param language: The configured language of the device
         """
-        self.utterance = message.data["utterance"]
+        self.utterance = normalize(message.data["utterance"],
+                                   weather_config.lang,
+                                   remove_articles=False)
         self.location = message.data.get("location")
         self.config = weather_config
         self.scale = None
