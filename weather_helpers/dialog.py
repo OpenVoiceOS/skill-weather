@@ -33,14 +33,13 @@ convention was applied to the dialog files:
 The skill class will use the "name" and "data" attributes to pass to the TTS process.
 """
 # TODO - get rid of relative imports as soon as skills can be properly packaged with arbitrary module structures
-from typing import List, Tuple
+from typing import List
 from os.path import dirname
 
-from lingua_franca.format import join_list, nice_number, nice_time
+from lingua_franca.format import join_list, nice_time
 from ovos_utils.time import now_local
 from ovos_workshop.resource_files import SkillResources
 
-from .config import WeatherConfig
 from .intent import WeatherIntent
 from .util import get_speakable_day_of_week, get_time_period
 from .weather import (
@@ -75,7 +74,7 @@ class WeatherDialog:
     @property
     def lang(self):
         return self.config.lang
-    
+
     def translate(self, dialog, data=None):
         data = data or dict()
         return self.resources.render_dialog(dialog, data=data)   

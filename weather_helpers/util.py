@@ -68,7 +68,6 @@ def get_utterance_datetime(
     extract = extract_datetime(utterance, anchor_date, language)
     if extract is not None:
         utterance_datetime, _ = extract
-
     return utterance_datetime
 
 

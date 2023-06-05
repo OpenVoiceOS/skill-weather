@@ -24,9 +24,15 @@ from time import sleep
 from typing import List
 
 from lingua_franca.parse import extract_number
+from lingua_franca.format import (
+    nice_time,
+    nice_weekday,
+    get_date_strings
+)
 from ovos_bus_client.message import Message
 from ovos_utils import classproperty
 from ovos_utils.intents import IntentBuilder
+from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
 from ovos_workshop.decorators import intent_handler, skill_api_method
 from ovos_workshop.skills import OVOSSkill
@@ -36,6 +42,7 @@ from .weather_helpers import (
     CURRENT,
     DAILY,
     HOURLY,
+    WeatherDialog,
     CurrentDialog,
     DailyDialog,
     HourlyDialog,
@@ -71,13 +78,20 @@ class WeatherSkill(OVOSSkill):
         # TODO - skill api
         self.bus.on("skill-ovos-weather.openvoiceos.weather.request",
                     self.get_current_weather_homescreen)
+    
+    @property
+    def date_format(self) -> str:
+        return self.config_core.get("date_format", "MDY")
+    
+    @property
+    def use_24h(self) -> bool:
+        return self.config_core.get("time_format", "full") == "full"
 
     @intent_handler(
         IntentBuilder("current_weather")
         .optionally("query")
         .one_of("weather", "forecast")
         .optionally("location")
-        .optionally("today")
         .optionally("unit")
     )
     def handle_current_weather(self, message: Message):
@@ -133,7 +147,7 @@ class WeatherSkill(OVOSSkill):
         IntentBuilder("one_day_forecast")
         .optionally("query")
         .one_of("weather", "forecast")
-        .require("relative-day")
+        .one_of("relative-day", "today")
         .optionally("location")
         .optionally("unit")
     )
@@ -171,6 +185,7 @@ class WeatherSkill(OVOSSkill):
         .one_of("weather", "forecast")
         .require("relative-time")
         .optionally("relative-day")
+        .optionally("today")
         .optionally("location")
         .optionally("unit")
     )
@@ -527,7 +542,7 @@ class WeatherSkill(OVOSSkill):
 
     @intent_handler(
         IntentBuilder("sunrise")  # TODO - this should be in other skill
-        .one_of("query", "when")
+        .require("when")
         .optionally("location")
         .require("sunrise")
         .optionally("today")
@@ -540,6 +555,7 @@ class WeatherSkill(OVOSSkill):
             message: Message Bus event information from the intent parser
         """
         intent_data = self._get_intent_data(message)
+        intent_data.timeframe = DAILY
         weather = self._get_weather(intent_data)
         if weather is not None:
             intent_weather = weather.get_weather_for_intent(intent_data)
@@ -550,7 +566,7 @@ class WeatherSkill(OVOSSkill):
 
     @intent_handler(
         IntentBuilder("sunset")  # TODO - this should be in other skill
-        .one_of("query", "when")
+        .require("when")
         .require("sunset")
         .optionally("location")
         .optionally("today")
@@ -563,6 +579,7 @@ class WeatherSkill(OVOSSkill):
             message: Message Bus event information from the intent parser
         """
         intent_data = self._get_intent_data(message)
+        intent_data.timeframe = DAILY
         weather = self._get_weather(intent_data)
         if weather is not None:
             intent_weather = weather.get_weather_for_intent(intent_data)
@@ -579,33 +596,11 @@ class WeatherSkill(OVOSSkill):
             weather_location: the geographical location of the weather
         """
         self.gui.clear()
-        self.gui["weatherDate"] = forecast.date_time.strftime("%A %b %d")
+        self.gui["currentTimezone"] = self._format_dt(forecast.date_time)
         self.gui["weatherLocation"] = weather_location
-        self.gui["sunrise"] = self._format_sunrise_sunset_time(forecast.sunrise)
-        self.gui["sunset"] = self._format_sunrise_sunset_time(forecast.sunset)
-        self.gui["ampm"] = self.config_core["time_format"] == TWELVE_HOUR
+        self.gui["sunrise"] = self._format_time(forecast.sunrise)
+        self.gui["sunset"] = self._format_time(forecast.sunset)
         self.gui.show_page("SunriseSunset.qml")
-
-    def _format_sunrise_sunset_time(self, date_time: datetime) -> str:
-        """Format the sunrise or sunset datetime into a string for GUI display.
-
-        The datetime builtin returns hour in two character format.  Remove the
-        leading zero when present.
-
-        Args:
-            date_time: the sunrise or sunset
-
-        Returns:
-            the value to display on the screen
-        """
-        if self.config_core["time_format"] == TWELVE_HOUR:
-            display_time = date_time.strftime("%I:%M")
-            if display_time.startswith("0"):
-                display_time = display_time[1:]
-        else:
-            display_time = date_time.strftime("%H:%M")
-
-        return display_time
 
     def _report_current_weather(self, message: Message):
         """Handles all requests for current weather conditions.
@@ -620,18 +615,13 @@ class WeatherSkill(OVOSSkill):
             dialog = CurrentDialog(intent_data,  weather.current)
             dialog.build_weather_dialog()
             self._speak_weather(dialog)
-            if intent_data.timeframe == CURRENT:
-                dialog = CurrentDialog(intent_data, weather.current)
-                dialog.build_humidity_dialog()
-            else:
-                # lowest/highest daily temperature
-                dialog = DailyDialog(intent_data, weather.daily[0])
-                dialog.build_temperature_dialog()
+            dialog = CurrentDialog(intent_data, weather.current)
+            dialog.build_humidity_dialog()
             self._speak_weather(dialog)
             if self.gui.connected:
-                sleep(5)
+                sleep(7)
                 self._display_hourly_forecast(weather.hourly, intent_data.display_location)
-                sleep(5)
+                sleep(7)
                 four_day_forecast = weather.daily[1:5]
                 self._display_multi_day_forecast(four_day_forecast, intent_data)
 
@@ -645,10 +635,9 @@ class WeatherSkill(OVOSSkill):
             weather_location: the geographical location of the reported weather
         """
         if self.gui.connected:
-            page_name = "CurrentWeather.qml"
-            self.log.info(weather.current.date_time.now().strftime("%a %B %d, %Y"))
             self.gui["weatherCode"] = weather.current.condition.animated_code
-            self.gui["currentTimezone"] = weather.current.date_time.now().strftime("%a %B %d, %Y")
+            self.gui["currentTimezone"] = self._format_dt(weather.current.date_time.now(),
+                                                          incl_time=True)
             self.gui["currentTemperature"] = weather.current.temperature
             self.gui["weatherCondition"] = weather.current.condition.image
             self.gui["weatherLocation"] = weather_location
@@ -657,7 +646,7 @@ class WeatherSkill(OVOSSkill):
             self.gui["chanceOfPrecipitation"] = weather.current.chance_of_precipitation
             self.gui["windSpeed"] = weather.current.wind_speed
             self.gui["humidity"] = weather.current.humidity
-            self.gui.show_page(page_name)
+            self.gui.show_page("CurrentWeather.qml", override_idle=20)
         else:
             self.enclosure.deactivate_mouth_events()
             self.enclosure.weather_display(
@@ -707,12 +696,13 @@ class WeatherSkill(OVOSSkill):
                 formatted_time = hourly.date_time.strftime("%H:00")
             hourly_forecast.append(
                 dict(
-                    time=hourly.date_time.strftime(formatted_time),
+                    time=formatted_time,
                     precipitation=hourly.chance_of_precipitation,
                     temperature=hourly.temperature,
                     weatherCondition=hourly.condition.animated_code,
                 )
             )
+        self.gui["currentTimezone"] = self._format_dt(weather[0].date_time)
         self.gui["weatherCode"] = weather[0].condition.animated_code
         self.gui["weatherLocation"] = weather_location
         self.gui["hourlyForecast"] = dict(hours=hourly_forecast)
@@ -733,7 +723,7 @@ class WeatherSkill(OVOSSkill):
             if self.gui.connected:
                 self._display_one_day(forecast, intent_data)
             for dialog in dialogs:
-                self._speak_weather(dialog)
+                self._speak_weather(dialog, wait=True)
 
     def _display_one_day(self, forecast: Weather, intent_data: WeatherIntent):
         """Display the forecast for a single day on a Mark II.
@@ -743,8 +733,8 @@ class WeatherSkill(OVOSSkill):
         if self.gui.connected:
             self.gui.clear()
             self.gui["weatherLocation"] = intent_data.display_location
-            self.gui["weatherCondition"] = forecast.condition.animated_code
-            self.gui["weatherDate"] = forecast.date_time.strftime("%a %B %d, %Y")
+            self.gui["weatherCode"] = forecast.condition.animated_code
+            self.gui["weatherDate"] = self._format_dt(forecast.date_time)
             self.gui["highTemperature"] = forecast.temperature_high
             self.gui["lowTemperature"] = forecast.temperature_low
             self.gui["chanceOfPrecipitation"] = str(forecast.chance_of_precipitation)
@@ -775,7 +765,7 @@ class WeatherSkill(OVOSSkill):
             dialogs = self._build_forecast_dialogs(forecast, intent_data)
             self._display_multi_day_forecast(forecast, intent_data)
             for dialog in dialogs:
-                self._speak_weather(dialog)
+                self._speak_weather(dialog, wait=True)
 
     def _report_weekend_forecast(self, message: Message):
         """Handles requests for a weekend forecast.
@@ -790,7 +780,7 @@ class WeatherSkill(OVOSSkill):
             dialogs = self._build_forecast_dialogs(forecast, intent_data)
             self._display_multi_day_forecast(forecast, intent_data)
             for dialog in dialogs:
-                self._speak_weather(dialog)
+                self._speak_weather(dialog, wait=True)
 
     def _build_forecast_dialogs(self, forecast: List[Weather], intent_data: WeatherIntent) -> List[DailyDialog]:
         """
@@ -888,7 +878,7 @@ class WeatherSkill(OVOSSkill):
                     weatherCondition=day.condition.animated_code,
                     highTemperature=day.temperature_high,
                     lowTemperature=day.temperature_low,
-                    date=day.date_time.strftime("%a"),
+                    date=nice_weekday(day.date_time, self.lang)[:3],
                 )
             )
         self.gui["forecast"] = dict(all=display_data)
@@ -1017,15 +1007,15 @@ class WeatherSkill(OVOSSkill):
             try:
                 weather = get_report(intent_data.config)
             except HTTPError as api_error:
-                self.log.exception("Weather API failure")
+                LOG.exception("Weather API failure")
                 self._handle_api_error(api_error)
             except LocationNotFoundError:
-                self.log.exception("City not found.")
+                LOG.exception("City not found.")
                 self.speak_dialog(
                     "location-not-found", data=dict(location=intent_data.location)
                 )
             except Exception:
-                self.log.exception("Unexpected error retrieving weather")
+                LOG.exception("Unexpected error retrieving weather")
                 self.speak_dialog("cant-get-forecast")
 
         return weather
@@ -1041,13 +1031,56 @@ class WeatherSkill(OVOSSkill):
         else:
             self.speak_dialog("cant-get-forecast")
 
-    def _speak_weather(self, dialog):
+    def _speak_weather(self, dialog: WeatherDialog, wait: bool = False):
         """Instruct device to speak the contents of the specified dialog.
 
         :param dialog: the dialog that will be spoken
         """
-        self.log.info("Speaking dialog: " + dialog.name)
-        self.speak_dialog(dialog.name, dialog.data, wait=True)
+        LOG.info(f"Speaking dialog: {dialog.name}")
+        self.speak_dialog(dialog.name, dialog.data, wait=wait)
+
+    def _format_dt(self, dt: datetime, incl_time: bool = False) -> str:
+        """Convert a datetime object to a localized string.
+
+        Args:
+            dt: datetime object
+            incl_time: whether to include the time in the output
+
+        Returns:
+            A localized string representing the datetime
+        """
+        dt_strings = get_date_strings(dt, lang=self.lang)
+        wd_abbr = dt_strings["weekday_string"][:3].capitalize()
+        month = dt_strings["month_string"].capitalize()
+        day = dt_strings["day_string"]
+        time = dt_strings["time_string"]
+
+        if self.date_format == "MDY":
+            dt_string = f"{wd_abbr}, {month} {day}"
+        else:
+            dt_string = f"{wd_abbr}, {day} {month}"
+        if incl_time:
+            return dt_string + f" {time}"
+        
+        return dt_string
+    
+    def _format_time(self, dt: datetime) -> str:
+        """Format the datetime into a string for GUI display.
+
+        The datetime builtin returns hour in two character format.  Remove the
+        leading zero when present.
+
+        Args:
+            date_time: the sunrise or sunset
+
+        Returns:
+            the value to display on the screen
+        """
+        return nice_time(dt,
+                         self.lang,
+                         speech=False,
+                         use_24hour = self.use_24h,
+                         use_ampm = not self.use_24h)
 
     @skill_api_method
     def get_current_weather_homescreen(self, message=None):
@@ -1084,7 +1117,7 @@ class WeatherSkill(OVOSSkill):
                                   {"report": result}))
             return result
         except Exception:
-            self.log.exception("Unexpected error getting weather for skill API.")
+            LOG.exception("Unexpected error getting weather for skill API.")
 
     def stop(self):
         self.gui.release()
