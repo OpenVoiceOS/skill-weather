@@ -2,7 +2,19 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a7...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a8...HEAD)
+
+**Closed issues:**
+
+- Current Weather GUI hourly representation ... [\#48](https://github.com/OpenVoiceOS/skill-ovos-weather/issues/48)
+
+**Merged pull requests:**
+
+- add skillresources and brushup [\#50](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/50) ([emphasize](https://github.com/emphasize))
+
+## [V0.0.1a8](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a8) (2023-05-22)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a7...V0.0.1a8)
 
 **Implemented enhancements:**
 
