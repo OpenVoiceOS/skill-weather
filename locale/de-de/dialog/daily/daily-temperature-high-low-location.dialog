@@ -1,1 +1,2 @@
-Laut der Vorhersage von {day} liegt in {location} die Höchsttemperatur bei {high_temperature} und die Tiefsttemperatur bei {low_temperature} Grad.
+# auto translated from en-us to de-de
+Die Vorhersage für den heutigen Tag in {location} ist ein Hoch von {high_temperature} und ein Tief von {low_temperature}.
