@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
+## [V0.0.1a9](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a9) (2023-06-05)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a8...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a8...V0.0.1a9)
 
 **Closed issues:**
 
