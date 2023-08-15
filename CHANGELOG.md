@@ -1,5 +1,22 @@
 # Changelog
 
+## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a10...HEAD)
+
+**Implemented enhancements:**
+
+- add time specific requests [\#51](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/51) ([emphasize](https://github.com/emphasize))
+
+**Closed issues:**
+
+- Weather from different areas [\#24](https://github.com/OpenVoiceOS/skill-ovos-weather/issues/24)
+- dialog files duplicated and keys translated [\#22](https://github.com/OpenVoiceOS/skill-ovos-weather/issues/22)
+
+## [V0.0.1a10](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a10) (2023-06-05)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a9...V0.0.1a10)
+
 ## [V0.0.1a9](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a9) (2023-06-05)
 
 [Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a8...V0.0.1a9)
