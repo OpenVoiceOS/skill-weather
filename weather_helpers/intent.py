@@ -39,6 +39,7 @@ class WeatherIntent:
         :param message: Intent data from the message bus
         :param language: The configured language of the device
         """
+        self.message = message
         self.utterance = normalize(message.data["utterance"],
                                    weather_config.lang,
                                    remove_articles=False)

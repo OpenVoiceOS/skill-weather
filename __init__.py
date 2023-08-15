@@ -88,19 +88,35 @@ class WeatherSkill(OVOSSkill):
         return self.config_core.get("time_format", "full") == "full"
 
     @intent_handler(
-        IntentBuilder("current_weather")
+        IntentBuilder("weather")
         .optionally("query")
         .one_of("weather", "forecast")
+        .optionally("relative-time")
+        .optionally("relative-day")
+        .optionally("today")
         .optionally("location")
-        .optionally("unit")
-    )
-    def handle_current_weather(self, message: Message):
-        """Handle current weather requests such as: what is the weather like?
+        .optionally("unit"))
+    def handle_weather(self, message: Message):
+        """
+        Handle weather requests of various timeframes.
+        The intents gets routed accordingly
+
+        Examples:
+            "What's the weather like?" (current)
+            "How's the weather tomorrow?" (daily)
+            "What's the forecast for friday 9 pm?" (hourly)
+            "what's tomorrow's forecast in Seattle?"
 
         Args:
             message: Message Bus event information from the intent parser
         """
-        self._report_current_weather(message)
+        intent = self._get_intent_data(message)
+        if intent.timeframe == DAILY:
+            self._report_one_day_forecast(intent)
+        elif intent.timeframe == HOURLY:
+            self._report_hourly_weather(intent)
+        else:
+            self._report_current_weather(intent)
 
     @intent_handler(
         IntentBuilder("outside")
@@ -110,12 +126,14 @@ class WeatherSkill(OVOSSkill):
         .optionally("unit")
     )
     def handle_outside(self, message: Message):
-        """Handle current weather requests such as: what's it like outside?
+        """
+        Handle current weather requests such as: what's it like outside?
 
         Args:
             message: Message Bus event information from the intent parser
         """
-        self._report_current_weather(message)
+        intent = self._get_intent_data(message)
+        self._report_current_weather(intent)
 
     @intent_handler(
         IntentBuilder("N_days_forecast")
@@ -142,60 +160,6 @@ class WeatherSkill(OVOSSkill):
         else:
             days = int(extract_number(message.data["utterance"], lang=self.lang))
         self._report_multi_day_forecast(message, days)
-
-    @intent_handler(
-        IntentBuilder("one_day_forecast")
-        .optionally("query")
-        .one_of("weather", "forecast")
-        .one_of("relative-day", "today")
-        .optionally("location")
-        .optionally("unit")
-    )
-    def handle_one_day_forecast(self, message):
-        """Handle forecast for a single day.
-
-        Examples:
-            "What is the weather forecast tomorrow?"
-            "What is the weather forecast on Tuesday in Baltimore?"
-
-        Args:
-            message: Message Bus event information from the intent parser
-        """
-        self._report_one_day_forecast(message)
-
-    @intent_handler(
-        IntentBuilder("weather_later")
-        .require("query")
-        .require("weather")
-        .require("later")
-        .optionally("location")
-        .optionally("unit")
-    )
-    def handle_weather_later(self, message: Message):
-        """Handle future weather requests such as: what's the weather later?
-
-        Args:
-            message: Message Bus event information from the intent parser
-        """
-        self._report_one_hour_weather(message)
-
-    @intent_handler(
-        IntentBuilder("weather_at_time")
-        .optionally("query")
-        .one_of("weather", "forecast")
-        .require("relative-time")
-        .optionally("relative-day")
-        .optionally("today")
-        .optionally("location")
-        .optionally("unit")
-    )
-    def handle_weather_at_time(self, message: Message):
-        """Handle future weather requests such as: what's the weather tonight?
-
-        Args:
-            message: Message Bus event information from the intent parser
-        """
-        self._report_one_hour_weather(message)
 
     @intent_handler(
         IntentBuilder("weekend_forecast")
@@ -602,13 +566,12 @@ class WeatherSkill(OVOSSkill):
         self.gui["sunset"] = self._format_time(forecast.sunset)
         self.gui.show_page("SunriseSunset.qml")
 
-    def _report_current_weather(self, message: Message):
+    def _report_current_weather(self, intent_data: WeatherIntent):
         """Handles all requests for current weather conditions.
 
         Args:
             message: Message Bus event information from the intent parser
         """
-        intent_data = self._get_intent_data(message)
         weather = self._get_weather(intent_data)
         if weather is not None:
             self._display_current_conditions(weather, intent_data.display_location)
@@ -653,13 +616,12 @@ class WeatherSkill(OVOSSkill):
                 weather.current.condition.code, weather.current.temperature
             )
 
-    def _report_one_hour_weather(self, message: Message):
+    def _report_hourly_weather(self, intent_data: WeatherIntent):
         """Handles requests for a one hour forecast.
 
         Args:
             message: Message Bus event information from the intent parser
         """
-        intent_data = self._get_intent_data(message)
         weather = self._get_weather(intent_data)
         if weather is not None:
             try:
@@ -708,14 +670,12 @@ class WeatherSkill(OVOSSkill):
         self.gui["hourlyForecast"] = dict(hours=hourly_forecast)
         self.gui.show_page("HourlyForecast.qml")
 
-    def _report_one_day_forecast(self, message: Message):
+    def _report_one_day_forecast(self, intent_data: WeatherIntent):
         """Handles all requests for a single day forecast.
 
         Args:
             message: Message Bus event information from the intent parser
         """
-        weather_config = self._get_weather_config(message)
-        intent_data = WeatherIntent(message, weather_config)
         weather = self._get_weather(intent_data)
         if weather is not None:
             forecast = weather.get_forecast_for_date(intent_data)
@@ -961,11 +921,13 @@ class WeatherSkill(OVOSSkill):
             self.speak_dialog("cant-get-forecast")
         else:
             unit = message.data.get("unit")
-            if self.voc_match(intent_data.utterance, "relative-day") or \
-                    self.voc_match(intent_data.utterance, "today"):
-                intent_data.timeframe = DAILY
-            if self.voc_match(intent_data.utterance, "relative-time"):
-                intent_data.timeframe = HOURLY
+            _dt = intent_data.intent_datetime
+            
+            if _dt != intent_data.location_datetime:  # ie current
+                if _dt.hour == 0 and _dt.minute == 0:
+                    intent_data.timeframe = DAILY
+                else:
+                    intent_data.timeframe = HOURLY
             elif self.voc_match(intent_data.utterance, "later"):
                 intent_data.timeframe = HOURLY
                     
