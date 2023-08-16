@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a10...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a11...HEAD)
+
+**Merged pull requests:**
+
+- fix autotranslations [\#55](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/55) ([emphasize](https://github.com/emphasize))
+
+## [V0.0.1a11](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a11) (2023-08-15)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a10...V0.0.1a11)
 
 **Implemented enhancements:**
 
