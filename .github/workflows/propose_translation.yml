@@ -46,7 +46,7 @@ jobs:
       uses: peter-evans/create-pull-request@v5
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: autotranslate
+        commit-message: proposed_translation
         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         title: Proposed ${{ inputs.language }} Translations
         body: Translations for review

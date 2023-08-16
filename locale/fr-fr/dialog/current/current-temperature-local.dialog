@@ -1,4 +1,4 @@
 # auto translated from en-us to fr-fr
-Il fait actuellement 0 degré.
-Il fait actuellement 0 degré à 1.
-En ce moment, il fait 0 degré.
+Il fait actuellement {temperature} degré {temperature_unit}.
+Il fait actuellement {temperature} degré.
+En ce moment, il fait {temperature} degré.
