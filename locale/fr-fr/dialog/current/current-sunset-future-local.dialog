@@ -1,3 +1,3 @@
 # auto translated from en-us to fr-fr
-Le coucher de soleil sera à 0 aujourd'hui
-le soleil se couchera à 0 heure aujourd'hui
+Le coucher de soleil sera à {time} aujourd'hui
+le soleil se couchera à {time} aujourd'hui
