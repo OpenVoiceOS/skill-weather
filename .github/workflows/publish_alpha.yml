@@ -34,19 +34,18 @@ jobs:
               - 'locale/en-us/**'
               - 'dialog/en-us/**'
               - 'vocab/en-us/**'
-      # Exit the job if no relevant locale files were changed
-      - name: Exit Job
-        if: steps.filter.outputs.locales == 'false'
-        run: exit 0
       - name: Setup Python
+        if: steps.filter.outputs.locales == 'true'
         uses: actions/setup-python@v4
         with:
           python-version: 3.8
       - name: Auto Translate
+        if: steps.filter.outputs.locales == 'true'
         run: |
           python -m pip install ovos-translate-plugin-deepl ovos-utils
           python scripts/translate.py
       - name: Commit to dev
+        if: steps.filter.outputs.locales == 'true'
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: autotranslate
