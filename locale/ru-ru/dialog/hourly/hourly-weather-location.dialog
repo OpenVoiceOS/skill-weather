@@ -1,5 +1,4 @@
-# auto translated from en-us to ru-ru
-{location} погода в ближайшие несколько часов будет {condition} и {temperature} градуса
-{location} будет находиться вокруг {temperature} с {condition}
-{location} будет примерно {temperature} градусов с {condition}
-Позже будет {condition} в {location}, с температурой около {temperature}.
+В {location} погода в ближайшие несколько часов будет {condition} и {temperature} градусов
+В {location} будет около {temperature} градусов и {condition}
+В {location} будет примерно {temperature} градусов и {condition}
+Позже в {location} будет {condition} с температурой около {temperature}

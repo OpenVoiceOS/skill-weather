@@ -1,4 +1,3 @@
-# auto translated from en-us to ru-ru
-Сейчас там {temperature} градусов.
-Сейчас температура {temperature} градусов.
-Сейчас температура {temperature} градусов и {temperature_unit}.
+Сейчас {temperature} градусов
+Сейчас температура {temperature} градусов
+Сейчас температура {temperature} градусов {temperature_unit}

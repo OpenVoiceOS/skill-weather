@@ -1,4 +1,3 @@
-# auto translated from en-us to ru-ru
-В настоящее время {condition} и {temperature} градус.
-В настоящее время {condition} и {temperature} градус {temperature_unit}.
-Сейчас там {condition} и {temperature} градус.
+В настоящее время {condition} и {temperature} градусов
+Сейчас {condition} и {temperature} градусов {temperature_unit}
+Сейчас {condition} и {temperature} градусов
