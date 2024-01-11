@@ -2,7 +2,19 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a12...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a13...HEAD)
+
+**Closed issues:**
+
+- requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 \(char 0\) [\#52](https://github.com/OpenVoiceOS/skill-ovos-weather/issues/52)
+
+**Merged pull requests:**
+
+- update for ovos-utils 0.1.0 [\#58](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/58) ([builderjer](https://github.com/builderjer))
+
+## [V0.0.1a13](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a13) (2023-08-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a12...V0.0.1a13)
 
 **Merged pull requests:**
 
