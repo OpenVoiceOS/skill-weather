@@ -31,7 +31,7 @@ from lingua_franca.format import (
 )
 from ovos_bus_client.message import Message
 from ovos_utils import classproperty
-from ovos_utils.intents import IntentBuilder
+from ovos_workshop.intents import IntentBuilder
 from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
 from ovos_workshop.decorators import intent_handler, skill_api_method
