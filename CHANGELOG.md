@@ -2,7 +2,19 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a13...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a14...HEAD)
+
+**Implemented enhancements:**
+
+- feat/session\_support [\#60](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/60) ([JarbasAl](https://github.com/JarbasAl))
+
+**Closed issues:**
+
+- When asking "quelle est la temperature" the skill fails [\#59](https://github.com/OpenVoiceOS/skill-ovos-weather/issues/59)
+
+## [V0.0.1a14](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a14) (2024-01-11)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a13...V0.0.1a14)
 
 **Closed issues:**
 
