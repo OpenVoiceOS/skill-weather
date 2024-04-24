@@ -30,6 +30,7 @@ from lingua_franca.format import (
     get_date_strings
 )
 from ovos_bus_client.message import Message
+from ovos_bus_client.session import SessionManager
 from ovos_utils import classproperty
 from ovos_workshop.intents import IntentBuilder
 from ovos_utils.log import LOG
@@ -64,6 +65,7 @@ class WeatherSkill(OVOSSkill):
 
     @classproperty
     def runtime_requirements(self):
+        """this skill needs internet"""
         return RuntimeRequirements(internet_before_load=True,
                                    network_before_load=True,
                                    gui_before_load=False,
@@ -78,14 +80,10 @@ class WeatherSkill(OVOSSkill):
         # TODO - skill api
         self.bus.on("skill-ovos-weather.openvoiceos.weather.request",
                     self.get_current_weather_homescreen)
-    
-    @property
-    def date_format(self) -> str:
-        return self.config_core.get("date_format", "MDY")
-    
+
     @property
     def use_24h(self) -> bool:
-        return self.config_core.get("time_format", "full") == "full"
+        return self.time_format == "full"
 
     @intent_handler(
         IntentBuilder("weather")
@@ -564,7 +562,7 @@ class WeatherSkill(OVOSSkill):
         self.gui["weatherLocation"] = weather_location
         self.gui["sunrise"] = self._format_time(forecast.sunrise)
         self.gui["sunset"] = self._format_time(forecast.sunset)
-        self.gui.show_page("SunriseSunset.qml")
+        self.gui.show_page("SunriseSunset")
 
     def _report_current_weather(self, intent_data: WeatherIntent):
         """Handles all requests for current weather conditions.
@@ -609,7 +607,7 @@ class WeatherSkill(OVOSSkill):
             self.gui["chanceOfPrecipitation"] = weather.current.chance_of_precipitation
             self.gui["windSpeed"] = weather.current.wind_speed
             self.gui["humidity"] = weather.current.humidity
-            self.gui.show_page("CurrentWeather.qml", override_idle=20)
+            self.gui.show_page("CurrentWeather", override_idle=20)
         else:
             self.enclosure.deactivate_mouth_events()
             self.enclosure.weather_display(
@@ -648,7 +646,7 @@ class WeatherSkill(OVOSSkill):
                 continue
             if hour_count > 4:
                 break
-            if self.config_core["time_format"] == TWELVE_HOUR:
+            if self.time_format == TWELVE_HOUR:
                 # The datetime builtin returns hour in two character format.  Convert
                 # to a integer and back again to remove the leading zero when present.
                 hour = int(hourly.date_time.strftime("%I"))
@@ -668,7 +666,7 @@ class WeatherSkill(OVOSSkill):
         self.gui["weatherCode"] = weather[0].condition.animated_code
         self.gui["weatherLocation"] = weather_location
         self.gui["hourlyForecast"] = dict(hours=hourly_forecast)
-        self.gui.show_page("HourlyForecast.qml")
+        self.gui.show_page("HourlyForecast")
 
     def _report_one_day_forecast(self, intent_data: WeatherIntent):
         """Handles all requests for a single day forecast.
@@ -700,7 +698,7 @@ class WeatherSkill(OVOSSkill):
             self.gui["chanceOfPrecipitation"] = str(forecast.chance_of_precipitation)
             self.gui["windSpeed"] = forecast.wind_speed_max
             self.gui["humidity"] = forecast.humidity
-            self.gui.show_page("SingleDay.qml")
+            self.gui.show_page("SingleDay")
         else:
             self.enclosure.deactivate_mouth_events()
             self.enclosure.weather_display(
@@ -842,7 +840,7 @@ class WeatherSkill(OVOSSkill):
                 )
             )
         self.gui["forecast"] = dict(all=display_data)
-        self.gui.show_page("DailyForecast.qml")
+        self.gui.show_page("DailyForecast")
 
     def _report_temperature(self, message: Message, temperature_type: str = None):
         """Handles all requests for a temperature.
@@ -939,20 +937,21 @@ class WeatherSkill(OVOSSkill):
         return intent_data
 
     def _get_weather_config(self, message=None):
-        cfg = self.config_core
-        cfg["lang"] = self.lang  # lang from message
-        latitude, longitude = None, None
-
+        sess = SessionManager.get(message)
+        cfg = {"lang": sess. lang,
+               "system_unit": sess.system_unit,
+               "location": sess.location_preferences,
+               "date_format": sess.date_format,
+               "time_format": sess.time_format}
         if self.settings.get("units") and self.settings.get("units") != "default":
+            LOG.debug(f"overriding system_unit from settings.json : {sess.system_unit} -> {self.settings['units']}")
             cfg["system_unit"] = self.settings["units"]
 
         if message and "lat_lon" in message.data:
             latitude, longitude = message.data["lat_lon"]
-
-        if latitude and longitude:
+            LOG.debug(f"weather lat, lon: {latitude} , {longitude}")
             cfg["location"]["coordinate"]["latitude"] = latitude
             cfg["location"]["coordinate"]["longitude"] = longitude
-
         return WeatherConfig(cfg)
 
     def _get_weather(self, intent_data: WeatherIntent) -> WeatherReport:
