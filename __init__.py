@@ -617,6 +617,7 @@ class WeatherSkill(OVOSSkill):
         sleep(5)
         self.enclosure.eyes_blink(2)
         self.enclosure.mouth_reset()
+        self.enclosure.activate_mouth_events()
 
     def _report_hourly_weather(self, intent_data: WeatherIntent):
         """Handles requests for a one hour forecast.
@@ -712,6 +713,7 @@ class WeatherSkill(OVOSSkill):
         sleep(5)
         self.enclosure.eyes_blink(2)
         self.enclosure.mouth_reset()
+        self.enclosure.activate_mouth_events()
 
     def _report_multi_day_forecast(self, message: Message, days: int):
         """Handles all requests for multiple day forecasts.
