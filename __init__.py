@@ -595,24 +595,28 @@ class WeatherSkill(OVOSSkill):
             weather: current weather conditions from Open Weather Maps
             weather_location: the geographical location of the reported weather
         """
-        if self.gui.connected:
-            self.gui["weatherCode"] = weather.current.condition.animated_code
-            self.gui["currentTimezone"] = self._format_dt(weather.current.date_time.now(),
-                                                          incl_time=True)
-            self.gui["currentTemperature"] = weather.current.temperature
-            self.gui["weatherCondition"] = weather.current.condition.image
-            self.gui["weatherLocation"] = weather_location
-            self.gui["highTemperature"] = weather.daily[0].temperature_high
-            self.gui["lowTemperature"] = weather.daily[0].temperature_low
-            self.gui["chanceOfPrecipitation"] = weather.current.chance_of_precipitation
-            self.gui["windSpeed"] = weather.current.wind_speed
-            self.gui["humidity"] = weather.current.humidity
-            self.gui.show_page("CurrentWeather", override_idle=20)
-        else:
-            self.enclosure.deactivate_mouth_events()
-            self.enclosure.weather_display(
-                weather.current.condition.code, weather.current.temperature
-            )
+        # display in GUI
+        self.gui["weatherCode"] = weather.current.condition.animated_code
+        self.gui["currentTimezone"] = self._format_dt(weather.current.date_time.now(),
+                                                      incl_time=True)
+        self.gui["currentTemperature"] = weather.current.temperature
+        self.gui["weatherCondition"] = weather.current.condition.image
+        self.gui["weatherLocation"] = weather_location
+        self.gui["highTemperature"] = weather.daily[0].temperature_high
+        self.gui["lowTemperature"] = weather.daily[0].temperature_low
+        self.gui["chanceOfPrecipitation"] = weather.current.chance_of_precipitation
+        self.gui["windSpeed"] = weather.current.wind_speed
+        self.gui["humidity"] = weather.current.humidity
+        self.gui.show_page("CurrentWeather", override_idle=20)
+        
+        # display in mk1
+        self.enclosure.deactivate_mouth_events()
+        self.enclosure.weather_display(
+            weather.current.condition.code, weather.current.temperature
+        )
+        sleep(5)
+        self.enclosure.eyes_blink(2)
+        self.enclosure.reset()
 
     def _report_hourly_weather(self, intent_data: WeatherIntent):
         """Handles requests for a one hour forecast.
@@ -684,27 +688,30 @@ class WeatherSkill(OVOSSkill):
                 self._speak_weather(dialog, wait=True)
 
     def _display_one_day(self, forecast: Weather, intent_data: WeatherIntent):
-        """Display the forecast for a single day on a Mark II.
+        """Display the forecast for a single day
 
         :param forecast: daily forecasts to display
         """
-        if self.gui.connected:
-            self.gui.clear()
-            self.gui["weatherLocation"] = intent_data.display_location
-            self.gui["weatherCode"] = forecast.condition.animated_code
-            self.gui["weatherDate"] = self._format_dt(forecast.date_time)
-            self.gui["highTemperature"] = forecast.temperature_high
-            self.gui["lowTemperature"] = forecast.temperature_low
-            self.gui["chanceOfPrecipitation"] = str(forecast.chance_of_precipitation)
-            self.gui["windSpeed"] = forecast.wind_speed_max
-            self.gui["humidity"] = forecast.humidity
-            self.gui.show_page("SingleDay")
-        else:
-            self.enclosure.deactivate_mouth_events()
-            self.enclosure.weather_display(
-                forecast.condition.code,
-                (forecast.temperature_high + forecast.temperature_low) / 2
-            )
+        # display in the GUI
+        self.gui.clear()
+        self.gui["weatherLocation"] = intent_data.display_location
+        self.gui["weatherCode"] = forecast.condition.animated_code
+        self.gui["weatherDate"] = self._format_dt(forecast.date_time)
+        self.gui["highTemperature"] = forecast.temperature_high
+        self.gui["lowTemperature"] = forecast.temperature_low
+        self.gui["chanceOfPrecipitation"] = str(forecast.chance_of_precipitation)
+        self.gui["windSpeed"] = forecast.wind_speed_max
+        self.gui["humidity"] = forecast.humidity
+        self.gui.show_page("SingleDay")
+        # and display in the mk1 faceplate
+        self.enclosure.deactivate_mouth_events()
+        self.enclosure.weather_display(
+            forecast.condition.code,
+            (forecast.temperature_high + forecast.temperature_low) / 2
+        )
+        sleep(5)
+        self.enclosure.eyes_blink(2)
+        self.enclosure.reset()
 
     def _report_multi_day_forecast(self, message: Message, days: int):
         """Handles all requests for multiple day forecasts.
