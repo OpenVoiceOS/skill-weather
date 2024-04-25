@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a14...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a15...HEAD)
+
+**Fixed bugs:**
+
+- fix/mk1\_faceplate\_not\_clearing [\#61](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/61) ([JarbasAl](https://github.com/JarbasAl))
+
+## [V0.0.1a15](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a15) (2024-04-24)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a14...V0.0.1a15)
 
 **Implemented enhancements:**
 
