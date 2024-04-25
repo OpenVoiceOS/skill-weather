@@ -615,7 +615,7 @@ class WeatherSkill(OVOSSkill):
             weather.current.condition.code, weather.current.temperature
         )
         sleep(5)
-        self.enclosure.eyes_blink(2)
+        self.enclosure.eyes_blink("b")
         self.enclosure.mouth_reset()
         self.enclosure.activate_mouth_events()
 
@@ -711,7 +711,7 @@ class WeatherSkill(OVOSSkill):
             (forecast.temperature_high + forecast.temperature_low) / 2
         )
         sleep(5)
-        self.enclosure.eyes_blink(2)
+        self.enclosure.eyes_blink("b")
         self.enclosure.mouth_reset()
         self.enclosure.activate_mouth_events()
 
