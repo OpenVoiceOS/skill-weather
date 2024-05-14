@@ -1,3 +1,2 @@
-# auto translated from en-us to ru-ru
-По прогнозам, вероятность {percent} составляет {precipitation} {day}.
-Вероятность {percent} есть {precipitation} {day}
+По прогнозам, с вероятностью {percent} {day} будет {precipitation}
+С вероятностью {percent} {day} будет {precipitation}

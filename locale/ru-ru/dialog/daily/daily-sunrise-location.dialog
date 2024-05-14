@@ -1,4 +1,3 @@
-# auto translated from en-us to ru-ru
-{day} солнце взойдет в {time} в {location}
-солнце взойдет в {time} {day} в {location}
-в {location} восход будет в {time} {day}
+{day} в {location} солнце взойдет в {time}
+{day} в {location} восход будет в {time}
+Восход в {location} {day} будет в {time}

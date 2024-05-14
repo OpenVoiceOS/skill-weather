@@ -1,3 +1,2 @@
-# auto translated from en-us to ru-ru
-Прогноз говорит о вероятности {percent} в {precipitation} в {location} {day}.
-В {location} есть {percent} вероятность {precipitation} {day}
+Прогноз говорит, что {day} в {location} с вероятность {percent} будет {precipitation}
+{day} в {location} с вероятностью {percent} будет {precipitation}

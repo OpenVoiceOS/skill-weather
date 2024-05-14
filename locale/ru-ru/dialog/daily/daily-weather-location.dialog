@@ -1,4 +1,3 @@
-# auto translated from en-us to ru-ru
-{day}, {location} будет иметь максимум на {high_temperature} и минимум на {low_temperature}, а {condition}
-Прогноз {day} - {high_temperature} для максимума и {low_temperature} для минимума в {location}.
-{day} будет {condition}, с максимумом {high_temperature} и минимумом {low_temperature} в {location}.
+{day} в {location} {condition}, температура поднимется до {high_temperature} и опустится до {low_temperature}
+Прогноз на {day}: температура поднимется до {high_temperature} и опустится до {low_temperature} в {location}
+{day} в {location} будет {condition}, температура поднимется до {high_temperature} и опустится до {low_temperature}
