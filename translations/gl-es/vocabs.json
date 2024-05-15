@@ -1,0 +1,217 @@
+{
+    "/vocabulary/location.voc": [
+        "Seattle",
+        "Los Angeles california|los angeles|la",
+        "Lawrence kansas",
+        "portland oregon|portland",
+        "spokane",
+        "new york",
+        "chicago",
+        "houston",
+        "austin",
+        "san diego",
+        "san francisco",
+        "san jose",
+        "boston",
+        "washington dc",
+        "kansas city",
+        "atlanta"
+    ],
+    "/vocabulary/sunrise.voc": [
+        "amencer",
+        "amencer",
+        "aurora",
+        "amencer",
+        "amencer"
+    ],
+    "/vocabulary/forecast.voc": [
+        "previsi\u00f3n"
+    ],
+    "/vocabulary/sunset.voc": [
+        "posta do sol",
+        "ocaso",
+        "crep\u00fasculo"
+    ],
+    "/vocabulary/weather.voc": [
+        "(tempo|clima)"
+    ],
+    "/vocabulary/unit/unit.voc": [
+        "fahrenheit",
+        "celsius"
+    ],
+    "/vocabulary/unit/fahrenheit.voc": [
+        "fahrenheit"
+    ],
+    "/vocabulary/query/how.voc": [
+        "como"
+    ],
+    "/vocabulary/query/when.voc": [
+        "cando",
+        "cando \u00e9",
+        "cando ser\u00e1",
+        "cando \u00e9",
+        "a que hora"
+    ],
+    "/vocabulary/query/query.voc": [
+        "como",
+        "cal \u00e9",
+        "que \u00e9",
+        "cal ser\u00e1",
+        "c\u00f3nta(me|nos) (sobre|)",
+        "d\u00e1me"
+    ],
+    "/vocabulary/query/confirm-query.voc": [
+        "\u00e9 isto",
+        "ser\u00e1 isto",
+        "hai",
+        "haber\u00e1",
+        "ser\u00e1",
+        "indo",
+        "imos",
+        "eles te\u00f1en"
+    ],
+    "/vocabulary/query/confirm-query-current.voc": [
+        "\u00e9 isto",
+        "hai"
+    ],
+    "/vocabulary/query/confirm-query-future.voc": [
+        "ser\u00e1 isto",
+        "haber\u00e1",
+        "ser\u00e1",
+        "conseguir\u00e1",
+        "isto vai",
+        "isto vai ser",
+        "vai conseguir",
+        "haber\u00e1"
+    ],
+    "/vocabulary/date-time/today.voc": [
+        "hoxe",
+        "de hoxe"
+    ],
+    "/vocabulary/date-time/now.voc": [
+        "actual",
+        "agora"
+    ],
+    "/vocabulary/date-time/later.voc": [
+        "pr\u00f3xima hora",
+        "pr\u00f3ximas horas",
+        "poucas horas",
+        "pr\u00f3ximas poucas horas",
+        "par de horas",
+        "pr\u00f3ximo par de horas",
+        "m\u00e1is tarde"
+    ],
+    "/vocabulary/date-time/week.voc": [
+        "semana",
+        "semanalmente"
+    ],
+    "/vocabulary/date-time/weekend.voc": [
+        "fin de semana"
+    ],
+    "/vocabulary/date-time/couple.voc": [
+        "pouco",
+        "par"
+    ],
+    "/vocabulary/date-time/next.voc": [
+        "pr\u00f3xim(o|a)",
+        "novamente"
+    ],
+    "/vocabulary/date-time/relative-time.voc": [
+        "ma\u00f1\u00e1",
+        "tarde",
+        "tardi\u00f1a",
+        "noite",
+        "esta noite",
+        "durante a noite"
+    ],
+    "/vocabulary/date-time/relative-day.voc": [
+        "hoxe",
+        "hoxe",
+        "de hoxe",
+        "de hoxe",
+        "ma\u00f1\u00e1",
+        "ma\u00f1\u00e1",
+        "de ma\u00f1\u00e1",
+        "de ma\u00f1\u00e1",
+        "onte",
+        "onte",
+        "de onte",
+        "de onte"
+    ],
+    "/vocabulary/temperature/cold.voc": [
+        "fr\u00edo",
+        "fr\u00edo",
+        "conxelando",
+        "fr\u00edo"
+    ],
+    "/vocabulary/temperature/temperature.voc": [
+        "fr\u00edo",
+        "fr\u00edo",
+        "fr\u00edo",
+        "morno",
+        "quente",
+        "temperatura"
+    ],
+    "/vocabulary/temperature/low.voc": [
+        "baixa",
+        "m\u00ednima",
+        "m\u00ednimo",
+        "m\u00ednima"
+    ],
+    "/vocabulary/temperature/high.voc": [
+        "alta",
+        "m\u00e1xima",
+        "max",
+        "m\u00e1ximo"
+    ],
+    "/vocabulary/temperature/hot.voc": [
+        "morno",
+        "quente"
+    ],
+    "/vocabulary/condition/fog.voc": [
+        "n\u00e9boa",
+        "bretemoso",
+        "bruma",
+        "bretemoso"
+    ],
+    "/vocabulary/condition/precipitation.voc": [
+        "choiva",
+        "neve",
+        "precipitaci\u00f3n",
+        "chuvioso",
+        "nevado",
+        "chovendo",
+        "nevando",
+        "chuviscada"
+    ],
+    "/vocabulary/condition/humidity.voc": [
+        "h\u00famido",
+        "humidade",
+        "neboento"
+    ],
+    "/vocabulary/condition/snow.voc": [
+        "(neve|nevando|granizo|ca\u00edndo granizo)"
+    ],
+    "/vocabulary/condition/clear.voc": [
+        "(borro|soleado|con sol)",
+        "clima bo"
+    ],
+    "/vocabulary/condition/rain.voc": [
+        "(chuvia leve|chuvia|chovendo|chuvioso|chuvisco|precipitaci\u00f3n)"
+    ],
+    "/vocabulary/condition/clouds.voc": [
+        "(nubrado|nube|nubes|poucas nubes|nubes dispersas)"
+    ],
+    "/vocabulary/condition/thunderstorm.voc": [
+        "(tempestade|tormentoso|tormenta)"
+    ],
+    "/vocabulary/condition/windy.voc": [
+        "vento",
+        "ventoso",
+        "ventos",
+        "velocidade do vento",
+        "brisa",
+        "raxada",
+        "soprando"
+    ]
+}

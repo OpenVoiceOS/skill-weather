@@ -1,0 +1,5 @@
+{
+    "/regex/location.rx": [
+        ".*\\b(a|in) (?P<Location>(?!\\bcelsius\\b|\\bfahrenheit\\b) *.+)"
+    ]
+}

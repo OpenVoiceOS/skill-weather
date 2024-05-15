@@ -1,0 +1,5 @@
+{
+    "/regex/location.rx": [
+        "(op|in) (?P<Location>.*)"
+    ]
+}
