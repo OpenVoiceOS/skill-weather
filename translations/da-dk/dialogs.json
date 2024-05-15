@@ -1,0 +1,498 @@
+{
+    "/dialog/and.dialog": [
+        ", og"
+    ],
+    "/dialog/percentage-number.dialog": [
+        "{number}\u00a0procent  "
+    ],
+    "/dialog/daily/daily-precipitation-next-local.dialog": [
+        "Der er en {percent} chance for {precipitation} {day}",
+        "Prognosen siger en {percent} chance for {precipitation} {day}"
+    ],
+    "/dialog/daily/daily-precipitation-next-none-local.dialog": [
+        "Der forventes ingen i de n\u00e6ste 7 dage.",
+        "Der er ingen nedb\u00f8r i prognosen for de n\u00e6ste 7 dage"
+    ],
+    "/dialog/daily/daily-temperature-high-location.dialog": [
+        "{location} vil have en h\u00f8j p\u00e5 {temperature} grader {day}",
+        "Den vil v\u00e6re s\u00e5 h\u00f8j som {temperature} grader i {location} {day}"
+    ],
+    "/dialog/daily/daily-sunrise-location.dialog": [
+        "{day} solen st\u00e5r op kl. {time} i {location}",
+        "i {location} solopgang vil v\u00e6re p\u00e5 {time} {day}",
+        "solen vil st\u00e5 op kl {time} {day} i {location}"
+    ],
+    "/dialog/daily/daily-precipitation-next-location.dialog": [
+        "Prognosen siger en {percent} chance for {precipitation} i {location} {day}",
+        "I {location} er der en {percent} chance for {precipitation} {day}"
+    ],
+    "/dialog/daily/daily-humidity-local.dialog": [
+        "{day} prognosen siger en luftfugtighed p\u00e5 {percent}",
+        "Fugtigheden {day} vil v\u00e6re {percent}"
+    ],
+    "/dialog/daily/daily-sunset-location.dialog": [
+        "i {location} solnedgang vil v\u00e6re p\u00e5 {time} {day}",
+        "{day} solen vil g\u00e5 ned kl. {time} i {location}",
+        "solen vil g\u00e5 ned p\u00e5 {time} {day} i {location}"
+    ],
+    "/dialog/daily/daily-weather-location.dialog": [
+        "{day}, {location} vil have en h\u00f8jeste v\u00e6rdi p\u00e5 {high_temperature} og en laveste v\u00e6rdi p\u00e5 {low_temperature}, med {condition}",
+        "{day} det vil v\u00e6re {condition}, med en h\u00f8j p\u00e5 {high_temperature} og en lav p\u00e5 {low_temperature} i {location}",
+        "Prognosen {day} er {high_temperature} for en h\u00f8j og {low_temperature} for en lav i {location}"
+    ],
+    "/dialog/daily/daily-temperature-high-low-location.dialog": [
+        "Prognosen for i dag i {location} er et h\u00f8jpunkt p\u00e5 {high_temperature} og et lavpunkt p\u00e5 {low_temperature}."
+    ],
+    "/dialog/daily/daily-condition-not-expected-local.dialog": [
+        "Nej, {day} prognosen siger {condition}",
+        "Nej, {condition} forventes at v\u00e6re {day}"
+    ],
+    "/dialog/daily/daily-condition-expected-location.dialog": [
+        "Ja,\u00a0forventer {condition}\u00a0i {location} {day}  ",
+        "Ja,\u00a0prognosen kr\u00e6ver {condition}\u00a0i {location} {day}  "
+    ],
+    "/dialog/daily/daily-sunset-local.dialog": [
+        "solnedgang vil v\u00e6re p\u00e5 {time} {day}",
+        "solen g\u00e5r ned kl. {time} {day}",
+        "{day} solen vil g\u00e5 ned kl. {time}"
+    ],
+    "/dialog/daily/daily-temperature-low-local.dialog": [
+        "{day} vil det v\u00e6re s\u00e5 lavt som {temperature}",
+        "{day} temperaturen vil v\u00e6re s\u00e5 lav som {temperature} grader."
+    ],
+    "/dialog/daily/daily-temperature-local.dialog": [
+        "{day} vil temperaturen v\u00e6re {temperature} grader.",
+        "{day} bliver det {temperature}"
+    ],
+    "/dialog/daily/daily-condition-not-expected-location.dialog": [
+        "Nej, i {location} {condition} forventes {day}",
+        "Nej, {day} prognosen siger {condition} i {location}"
+    ],
+    "/dialog/daily/daily-condition-expected-local.dialog": [
+        "Ja, if\u00f8lge prognosen forventes {condition} {day}",
+        "Ja, forvente {condition} {day}"
+    ],
+    "/dialog/daily/daily-temperature-low-location.dialog": [
+        "{day}, {location} vil v\u00e6re s\u00e5 lavt som {temperature} grader",
+        "{day} det vil v\u00e6re s\u00e5 lavt som {temperature} grader i {location}"
+    ],
+    "/dialog/daily/daily-weather-local.dialog": [
+        "{day} den h\u00f8jeste v\u00e6rdi vil v\u00e6re {high_temperature} og den laveste {low_temperature}, med {condition}",
+        "Forvent {condition}, med en h\u00f8j p\u00e5 {high_temperature} og en lav p\u00e5 {low_temperature} {day}",
+        "{day} forventer {condition}, med en h\u00f8jeste v\u00e6rdi p\u00e5 {high_temperature} og en laveste v\u00e6rdi p\u00e5 {low_temperature}",
+        "{day} det vil v\u00e6re {condition} med en h\u00f8j p\u00e5 {high_temperature} og en lav p\u00e5 {low_temperature}",
+        "Prognosen {day} er {condition} med et h\u00f8jest tal p\u00e5 {high_temperature} og et lavt tal p\u00e5 {low_temperature}"
+    ],
+    "/dialog/daily/daily-sunrise-local.dialog": [
+        "solen st\u00e5r op kl. {time} {day}",
+        "solopgang vil v\u00e6re kl. {time} {day}",
+        "{day} solen st\u00e5r op kl. {time}"
+    ],
+    "/dialog/daily/daily-wind-moderate-location.dialog": [
+        "Vinden vil v\u00e6re moderat i {location} {day}, omkring {speed} {speed_unit} fra {direction}",
+        "Du kan forvente en vind p\u00e5 omkring {speed} {speed_unit} i {location} {day}",
+        "Prognosen {day} forudsiger, at {location} vil have moderat vind fra {direction} af {speed} {speed_unit}"
+    ],
+    "/dialog/daily/daily-temperature-high-local.dialog": [
+        "{day} vil temperaturen v\u00e6re s\u00e5 h\u00f8j som {temperature} grader.",
+        "{day} vil den v\u00e6re lige s\u00e5 h\u00f8j som {temperature}"
+    ],
+    "/dialog/daily/daily-wind-moderate-local.dialog": [
+        "Prognosen lyder p\u00e5 en moderat vind fra {direction} ved {speed} {speed_unit} {day}",
+        "Du kan forvente en moderat vind p\u00e5 omkring {speed} {speed_unit} {day}",
+        "Vinden vil v\u00e6re moderat, omkring {speed} {speed_unit} fra {direction} {day}"
+    ],
+    "/dialog/daily/daily-wind-strong-location.dialog": [
+        "Vinden vil v\u00e6re s\u00e5 kraftig som {speed} {speed_unit} i {location} {day}",
+        "Der vil v\u00e6re en kraftig vind fra {direction} af {speed} {speed_unit} i {location} {day}"
+    ],
+    "/dialog/daily/daily-wind-strong-local.dialog": [
+        "Der vil v\u00e6re kraftig vind fra {direction} af {speed} {speed_unit} {day}",
+        "Vinden vil v\u00e6re s\u00e5 kraftig som {speed} {speed_unit} {day}"
+    ],
+    "/dialog/daily/daily-temperature-location.dialog": [
+        "{day} det vil v\u00e6re {temperature} grader om {location}",
+        "{day}, {location} vil have en temperatur p\u00e5 {temperature} grader"
+    ],
+    "/dialog/daily/daily-precipitation-next-none-location.dialog": [
+        "I {location} er der ikke forudset nogen",
+        "Der er ikke udsigt til nedb\u00f8r i de n\u00e6ste syv dage i {location}"
+    ],
+    "/dialog/daily/daily-humidity-location.dialog": [
+        "Fugtigheden i {location} {day} vil v\u00e6re {percent}",
+        "{day} prognosen i {location} forudsiger en luftfugtighed p\u00e5 {percent}"
+    ],
+    "/dialog/daily/daily-wind-light-local.dialog": [
+        "Der vil v\u00e6re en svag vind fra {direction} {day} p\u00e5 {speed} {speed_unit}",
+        "Det vil ikke v\u00e6re meget bl\u00e6sende {day}"
+    ],
+    "/dialog/daily/daily-temperature-high-low-local.dialog": [
+        "Prognosen for i dag lyder p\u00e5 et maksimum p\u00e5 {high_temperature} og et minimum p\u00e5 {low_temperature}."
+    ],
+    "/dialog/daily/daily-wind-light-location.dialog": [
+        "Det vil ikke v\u00e6re meget bl\u00e6sende i {location} {day}",
+        "Der vil v\u00e6re en svag vind fra {direction} i {location} {day} i {speed} {speed_unit}"
+    ],
+    "/dialog/unit/celsius.dialog": [
+        "celsius  "
+    ],
+    "/dialog/unit/kilometer per hour.dialog": [
+        "kilometer i timen"
+    ],
+    "/dialog/unit/miles per hour.dialog": [
+        "mil i timen  "
+    ],
+    "/dialog/unit/meter per second.dialog": [
+        "meter per sekund  "
+    ],
+    "/dialog/unit/fahrenheit.dialog": [
+        "fahrenheit  "
+    ],
+    "/dialog/unit/inch.dialog": [
+        "tommer"
+    ],
+    "/dialog/unit/millimeter.dialog": [
+        "millimeter"
+    ],
+    "/dialog/current/current-humidity-local.dialog": [
+        "I \u00f8jeblikket er luftfugtigheden {percent}"
+    ],
+    "/dialog/current/current-sunrise-future-location.dialog": [
+        "solen stod op klokken {time} i dag i {location}",
+        "solopgang var ved {time} i dag i {location}"
+    ],
+    "/dialog/current/current-humidity-location.dialog": [
+        "I \u00f8jeblikket er luftfugtigheden i {location} {percent}"
+    ],
+    "/dialog/current/current-temperature-location.dialog": [
+        "Det er i \u00f8jeblikket {temperature} grader i {location}.",
+        "Lige nu er det {temperature} grader i {location}.",
+        "Det er i \u00f8jeblikket {temperature} grader {temperature_unit} i {location}."
+    ],
+    "/dialog/current/current-sunset-past-location.dialog": [
+        "solen gik ned klokken {time} i dag i {location}",
+        "i {location} gik solen ned kl. {time} i dag",
+        "solnedgang var p\u00e5 {time} i dag i {location}"
+    ],
+    "/dialog/current/current-sunset-future-location.dialog": [
+        "i {location} solen g\u00e5r ned kl. {time} i dag",
+        "solnedgang vil v\u00e6re p\u00e5 {time} i dag i {location}",
+        "solen g\u00e5r ned kl. {time} i dag i {location}"
+    ],
+    "/dialog/current/current-weather-local.dialog": [
+        "Det er i \u00f8jeblikket {condition} og {temperature} grader.",
+        "Lige nu er det {condition} og {temperature} grader.",
+        "Det er i \u00f8jeblikket {condition} og {temperature} grader {temperature_unit}."
+    ],
+    "/dialog/current/current-condition-expected-location.dialog": [
+        "Ja,\u00a0det bliver {condition}\u00a0i {location}  "
+    ],
+    "/dialog/current/current-sunset-future-local.dialog": [
+        "solen g\u00e5r ned kl. 0 i dag",
+        "solnedgang vil v\u00e6re p\u00e5 {time} i dag"
+    ],
+    "/dialog/current/current-condition-expected-local.dialog": [
+        "Ja,\u00a0det bliver {condition}\u00a0i dag  "
+    ],
+    "/dialog/current/current-wind-strong-location.dialog": [
+        "Vinden er meget kraftig fra {direction} i {location} i dag, {speed} {speed_unit}",
+        "I \u00f8jeblikket bl\u00e6ser vinden fra {direction} p\u00e5 {speed} {speed_unit} i {location}, en god dag til at blive indenfor",
+        "{location} vil have st\u00e6rk vind i dag, {speed} {speed_unit}"
+    ],
+    "/dialog/current/current-sunrise-future-local.dialog": [
+        "solen st\u00e5r op kl. 0 i dag",
+        "solopgangen vil v\u00e6re {time} i dag"
+    ],
+    "/dialog/current/current-condition-not-expected-local.dialog": [
+        "Nej, prognosen siger {condition} i dag",
+        "Nej, {condition} forventes i dag"
+    ],
+    "/dialog/current/current-sunset-past-local.dialog": [
+        "solen gik ned kl. 0 i dag",
+        "solnedgang var p\u00e5 {time} i dag"
+    ],
+    "/dialog/current/current-weather-location.dialog": [
+        "Det er i \u00f8jeblikket {condition} og {temperature} grader {temperature_unit} i {location}.",
+        "Lige nu er det {condition} og {temperature} grader i {location}.",
+        "{location} har {condition} og er i \u00f8jeblikket {temperature} grader."
+    ],
+    "/dialog/current/current-wind-moderate-location.dialog": [
+        "Det er lidt bl\u00e6sende i {location} i dag, i \u00f8jeblikket {speed} {speed_unit}",
+        "I \u00f8jeblikket bl\u00e6ser en moderat {speed} {speed_unit} fra {direction} i {location}"
+    ],
+    "/dialog/current/current-wind-moderate-local.dialog": [
+        "I \u00f8jeblikket bl\u00e6ser en svag {speed} {speed_unit} fra {direction}",
+        "Det er en smule bl\u00e6sende i dag, i \u00f8jeblikket {speed} {speed_unit}"
+    ],
+    "/dialog/current/current-condition-not-expected-location.dialog": [
+        "Nej, prognosen siger {condition} i dag i {location}",
+        "Nej, i {location} {condition} forventes i dag"
+    ],
+    "/dialog/current/current-sunrise-past-location.dialog": [
+        "solen stod op klokken {time} i dag i {location}",
+        "solopgang var ved {time} i dag i {location}"
+    ],
+    "/dialog/current/current-wind-strong-local.dialog": [
+        "Vinden er meget kraftig fra {direction} i dag, {speed} {speed_unit}",
+        "Det er meget bl\u00e6sende i dag, {speed} {speed_unit}",
+        "I \u00f8jeblikket bl\u00e6ser vinden fra {direction} p\u00e5 {speed} {speed_unit}, det er m\u00e5ske godt at blive indenfor i dag"
+    ],
+    "/dialog/current/currrent-clouds-alternative-local.dialog": [
+        "Det ser ikke s\u00e5dan ud, chancerne er at det bliver {condition} i dag",
+        "Nej, prognosen siger {condition} i dag",
+        "Det skulle ikke v\u00e6re overskyet, det ser ud til at der bliver {condition} i dag"
+    ],
+    "/dialog/current/current-wind-light-local.dialog": [
+        "Vinden er svag ved {speed} {speed_unit} fra {direction}",
+        "I dag bl\u00e6ser der en svag vind fra {direction} ved {speed} {speed_unit}"
+    ],
+    "/dialog/current/current-wind-light-location.dialog": [
+        "Vinden er svag i {location} ved {speed} {speed_unit} fra {direction}",
+        "I {location} i dag er der svag vind fra {direction} ved {speed} {speed_unit}"
+    ],
+    "/dialog/current/current-sunrise-past-local.dialog": [
+        "solen stod op kl. 0 i dag",
+        "solopgangen var p\u00e5 {time} i dag"
+    ],
+    "/dialog/current/current-temperature-local.dialog": [
+        "Lige nu er det 0 grader.",
+        "Det er i \u00f8jeblikket {temperature} grader.",
+        "Det er i \u00f8jeblikket {temperature} grader {temperature_unit}."
+    ],
+    "/dialog/weekly/weekly-condition.dialog": [
+        "Prognosen lyder p\u00e5 {condition} p\u00e5 {days}",
+        "P\u00e5 {days} forventer {condition}"
+    ],
+    "/dialog/weekly/weekly-temperature.dialog": [
+        "lavt vil v\u00e6re mellem {low_min}\u00a0og {low_max},\u00a0med h\u00f8jder imellem {high_min}\u00a0og {high_max}  "
+    ],
+    "/dialog/date-time/afternoon.dialog": [
+        "eftermiddag"
+    ],
+    "/dialog/date-time/morning.dialog": [
+        "morgen"
+    ],
+    "/dialog/date-time/evening.dialog": [
+        "aften"
+    ],
+    "/dialog/date-time/early morning.dialog": [
+        "Tidlig morgen"
+    ],
+    "/dialog/date-time/overnight.dialog": [
+        "natten over"
+    ],
+    "/dialog/condition/drizzle-dense-intensity.dialog": [
+        "Dryp, t\u00e6t intensitet"
+    ],
+    "/dialog/condition/drizzle-moderate-intensity.dialog": [
+        "Mildt st\u00f8vregn, moderat intensitet"
+    ],
+    "/dialog/condition/thunderstorm.dialog": [
+        "tordenvejr"
+    ],
+    "/dialog/condition/moderate-rain.dialog": [
+        "Moderat regn"
+    ],
+    "/dialog/condition/heavy-rain.dialog": [
+        "Kraftig regn"
+    ],
+    "/dialog/condition/haze.dialog": [
+        "t\u00e5ge"
+    ],
+    "/dialog/condition/rain.dialog": [
+        "regn  "
+    ],
+    "/dialog/condition/moderate-rain-showers.dialog": [
+        "Moderat Regnbyger"
+    ],
+    "/dialog/condition/slight-rain.dialog": [
+        "Lidt regn"
+    ],
+    "/dialog/condition/humidity.dialog": [
+        "fugtighed"
+    ],
+    "/dialog/condition/mist.dialog": [
+        "t\u00e5ge"
+    ],
+    "/dialog/condition/slight-snow-showers.dialog": [
+        "Svage snebyger"
+    ],
+    "/dialog/condition/freezing-drizzle-dense-intensity.dialog": [
+        "Freezing Drizzle, t\u00e6t intensitet"
+    ],
+    "/dialog/condition/drizzle.dialog": [
+        "st\u00f8vregn"
+    ],
+    "/dialog/condition/heavy-snow-fall.dialog": [
+        "Kraftigt snefald"
+    ],
+    "/dialog/condition/freezing-rain-light-intensity.dialog": [
+        "Freezing Rain, lysintensitet"
+    ],
+    "/dialog/condition/snow-grains.dialog": [
+        "Snekorn"
+    ],
+    "/dialog/condition/dust.dialog": [
+        "st\u00f8v"
+    ],
+    "/dialog/condition/squall.dialog": [
+        "squall"
+    ],
+    "/dialog/condition/thunderstorm-with-slight-hail.dialog": [
+        "Tordenvejr med let hagl"
+    ],
+    "/dialog/condition/freezing-drizzle-light-intensity.dialog": [
+        "Freezing Drizzle, lysstyrke"
+    ],
+    "/dialog/condition/slight-rain-showers.dialog": [
+        "Svag regnbyger"
+    ],
+    "/dialog/condition/heavy-snow-showers.dialog": [
+        "Kraftige snebyger"
+    ],
+    "/dialog/condition/clear.dialog": [
+        "en klar himmel  "
+    ],
+    "/dialog/condition/thunderstorm-with-heavy-hail.dialog": [
+        "Tordenvejr med kraftig hagl"
+    ],
+    "/dialog/condition/partly-cloudy.dialog": [
+        "delvist overskyet"
+    ],
+    "/dialog/condition/drizzle-light-intensity.dialog": [
+        "Dryp, lysintensitet"
+    ],
+    "/dialog/condition/violent-rain-showers.dialog": [
+        "Voldsomme regnbyger"
+    ],
+    "/dialog/condition/fog.dialog": [
+        "t\u00e5ge"
+    ],
+    "/dialog/condition/smoke.dialog": [
+        "r\u00f8g"
+    ],
+    "/dialog/condition/slight-snow-fall.dialog": [
+        "Lidt snefald"
+    ],
+    "/dialog/condition/mainly-clear.dialog": [
+        "hovedsageligt klar"
+    ],
+    "/dialog/condition/depositing-rime-fog.dialog": [
+        "aflejring af rim t\u00e5ge"
+    ],
+    "/dialog/condition/snow.dialog": [
+        "sne  "
+    ],
+    "/dialog/condition/clouds.dialog": [
+        "Skyer"
+    ],
+    "/dialog/condition/tornado.dialog": [
+        "tornado"
+    ],
+    "/dialog/condition/freezing-rain-dense-intensity.dialog": [
+        "Frostregn, t\u00e6t intensitet"
+    ],
+    "/dialog/condition/moderate-snow-fall.dialog": [
+        "Moderat Snefald"
+    ],
+    "/dialog/condition/overcast.dialog": [
+        "overskyet"
+    ],
+    "/dialog/condition/ash.dialog": [
+        "asche"
+    ],
+    "/dialog/condition/clear-sky.dialog": [
+        "klar himmel"
+    ],
+    "/dialog/error/location-not-found.dialog": [
+        "Jeg kan ikke finde en by med navnet {location}. Pr\u00f8v venligst igen",
+        "Byen {location} er ikke i min hukommelse. Pr\u00f8v venligst igen"
+    ],
+    "/dialog/error/forty-eight-hours-available.dialog": [
+        "Beklager, jeg har kun 48 timers prognosedata p\u00e5 timebasis"
+    ],
+    "/dialog/error/no-forecast.dialog": [
+        "Undskyld,\u00a0Jeg kender ikke prognosen {day}  ",
+        "Jeg har ikke en prognose {day} "
+    ],
+    "/dialog/error/cant-get-forecast.dialog": [
+        "(undskyld. |undskyldninger. |)jeg (kan ikke|kan ikke) (f\u00e5|adgang)\u00a0vejr (prognoser|rapporter) (fra|ret)\u00a0nu.  ",
+        "Vejr (prognoser|rapporter)\u00a0er i \u00f8jeblikket (utilg\u00e6ngelig|ikke tilg\u00e6ngelig). "
+    ],
+    "/dialog/error/seven-days-available.dialog": [
+        "Jeg har syv dages vejrudsigt til r\u00e5dighed.",
+        "Jeg kan fort\u00e6lle dig om prognosen for de n\u00e6ste syv dage."
+    ],
+    "/dialog/direction/northeast.dialog": [
+        "nord \u00f8st  "
+    ],
+    "/dialog/direction/east.dialog": [
+        "\u00f8st  "
+    ],
+    "/dialog/direction/southeast.dialog": [
+        "syd\u00f8st  "
+    ],
+    "/dialog/direction/southwest.dialog": [
+        "sydvest  "
+    ],
+    "/dialog/direction/south.dialog": [
+        "syd  "
+    ],
+    "/dialog/direction/northwest.dialog": [
+        "nord Vest  "
+    ],
+    "/dialog/direction/north.dialog": [
+        "nord  "
+    ],
+    "/dialog/direction/west.dialog": [
+        "vest  "
+    ],
+    "/dialog/hourly/hourly-condition-not-expected-local.dialog": [
+        "Nej {time}\u00a0prognose antyder ikke  "
+    ],
+    "/dialog/hourly/hourly-weather-local.dialog": [
+        "Omkring {temperature} grader med {condition}",
+        "Senere vil det v\u00e6re {condition} og {temperature} grader",
+        "Senere vil det v\u00e6re {condition} og omkring {temperature} grader",
+        "Det bliver {condition}, med temperaturer t\u00e6t p\u00e5 {temperature}"
+    ],
+    "/dialog/hourly/hourly-precipitation-next-local.dialog": [
+        "Prognosen lyder p\u00e5 {percent} chance for {precipitation} ved {time}",
+        "Der er en {percent} chance for {precipitation} ved {time}"
+    ],
+    "/dialog/hourly/hourly-condition-not-expected-location.dialog": [
+        "Ingen,\u00a0det {time}\u00a0prognose i {location}\u00a0antyder ikke  "
+    ],
+    "/dialog/hourly/hourly-condition-expected-local.dialog": [
+        "Ja,\u00a0det {time}\u00a0prognose for forudsigelser {condition}  "
+    ],
+    "/dialog/hourly/hourly-condition-alternative-local.dialog": [
+        "Ingen,\u00a0det {time}\u00a0prognose kr\u00e6ver {condition}\u00a0i dag  ",
+        "Ser ikke ud til,\u00a0det {time}\u00a0prognose antyder, at det bliver {condition}  "
+    ],
+    "/dialog/hourly/hourly-weather-location.dialog": [
+        "Senere bliver det {condition} i {location}, med temperaturer omkring {temperature}",
+        "{location} vil v\u00e6re omkring {temperature} med {condition}",
+        "{location} vejret i de n\u00e6ste par timer vil v\u00e6re {condition} og {temperature} grader",
+        "{location} vil v\u00e6re ca. {temperature} grader med {condition}"
+    ],
+    "/dialog/hourly/hourly-condition-alternative-location.dialog": [
+        "Ingen,\u00a0det {time}\u00a0prognose kr\u00e6ver {condition}\u00a0i {location}  ",
+        "Ser ikke ud til,\u00a0det {time}\u00a0prognosen antyder, at det bliver {condition}\u00a0i {location}  "
+    ],
+    "/dialog/hourly/hourly-temperature-location.dialog": [
+        "I {location} vil det v\u00e6re ca. {temperature} grader i {time}",
+        "I {time}, vil det v\u00e6re {temperature} grader i {location}"
+    ],
+    "/dialog/hourly/hourly-precipitation-next-location.dialog": [
+        "I {location} er der en {percent} chance for {precipitation} ved {time}",
+        "Prognosen lyder p\u00e5 {percent} chance for {precipitation} i {location} p\u00e5 {time}"
+    ],
+    "/dialog/hourly/hourly-temperature-local.dialog": [
+        "I {time} vil det v\u00e6re {temperature} grader",
+        "Det vil v\u00e6re omkring {temperature} grader i {time}"
+    ],
+    "/dialog/hourly/hourly-condition-expected-location.dialog": [
+        "Ja,\u00a0det bliver {condition}\u00a0dette {time}  "
+    ]
+}

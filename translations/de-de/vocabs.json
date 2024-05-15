@@ -1,0 +1,273 @@
+{
+    "/vocabulary/location.voc": [
+        "Seattle",
+        "Los Angeles Kalifornien|Los Angeles|la",
+        "Lawrence kansas",
+        "Portland, Oregon|Portland",
+        "Spokane",
+        "New York",
+        "Chicago",
+        "Houston",
+        "Austin",
+        "San Diego",
+        "San Francisco",
+        "San Jose",
+        "Boston",
+        "Washington D C",
+        "Kansas City",
+        "Atlanta"
+    ],
+    "/vocabulary/sunrise.voc": [
+        "Sonnenaufgang",
+        "sonne auf",
+        "Sonne aufgehen",
+        "D\u00e4mmerung",
+        "Tagesanbruch",
+        "Tag anbrechen"
+    ],
+    "/vocabulary/forecast.voc": [
+        "Vorhersage"
+    ],
+    "/vocabulary/outside.voc": [
+        "au\u00dferhalb",
+        "au\u00dfen",
+        "drau\u00dfen"
+    ],
+    "/vocabulary/sunset.voc": [
+        "Sonnenuntergang",
+        "sonne unter",
+        "Sonne untergehen",
+        "D\u00e4mmerung"
+    ],
+    "/vocabulary/weather.voc": [
+        "Wetter"
+    ],
+    "/vocabulary/unit/unit.voc": [
+        "Fahrenheit",
+        "Celsius"
+    ],
+    "/vocabulary/unit/fahrenheit.voc": [
+        "Fahrenheit"
+    ],
+    "/vocabulary/query/how.voc": [
+        "wie"
+    ],
+    "/vocabulary/query/when.voc": [
+        "wann",
+        "wann wird (es|)",
+        "wann ist (es|)",
+        "wann war (es|)"
+    ],
+    "/vocabulary/query/query.voc": [
+        "wie",
+        "was ist",
+        "was wird",
+        "erz\u00e4hle (mir|uns) (etwas \u00fcber|)",
+        "gib mir"
+    ],
+    "/vocabulary/query/confirm-query.voc": [
+        "ist es",
+        "wird es",
+        "gibt es",
+        "werden da",
+        "wird",
+        "wird es",
+        "werden wir",
+        "haben sie"
+    ],
+    "/vocabulary/query/confirm-query-current.voc": [
+        "ist es",
+        "gibt es"
+    ],
+    "/vocabulary/query/confirm-query-future.voc": [
+        "wird es",
+        "werden da",
+        "wird es",
+        "wird es",
+        "wirds",
+        "wird es geben",
+        "loslegen",
+        "wird es geben"
+    ],
+    "/vocabulary/date-time/number-days.voc": [
+        "2 Tage",
+        "zwei Tage",
+        "in den n\u00e4chsten zwei tagen",
+        "in den n\u00e4chsten 2 tagen",
+        "3 Tage",
+        "drei Tage",
+        "in den n\u00e4chsten drei tagen",
+        "in den n\u00e4chsten 3 tagen",
+        "4 Tage",
+        "vier Tage",
+        "in den n\u00e4chsten vier tagen",
+        "in den n\u00e4chsten 4 tagen",
+        "5 Tage",
+        "f\u00fcnf Tage",
+        "in den n\u00e4chsten f\u00fcnf tagen",
+        "in den n\u00e4chsten 5 tagen",
+        "6 Tage",
+        "sechs Tage",
+        "in den n\u00e4chsten sechs tagen",
+        "in den n\u00e4chsten 6 tagen"
+    ],
+    "/vocabulary/date-time/today.voc": [
+        "heute",
+        "heutig"
+    ],
+    "/vocabulary/date-time/few.voc": [
+        "wenige"
+    ],
+    "/vocabulary/date-time/now.voc": [
+        "Aktuell",
+        "jetzt",
+        "gerade",
+        "momentan",
+        "im moment"
+    ],
+    "/vocabulary/date-time/later.voc": [
+        "n\u00e4chste(n) Stunde",
+        "n\u00e4chsten Stunden",
+        "einige(n) Stunden",
+        "n\u00e4chsten paar Stunden",
+        "einige Stunden",
+        "n\u00e4chsten Stunden",
+        "sp\u00e4ter"
+    ],
+    "/vocabulary/date-time/week.voc": [
+        "Woche",
+        "w\u00f6chentlich"
+    ],
+    "/vocabulary/date-time/weekend.voc": [
+        "Wochenende"
+    ],
+    "/vocabulary/date-time/couple.voc": [
+        "wenige",
+        "paar"
+    ],
+    "/vocabulary/date-time/next.voc": [
+        "n\u00e4chste",
+        "wieder"
+    ],
+    "/vocabulary/date-time/relative-time.voc": [
+        "fr\u00fch",
+        "morgens",
+        "mittag",
+        "mittags",
+        "nachmittag",
+        "nachmittags",
+        "abend",
+        "abends",
+        "nacht",
+        "nachts",
+        "mitternacht",
+        "mitternachts"
+    ],
+    "/vocabulary/date-time/relative-day.voc": [
+        "morgen",
+        "morgige",
+        "montag",
+        "montags",
+        "am montag",
+        "dienstag",
+        "dienstags",
+        "am dienstag",
+        "mittwoch",
+        "mittwochs",
+        "am mittwoch",
+        "donnerstag",
+        "donnerstags",
+        "am donnerstag",
+        "freitag",
+        "freitags",
+        "am freitag",
+        "samstag",
+        "samstags",
+        "am samstag",
+        "sonntag",
+        "sonntags",
+        "am sonntag"
+    ],
+    "/vocabulary/temperature/cold.voc": [
+        "kalt",
+        "k\u00fchl"
+    ],
+    "/vocabulary/temperature/temperature.voc": [
+        "kalt",
+        "k\u00fchl",
+        "k\u00fchl",
+        "warm",
+        "hei\u00df",
+        "Temperatur"
+    ],
+    "/vocabulary/temperature/low.voc": [
+        "Tiefstwert",
+        "Tiefsttemperatur",
+        "niedrigste",
+        "tief",
+        "Minimum",
+        "minimale"
+    ],
+    "/vocabulary/temperature/high.voc": [
+        "H\u00f6chstwert",
+        "H\u00f6chsttemperatur",
+        "hoch",
+        "h\u00f6chste(n|r|s)",
+        "Maximum",
+        "Maximum"
+    ],
+    "/vocabulary/temperature/hot.voc": [
+        "warm",
+        "hei\u00df"
+    ],
+    "/vocabulary/condition/fog.voc": [
+        "Nebel",
+        "neblig"
+    ],
+    "/vocabulary/condition/precipitation.voc": [
+        "Niederschlag"
+    ],
+    "/vocabulary/condition/humidity.voc": [
+        "feucht",
+        "Luftfeuchtigkeit",
+        "luftfeuchte"
+    ],
+    "/vocabulary/condition/snow.voc": [
+        "Schneeverh\u00e4ltnisse, wie sie z.B. im Umgang mit \"Wird es morgen regnen\" verwendet werden",
+        "schnee",
+        "schneien",
+        "schneit"
+    ],
+    "/vocabulary/condition/clear.voc": [
+        "(klar|sonnig|Sonne)",
+        "(gutes|sch\u00f6nes) Wetter"
+    ],
+    "/vocabulary/condition/rain.voc": [
+        "regen",
+        "regnen",
+        "regnet",
+        "regnerisch"
+    ],
+    "/vocabulary/condition/clouds.voc": [
+        "bew\u00f6lkt",
+        "bew\u00f6lkung",
+        "Wolke",
+        "Wolken",
+        "bedeckt"
+    ],
+    "/vocabulary/condition/thunderstorm.voc": [
+        "gewitter",
+        "gewittert",
+        "donnert",
+        "donner"
+    ],
+    "/vocabulary/condition/windy.voc": [
+        "Wind",
+        "windig",
+        "windet",
+        "Winde",
+        "Sturm",
+        "st\u00fcrmt",
+        "st\u00fcrmen"
+    ]
+}

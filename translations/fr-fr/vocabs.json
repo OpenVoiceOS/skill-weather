@@ -1,0 +1,261 @@
+{
+    "/vocabulary/location.voc": [
+        "Seattle",
+        "Los Angeles californie|los angeles|la",
+        "Lawrence kansas",
+        "portland oregon|portland",
+        "spokane",
+        "new-york",
+        "chicago",
+        "houston",
+        "austin",
+        "san diego",
+        "san francisco",
+        "san jose",
+        "boston",
+        "washington d c",
+        "atlanta"
+    ],
+    "/vocabulary/sunrise.voc": [
+        "lever du soleil",
+        "lever du soleil",
+        "aube",
+        "aube",
+        "aube"
+    ],
+    "/vocabulary/forecast.voc": [
+        "pr\u00e9vision"
+    ],
+    "/vocabulary/outside.voc": [
+        "sortir",
+        "\u00e0 l'ext\u00e9rieur"
+    ],
+    "/vocabulary/sunset.voc": [
+        "coucher du soleil",
+        "coucher du soleil",
+        "cr\u00e9puscule"
+    ],
+    "/vocabulary/weather.voc": [
+        "temps",
+        "temp\u00e9rature",
+        "quel froid",
+        "quel froid",
+        "combien froid",
+        "combien chaud",
+        "combien chaud"
+    ],
+    "/vocabulary/unit/unit.voc": [
+        "celsius",
+        "fahrenheit"
+    ],
+    "/vocabulary/unit/fahrenheit.voc": [
+        "fahrenheit"
+    ],
+    "/vocabulary/query/how.voc": [
+        "comment"
+    ],
+    "/vocabulary/query/when.voc": [
+        "quelle heure",
+        "quand est",
+        "quand"
+    ],
+    "/vocabulary/query/query.voc": [
+        "quand",
+        "comment",
+        "quel est",
+        "dis"
+    ],
+    "/vocabulary/query/confirm-query.voc": [
+        "aller \u00e0",
+        "est l\u00e0",
+        "sera",
+        "y aura-t-il",
+        "ont-ils",
+        "allons-nous",
+        "le fera-t-il",
+        "est-ce"
+    ],
+    "/vocabulary/query/confirm-query-current.voc": [
+        "est l\u00e0",
+        "est-ce"
+    ],
+    "/vocabulary/query/confirm-query-future.voc": [
+        "est-ce que ce sera",
+        "va-t-il devenir",
+        "sera-t-il",
+        "va-t-il",
+        "obtiendra-t-il",
+        "y aura-t-il",
+        "le fera-t-il"
+    ],
+    "/vocabulary/date-time/number-days.voc": [
+        "3 prochains jours",
+        "4 prochains jours",
+        "les deux prochains jours",
+        "2 jours",
+        "six jours s",
+        "3 jours",
+        "quatre jours s",
+        "trois jours",
+        "prochains jours",
+        "deux jours",
+        "5 prochains jours",
+        "6 jours s",
+        "4 jours",
+        "5 jours",
+        "les quatre prochains jours",
+        "cinq prochains jours",
+        "quatre jours",
+        "2 prochains jours",
+        "6 prochains jours",
+        "cinq jours",
+        "six jours",
+        "6 jours",
+        "six prochains jours",
+        "les trois prochains jours"
+    ],
+    "/vocabulary/date-time/today.voc": [
+        "d'aujourd'hui",
+        "aujourd'hui"
+    ],
+    "/vocabulary/date-time/few.voc": [
+        "peu"
+    ],
+    "/vocabulary/date-time/now.voc": [
+        "actuel",
+        "maintenant"
+    ],
+    "/vocabulary/date-time/later.voc": [
+        "prochaine heure",
+        "prochaines heures",
+        "quelques heures",
+        "dans les prochaines heures",
+        "deux heures",
+        "dans les deux prochaines heures",
+        "plus tard"
+    ],
+    "/vocabulary/date-time/week.voc": [
+        "hebdomadaire",
+        "semaine"
+    ],
+    "/vocabulary/date-time/weekend.voc": [
+        "week-end"
+    ],
+    "/vocabulary/date-time/couple.voc": [
+        "couple"
+    ],
+    "/vocabulary/date-time/next.voc": [
+        "prochain",
+        "encore",
+        "quand",
+        "fera",
+        "va \u00eatre"
+    ],
+    "/vocabulary/date-time/relative-time.voc": [
+        "pendant la nuit",
+        "soir\u00e9e",
+        "matin\u00e9e",
+        "apr\u00e8s-midi",
+        "nuit",
+        "ce soir"
+    ],
+    "/vocabulary/date-time/relative-day.voc": [
+        "le vendredi",
+        "d'hier",
+        "lundi",
+        "le jeudi",
+        "dimanche",
+        "le samedi",
+        "samedi",
+        "de demain",
+        "mercredi",
+        "vendredi",
+        "jours",
+        "demain",
+        "le mardi",
+        "hier",
+        "mardi",
+        "jeudi",
+        "le dimanche"
+    ],
+    "/vocabulary/temperature/cold.voc": [
+        "froid",
+        "frileux",
+        "cong\u00e9lation",
+        "cool"
+    ],
+    "/vocabulary/temperature/temperature.voc": [
+        "temp",
+        "temp\u00e9rature"
+    ],
+    "/vocabulary/temperature/low.voc": [
+        "minimum",
+        "faible",
+        "min",
+        "le plus bas"
+    ],
+    "/vocabulary/temperature/high.voc": [
+        "maximum",
+        "\u00e9lev\u00e9",
+        "le plus \u00e9lev\u00e9",
+        "max"
+    ],
+    "/vocabulary/temperature/hot.voc": [
+        "chaud"
+    ],
+    "/vocabulary/condition/fog.voc": [
+        "brumeux",
+        "brouillard"
+    ],
+    "/vocabulary/condition/precipitation.voc": [
+        "pluie",
+        "neige",
+        "pr\u00e9cipitation",
+        "pluvieux",
+        "neigeux",
+        "pleuvoir",
+        "neiger"
+    ],
+    "/vocabulary/condition/humidity.voc": [
+        "humide",
+        "humidit\u00e9",
+        "brumeux"
+    ],
+    "/vocabulary/condition/snow.voc": [
+        "neige fondue",
+        "neige",
+        "gr\u00e9sil"
+    ],
+    "/vocabulary/condition/clear.voc": [
+        "clair",
+        "soleil",
+        "ensoleill\u00e9",
+        "beau temps"
+    ],
+    "/vocabulary/condition/rain.voc": [
+        "pr\u00e9cipitations",
+        "bruine",
+        "pluie fine",
+        "pluie",
+        "pluvieux",
+        "la pluie"
+    ],
+    "/vocabulary/condition/clouds.voc": [
+        "nuages \u00e9pars",
+        "nuages",
+        "quelques nuages",
+        "nuageux",
+        "nuage"
+    ],
+    "/vocabulary/condition/thunderstorm.voc": [
+        "temp\u00eate",
+        "orageux"
+    ],
+    "/vocabulary/condition/windy.voc": [
+        "vent",
+        "venteux",
+        "frais",
+        "en rafale",
+        "souffler"
+    ]
+}
