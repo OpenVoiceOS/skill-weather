@@ -1,3 +1,4 @@
 le coucher de soleil sera à {time} {day}
 le soleil se couchera à {time} {day}
 {day} le soleil se couchera à {time}
+{jour}, le soleil se couchera à {heure}
