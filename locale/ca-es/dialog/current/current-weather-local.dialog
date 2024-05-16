@@ -1,4 +1,3 @@
-# auto translated from en-us to ca-es
+Actualmente es {condition} y {temperature} grados {temperature_unit}.
 Actualmente hay {condition} y {temperature} grados.
 Ahora mismo, hay {condition} y {temperature} grados.
-Actualmente es {condition} y {temperature} grados {temperature_unit}.

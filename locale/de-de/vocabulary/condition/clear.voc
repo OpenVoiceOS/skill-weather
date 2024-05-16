@@ -1,3 +1,2 @@
-# Freimachen von Wettertypen, die in der Behandlungsroutine für "Wird es schönes Wetter geben"
-(klar|sonnig|Sonne)
 (gutes|schönes) Wetter
+(klar|sonnig|Sonne)

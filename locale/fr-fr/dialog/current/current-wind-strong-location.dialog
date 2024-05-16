@@ -1,4 +1,3 @@
-# auto translated from en-us to fr-fr
-Le vent est très fort du {direction} au {location} aujourd'hui, {speed} {speed_unit}
 Actuellement, le vent est du {direction} au {speed} {speed_unit} en {location}, une bonne journée pour rester à l'intérieur.
+Le vent est très fort du {direction} au {location} aujourd'hui, {speed} {speed_unit}
 {location} vents forts aujourd'hui, {speed} {speed_unit}

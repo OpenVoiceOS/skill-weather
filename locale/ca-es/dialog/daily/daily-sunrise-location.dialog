@@ -1,4 +1,3 @@
-# auto translated from en-us to ca-es
-en {location} el amanecer será en {time} {day}
 el sol saldrá a las {time} {day} en {location}
+en {location} el amanecer será en {time} {day}
 {day} el sol saldrá a {time} en {location}

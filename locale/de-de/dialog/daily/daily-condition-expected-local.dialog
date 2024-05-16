@@ -1,3 +1,2 @@
-# Bejahende Antwort auf Fragen wie "Wird es morgen schneien?"
-Ja, für {day} wird {condition} erwartet
 Ja, die Prognose für {day} ist {condition}
+Ja, für {day} wird {condition} erwartet

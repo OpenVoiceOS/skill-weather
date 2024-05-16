@@ -1,4 +1,3 @@
-# auto translated from en-us to nl-nl
+Het is momenteel {condition} en {temperature} graden {temperature_unit} in {location}.
 Op dit moment is het {condition} en {temperature} graden in {location}.
 {location} heeft {condition} en is momenteel {temperature} graden.
-Het is momenteel {condition} en {temperature} graden {temperature_unit} in {location}.

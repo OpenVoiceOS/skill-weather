@@ -1,4 +1,3 @@
-# auto translated from en-us to es-es
-{day} el sol saldrá a las {time}
 el sol saldrá a las {time} {day}
 la salida del sol será a las {time} {day}
+{day} el sol saldrá a las {time}

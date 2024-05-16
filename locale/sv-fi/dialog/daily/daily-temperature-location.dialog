@@ -1,3 +1,2 @@
-# auto translated from en-us to sv-fi
-{day}, {location} lämpötila on {temperature} astetta.
 {day} se on {temperature} astetta {location}:ssa.
+{day}, {location} lämpötila on {temperature} astetta.

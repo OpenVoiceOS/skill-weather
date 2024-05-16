@@ -1,4 +1,3 @@
-# auto translated from en-us to sv-fi
 aurinko laskee {time} {day} {location}:ssa {time} {day}:ssä.
 {day} aurinko laskee {time}:ssä {location}:ssa.
 {location}:ssa auringonlasku on {time}:ssä {day}:ssa.

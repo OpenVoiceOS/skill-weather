@@ -1,4 +1,3 @@
-# auto translated from en-us to ca-es
-{day}, {location} tendrá un máximo de {high_temperature} y un mínimo de {low_temperature}, con {condition}
 La previsión {day} es {high_temperature} para un máximo y {low_temperature} para un mínimo en {location}
 {day} será {condition}, con un máximo de {high_temperature} y un mínimo de {low_temperature} en {location}
+{day}, {location} tendrá un máximo de {high_temperature} y un mínimo de {low_temperature}, con {condition}

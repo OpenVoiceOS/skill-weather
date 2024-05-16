@@ -1,4 +1,3 @@
-# auto translated from en-us to cs-cz
-{location} má {condition} a v současné době má {temperature} stupně.
-V současné době je {condition} a {temperature} stupňů {temperature_unit} v {location}.
 Právě teď je {condition} a {temperature} stupňů v {location}.
+V současné době je {condition} a {temperature} stupňů {temperature_unit} v {location}.
+{location} má {condition} a v současné době má {temperature} stupně.

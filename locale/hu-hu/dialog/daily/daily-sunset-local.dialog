@@ -1,5 +1,4 @@
-# auto translated from en-us to hu-hu
-a nap {time} {day}-kor megy le {time} {day}-kor
-{day} a nap {time}-kor megy le
 a nap {time} {day}
+a nap {time} {day}-kor megy le {time} {day}-kor
 naplemente lesz {time} {day}
+{day} a nap {time}-kor megy le

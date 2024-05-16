@@ -1,5 +1,4 @@
-# auto translated from en-us to sv-fi
-{day} aurinko laskee {time}
-aurinko laskee {time} {day}
 auringonlasku on {time} {day}
+aurinko laskee {time} {day}
 aurinko laskee {time} {day} {time} {day}
+{day} aurinko laskee {time}

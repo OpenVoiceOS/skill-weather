@@ -1,4 +1,3 @@
-# auto translated from en-us to hu-hu
-{day} a nap {time}-kor kel fel
-a napfelkelte {time} {day}
 a nap {time} {day}-kor kel fel
+a napfelkelte {time} {day}
+{day} a nap {time}-kor kel fel

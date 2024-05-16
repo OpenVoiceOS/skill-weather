@@ -1,2 +1,2 @@
-in {location} weht der wind mit {speed} {speed_unit} von {direction}, also etwas windig
 in {location} ist momentan etwas windig, {speed} {speed_unit} von {direction}
+in {location} weht der wind mit {speed} {speed_unit} von {direction}, also etwas windig
