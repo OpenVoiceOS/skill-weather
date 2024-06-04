@@ -585,6 +585,8 @@ class WeatherSkill(OVOSSkill):
                 sleep(7)
                 four_day_forecast = weather.daily[1:5]
                 self._display_multi_day_forecast(four_day_forecast, intent_data)
+            else:
+                sleep(5)
             # reset mk1 faceplate
             self.enclosure.eyes_blink("b")
             self.enclosure.mouth_reset()
