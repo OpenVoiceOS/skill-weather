@@ -585,6 +585,10 @@ class WeatherSkill(OVOSSkill):
                 sleep(7)
                 four_day_forecast = weather.daily[1:5]
                 self._display_multi_day_forecast(four_day_forecast, intent_data)
+            # reset mk1 faceplate
+            self.enclosure.eyes_blink("b")
+            self.enclosure.mouth_reset()
+            self.enclosure.activate_mouth_events()
 
     def _display_current_conditions(self, weather: WeatherReport, weather_location: str):
         """Display current weather conditions on a screen.
@@ -614,10 +618,6 @@ class WeatherSkill(OVOSSkill):
         self.enclosure.weather_display(
             weather.current.condition.code, weather.current.temperature
         )
-        sleep(5)
-        self.enclosure.eyes_blink("b")
-        self.enclosure.mouth_reset()
-        self.enclosure.activate_mouth_events()
 
     def _report_hourly_weather(self, intent_data: WeatherIntent):
         """Handles requests for a one hour forecast.
