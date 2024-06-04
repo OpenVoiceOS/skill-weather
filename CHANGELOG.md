@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a16...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a17...HEAD)
+
+**Fixed bugs:**
+
+- fix/sleep\_5\_before\_speak [\#67](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/67) ([JarbasAl](https://github.com/JarbasAl))
+
+## [V0.0.1a17](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/V0.0.1a17) (2024-05-28)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1a16...V0.0.1a17)
 
 **Merged pull requests:**
 
