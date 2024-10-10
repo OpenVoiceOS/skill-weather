@@ -6,68 +6,68 @@
     "{number} per cent"
   ],
   "/dialog/daily/daily-precipitation-next-local.dialog": [
-    null,
-    null
+    "Hi ha un {percent} de probabilitat de {precipitation} el {day}",
+    "La previsió estableix un {percent} de probabilitat de {precipitation} el  {day}"
   ],
   "/dialog/daily/daily-precipitation-next-none-local.dialog": [
-    null,
-    null
+    "No es preveuen precipitacions per als propers 7 dies",
+    "No hi ha cap previsió per als propers 7 dies."
   ],
   "/dialog/daily/daily-temperature-high-location.dialog": [
-    null,
-    null
+    "Es preveu una temperatura de {temperature} graus a {location} el  {day}",
+    "{location} tindrà una màxima de {temperature} graus el {day}"
   ],
   "/dialog/daily/daily-sunrise-location.dialog": [
-    null,
-    null,
-    null
+    "el sol sortirà a {time} el {day} a {location}",
+    "a {location} la sortida del sol serà a les {time} {day}",
+    "el {day} el sol sortirà a les {time} a {location}"
   ],
   "/dialog/daily/daily-precipitation-next-location.dialog": [
-    null,
-    null
+    "A {location} hi ha un {percent} de probabilitat de {precipitation} el {day}",
+    "La previsió estableix un {percent} de probabilitat de {precipitation} a {location} el {day}"
   ],
   "/dialog/daily/daily-humidity-local.dialog": [
-    null,
-    null
+    "{day} la humitat serà del {percent}",
+    "{day} es preveu una humitat del {percent}"
   ],
   "/dialog/daily/daily-sunset-location.dialog": [
-    null,
-    null,
-    null
+    "el sol es pondrà a les {time} el {day} a {location}",
+    "a {location} la posta de sol serà a les {time} el {dia}",
+    "el {day} el sol es pondrà a les {time} a {location}"
   ],
   "/dialog/daily/daily-weather-location.dialog": [
-    null,
-    null,
+    "el {day} serà {condition}, amb una màxima de {high_temperature} i una mínima de {low_temperature} a {location}",
+    "el {day}, {location} tindrà una màxima de {high_temperature} i una mínima de {low_temperature}, amb {condition}",
     "La previsió pel {dia} és de {high_temperature} de màxima i de {low_temperature} a {location}"
   ],
   "/dialog/daily/daily-temperature-high-low-location.dialog": [
-    null
+    "La previsió d'avui a {location} és una màxima de {high_temperature} i una mínima de {low_temperature}."
   ],
   "/dialog/daily/daily-condition-not-expected-local.dialog": [
     "No, per al {day} la previsió és de {condition}",
-    null
+    "No, s'espera {condition} el {day}"
   ],
   "/dialog/daily/daily-condition-expected-location.dialog": [
-    null,
-    null
+    "Sí, s'espera {condition} a {location} el {day}",
+    "Sí, la previsió és {condition} a {location} el {day}"
   ],
   "/dialog/daily/daily-sunset-local.dialog": [
-    null,
-    null,
-    null,
-    null
+    "el sol es pondrà a {time} el {day}",
+    "el sol s'amagarà a {time} el {day}",
+    "la posta de sol serà a {time} el {day}",
+    "el {dia} el sol es pondrà a {time}"
   ],
   "/dialog/daily/daily-temperature-low-local.dialog": [
-    null,
-    null
+    "el {day} la temperatura serà de {temperature}",
+    "el {day} la temperatura serà de {temperature} graus."
   ],
   "/dialog/daily/daily-temperature-local.dialog": [
-    null,
-    null
+    "el {day} estarem a {temperature}",
+    "el {day} la temperatura serà de  {temperature} graus."
   ],
   "/dialog/daily/daily-condition-not-expected-location.dialog": [
-    null,
-    null
+    "No, el {day} la previsió diu {condition} a {location}",
+    "No, a {location} es preveu {condition}  el {day}"
   ],
   "/dialog/daily/daily-condition-expected-local.dialog": [
     null,
