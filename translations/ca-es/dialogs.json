@@ -1,0 +1,489 @@
+{
+  "/dialog/and.dialog": [
+    "i"
+  ],
+  "/dialog/percentage-number.dialog": [
+    "{number} per cent"
+  ],
+  "/dialog/daily/daily-precipitation-next-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-precipitation-next-none-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-temperature-high-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-sunrise-location.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/daily/daily-precipitation-next-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-humidity-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-sunset-location.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/daily/daily-weather-location.dialog": [
+    null,
+    null,
+    "La previsió pel {dia} és de {high_temperature} de màxima i de {low_temperature} a {location}"
+  ],
+  "/dialog/daily/daily-temperature-high-low-location.dialog": [
+    null
+  ],
+  "/dialog/daily/daily-condition-not-expected-local.dialog": [
+    "No, per al {day} la previsió és de {condition}",
+    null
+  ],
+  "/dialog/daily/daily-condition-expected-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-sunset-local.dialog": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "/dialog/daily/daily-temperature-low-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-temperature-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-condition-not-expected-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-condition-expected-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-temperature-low-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-weather-local.dialog": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "/dialog/daily/daily-sunrise-local.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/daily/daily-wind-moderate-location.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/daily/daily-temperature-high-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-wind-moderate-local.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/daily/daily-wind-strong-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-wind-strong-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-temperature-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-precipitation-next-none-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-humidity-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-wind-light-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/daily/daily-temperature-high-low-local.dialog": [
+    null
+  ],
+  "/dialog/daily/daily-wind-light-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/unit/celsius.dialog": [
+    null
+  ],
+  "/dialog/unit/kilometer per hour.dialog": [
+    null
+  ],
+  "/dialog/unit/miles per hour.dialog": [
+    null
+  ],
+  "/dialog/unit/meter per second.dialog": [
+    null
+  ],
+  "/dialog/unit/fahrenheit.dialog": [
+    null
+  ],
+  "/dialog/unit/inch.dialog": [
+    null
+  ],
+  "/dialog/unit/millimeter.dialog": [
+    null
+  ],
+  "/dialog/current/current-humidity-local.dialog": [
+    null
+  ],
+  "/dialog/current/current-sunrise-future-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-humidity-location.dialog": [
+    null
+  ],
+  "/dialog/current/current-temperature-location.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/current-sunset-past-location.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/current-sunset-future-location.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/current-weather-local.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/current-condition-expected-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-sunset-future-local.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/current-condition-expected-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-wind-strong-location.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/current-sunrise-future-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-condition-not-expected-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-sunset-past-local.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/current-weather-location.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/current-wind-moderate-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-wind-moderate-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-condition-not-expected-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-sunrise-past-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-wind-strong-local.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/currrent-clouds-alternative-local.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/current/current-wind-light-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-wind-light-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-sunrise-past-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/current/current-temperature-local.dialog": [
+    null,
+    null,
+    null
+  ],
+  "/dialog/weekly/weekly-condition.dialog": [
+    null,
+    null
+  ],
+  "/dialog/weekly/weekly-temperature.dialog": [
+    null
+  ],
+  "/dialog/date-time/afternoon.dialog": [
+    null
+  ],
+  "/dialog/date-time/morning.dialog": [
+    null
+  ],
+  "/dialog/date-time/evening.dialog": [
+    null
+  ],
+  "/dialog/date-time/early morning.dialog": [
+    null
+  ],
+  "/dialog/date-time/overnight.dialog": [
+    null
+  ],
+  "/dialog/condition/drizzle-dense-intensity.dialog": [
+    null
+  ],
+  "/dialog/condition/drizzle-moderate-intensity.dialog": [
+    null
+  ],
+  "/dialog/condition/thunderstorm.dialog": [
+    null
+  ],
+  "/dialog/condition/moderate-rain.dialog": [
+    null
+  ],
+  "/dialog/condition/heavy-rain.dialog": [
+    null
+  ],
+  "/dialog/condition/haze.dialog": [
+    null
+  ],
+  "/dialog/condition/rain.dialog": [
+    null
+  ],
+  "/dialog/condition/moderate-rain-showers.dialog": [
+    null
+  ],
+  "/dialog/condition/slight-rain.dialog": [
+    null
+  ],
+  "/dialog/condition/humidity.dialog": [
+    null
+  ],
+  "/dialog/condition/mist.dialog": [
+    null
+  ],
+  "/dialog/condition/slight-snow-showers.dialog": [
+    null
+  ],
+  "/dialog/condition/freezing-drizzle-dense-intensity.dialog": [
+    null
+  ],
+  "/dialog/condition/drizzle.dialog": [
+    null
+  ],
+  "/dialog/condition/heavy-snow-fall.dialog": [
+    null
+  ],
+  "/dialog/condition/freezing-rain-light-intensity.dialog": [
+    null
+  ],
+  "/dialog/condition/snow-grains.dialog": [
+    null
+  ],
+  "/dialog/condition/dust.dialog": [
+    null
+  ],
+  "/dialog/condition/squall.dialog": [
+    null
+  ],
+  "/dialog/condition/thunderstorm-with-slight-hail.dialog": [
+    null
+  ],
+  "/dialog/condition/freezing-drizzle-light-intensity.dialog": [
+    null
+  ],
+  "/dialog/condition/slight-rain-showers.dialog": [
+    null
+  ],
+  "/dialog/condition/heavy-snow-showers.dialog": [
+    null
+  ],
+  "/dialog/condition/clear.dialog": [
+    null
+  ],
+  "/dialog/condition/thunderstorm-with-heavy-hail.dialog": [
+    null
+  ],
+  "/dialog/condition/partly-cloudy.dialog": [
+    null
+  ],
+  "/dialog/condition/drizzle-light-intensity.dialog": [
+    null
+  ],
+  "/dialog/condition/violent-rain-showers.dialog": [
+    null
+  ],
+  "/dialog/condition/fog.dialog": [
+    null
+  ],
+  "/dialog/condition/smoke.dialog": [
+    null
+  ],
+  "/dialog/condition/slight-snow-fall.dialog": [
+    null
+  ],
+  "/dialog/condition/mainly-clear.dialog": [
+    null
+  ],
+  "/dialog/condition/depositing-rime-fog.dialog": [
+    null
+  ],
+  "/dialog/condition/snow.dialog": [
+    null
+  ],
+  "/dialog/condition/clouds.dialog": [
+    null
+  ],
+  "/dialog/condition/tornado.dialog": [
+    null
+  ],
+  "/dialog/condition/freezing-rain-dense-intensity.dialog": [
+    null
+  ],
+  "/dialog/condition/moderate-snow-fall.dialog": [
+    null
+  ],
+  "/dialog/condition/overcast.dialog": [
+    null
+  ],
+  "/dialog/condition/ash.dialog": [
+    null
+  ],
+  "/dialog/condition/clear-sky.dialog": [
+    null
+  ],
+  "/dialog/error/location-not-found.dialog": [
+    null,
+    null
+  ],
+  "/dialog/error/forty-eight-hours-available.dialog": [
+    null
+  ],
+  "/dialog/error/no-forecast.dialog": [
+    null,
+    null
+  ],
+  "/dialog/error/cant-get-forecast.dialog": [
+    null,
+    null
+  ],
+  "/dialog/error/seven-days-available.dialog": [
+    null,
+    null
+  ],
+  "/dialog/direction/northeast.dialog": [
+    null
+  ],
+  "/dialog/direction/east.dialog": [
+    null
+  ],
+  "/dialog/direction/southeast.dialog": [
+    null
+  ],
+  "/dialog/direction/southwest.dialog": [
+    null
+  ],
+  "/dialog/direction/south.dialog": [
+    null
+  ],
+  "/dialog/direction/northwest.dialog": [
+    null
+  ],
+  "/dialog/direction/north.dialog": [
+    null
+  ],
+  "/dialog/direction/west.dialog": [
+    null
+  ],
+  "/dialog/hourly/hourly-weather-local.dialog": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "/dialog/hourly/hourly-precipitation-next-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/hourly/hourly-condition-expected-local.dialog": [
+    null
+  ],
+  "/dialog/hourly/hourly-weather-location.dialog": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "/dialog/hourly/hourly-temperature-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/hourly/hourly-precipitation-next-location.dialog": [
+    null,
+    null
+  ],
+  "/dialog/hourly/hourly-temperature-local.dialog": [
+    null,
+    null
+  ],
+  "/dialog/hourly/hourly-condition-expected-location.dialog": [
+    null
+  ]
+}
