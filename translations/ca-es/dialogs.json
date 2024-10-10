@@ -132,28 +132,28 @@
   ],
   "/dialog/daily/daily-wind-light-location.dialog": [
     null,
-    null
+    "No farà gaire vent a {location} el {day}"
   ],
   "/dialog/unit/celsius.dialog": [
-    null
+    "centígrads"
   ],
   "/dialog/unit/kilometer per hour.dialog": [
-    null
+    "quilòmetre per hora"
   ],
   "/dialog/unit/miles per hour.dialog": [
-    null
+    "milles per hora"
   ],
   "/dialog/unit/meter per second.dialog": [
-    null
+    "metres per segon"
   ],
   "/dialog/unit/fahrenheit.dialog": [
-    null
+    "fahrenheit"
   ],
   "/dialog/unit/inch.dialog": [
-    null
+    "polzada"
   ],
   "/dialog/unit/millimeter.dialog": [
-    null
+    "mil·límetre"
   ],
   "/dialog/current/current-humidity-local.dialog": [
     null
@@ -407,7 +407,7 @@
     null
   ],
   "/dialog/condition/clear-sky.dialog": [
-    null
+    "cel clar"
   ],
   "/dialog/error/location-not-found.dialog": [
     null,
@@ -429,28 +429,28 @@
     null
   ],
   "/dialog/direction/northeast.dialog": [
-    null
+    "nord-est"
   ],
   "/dialog/direction/east.dialog": [
-    null
+    "est"
   ],
   "/dialog/direction/southeast.dialog": [
-    null
+    "sud-est"
   ],
   "/dialog/direction/southwest.dialog": [
-    null
+    "sud-oest"
   ],
   "/dialog/direction/south.dialog": [
-    null
+    "sud"
   ],
   "/dialog/direction/northwest.dialog": [
-    null
+    "nord-oest"
   ],
   "/dialog/direction/north.dialog": [
-    null
+    "nord"
   ],
   "/dialog/direction/west.dialog": [
-    null
+    "oest"
   ],
   "/dialog/hourly/hourly-weather-local.dialog": [
     null,
