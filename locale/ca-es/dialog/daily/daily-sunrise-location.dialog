@@ -1,0 +1,3 @@
+a {location} la sortida del sol serà a les {time} {day}
+el sol sortirà a {time} el {day} a {location}
+el {day} el sol sortirà a les {time} a {location}
