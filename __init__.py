@@ -1079,7 +1079,7 @@ class WeatherSkill(OVOSSkill):
                 low_temperature=weather.daily[0].temperature_low,
                 weather_code=weather.current.condition.code,
                 condition_category=weather.current.condition.category,
-                condition_description=self.translate(
+                condition_description=self.resources.render_dialog(
                     weather.current.condition.description
                 ),
                 system_unit=weather_config.scale
