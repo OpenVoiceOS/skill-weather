@@ -1,14 +1,12 @@
 # Changelog
 
-## [0.1.1a2](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.1a2) (2024-10-15)
+## [0.1.2a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.2a1) (2024-10-15)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/V0.0.1...0.1.1a2)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.1...0.1.2a1)
 
 **Merged pull requests:**
 
-- fix:long description [\#73](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/73) ([JarbasAl](https://github.com/JarbasAl))
-- fix:update\_requirements [\#72](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/72) ([JarbasAl](https://github.com/JarbasAl))
-- Add Catalans strings [\#71](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/71) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- fix:requirements.txt [\#76](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/76) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
