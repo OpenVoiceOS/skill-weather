@@ -1,24 +1,12 @@
 # Changelog
 
-## [0.1.3a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.3a1) (2024-10-15)
+## [0.1.4a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.4a1) (2024-11-01)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.2a1...0.1.3a1)
-
-**Fixed bugs:**
-
-- deprecated methods [\#75](https://github.com/OpenVoiceOS/skill-ovos-weather/issues/75)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.3...0.1.4a1)
 
 **Merged pull requests:**
 
-- fix:workshop\_100\_compat [\#78](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/78) ([JarbasAl](https://github.com/JarbasAl))
-
-## [0.1.2a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.2a1) (2024-10-15)
-
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.1...0.1.2a1)
-
-**Merged pull requests:**
-
-- fix:requirements.txt [\#76](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/76) ([JarbasAl](https://github.com/JarbasAl))
+- fix: allow workshop 2.0.0 [\#80](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/80) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
