@@ -62,7 +62,7 @@
     "hvad vil  ",
     "fortælle (mig|os) (om|)  ",
     "Giv mig  ",
-    null
+    "hvad"
   ],
   "/vocabulary/query/confirm-query.voc": [
     "er det  ",
@@ -154,7 +154,7 @@
     "nat  ",
     "i aften  ",
     "natten over  ",
-    null
+    "midnat"
   ],
   "/vocabulary/date-time/relative-day.voc": [
     "i dag  ",
@@ -170,12 +170,12 @@
     "Fredag  ",
     "lørdag  ",
     "Søndag ",
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
+    "på fredag",
+    "lørdag",
+    "på lørdag",
+    "søndag",
+    "på søndag",
+    "dage"
   ],
   "/vocabulary/temperature/cold.voc": [
     "kold  ",
