@@ -1,12 +1,24 @@
 # Changelog
 
-## [0.1.4a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.4a1) (2024-11-01)
+## [0.1.5a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.5a1) (2024-11-05)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.3...0.1.4a1)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.5a1...0.1.5a1)
 
 **Merged pull requests:**
 
-- fix: allow workshop 2.0.0 [\#80](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/80) ([JarbasAl](https://github.com/JarbasAl))
+- fix: gui resources path [\#84](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/84) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.5a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.5a1) (2024-11-04)
+
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.4...0.1.5a1)
+
+**Closed issues:**
+
+- Weather skill not working on Basic install [\#83](https://github.com/OpenVoiceOS/skill-ovos-weather/issues/83)
+
+**Merged pull requests:**
+
+- da-dk/translate [\#82](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/82) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 
 
