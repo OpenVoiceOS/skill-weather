@@ -32,11 +32,11 @@ convention was applied to the dialog files:
 
 The skill class will use the "name" and "data" attributes to pass to the TTS process.
 """
-# TODO - get rid of relative imports as soon as skills can be properly packaged with arbitrary module structures
-from typing import List
 from os.path import dirname
+# TODO - get rid of relative imports as soon as skills can be properly packaged with arbitrary module structures
+from typing import List, Optional
 
-from lingua_franca.format import join_list, nice_time
+from ovos_date_parser import nice_time
 from ovos_utils.time import now_local
 from ovos_workshop.resource_files import SkillResources
 
@@ -49,6 +49,64 @@ from .weather import (
     Weather,
     WeatherReport
 )
+
+
+def _get_and_word(lang):
+    """ Helper to get word translations
+
+    Args:
+        lang (str, optional): an optional BCP-47 language code, if omitted
+                              the default language will be used.
+
+    Returns:
+        str: translated version of resource name
+    """
+    mapp = {
+        "az": "və",
+        "ca": "i",
+        "cs": "a",
+        "da": "og",
+        "de": "und",
+        "en": "and",
+        "fa": "و",
+        "pl": "oraz",
+        "pt": "e",
+        "sl": "in",
+        "uk": "та"
+    }
+    return mapp.get(lang.split("-")[0]) or ", "
+
+
+def join_list(items: List[str], connector: str, sep: Optional[str] = None,
+              lang: str = '') -> str:
+    """ Join a list into a phrase using the given connector word
+
+    Examples:
+        join_list([1,2,3], "and") ->  "1, 2 and 3"
+        join_list([1,2,3], "and", ";") ->  "1; 2 and 3"
+
+    Args:
+        items (array): items to be joined
+        connector (str): connecting word (resource name), like "and" or "or"
+        sep (str, optional): separator character, default = ","
+        lang (str, optional): an optional BCP-47 language code, if omitted
+                              the default language will be used.
+    Returns:
+        str: the connected list phrase
+    """
+
+    if not items:
+        return ""
+    if len(items) == 1:
+        return str(items[0])
+
+    if not sep:
+        sep = ", "
+    else:
+        sep += " "
+    return (sep.join(str(item) for item in items[:-1]) +
+            " " + _get_and_word(lang) +
+            " " + items[-1])
 
 
 # TODO: MISSING DIALOGS
@@ -77,7 +135,7 @@ class WeatherDialog:
 
     def translate(self, dialog, data=None):
         data = data or dict()
-        return self.resources.render_dialog(dialog, data=data)   
+        return self.resources.render_dialog(dialog, data=data)
 
     def _add_location(self):
         """Add location information to the dialog."""
@@ -212,7 +270,7 @@ class HourlyDialog(WeatherDialog):
         super().__init__(intent_data)
         self.weather = weather
         self.name = HOURLY
-    
+
     def build_weather_dialog(self):
         """Build the components necessary to speak the forecast for a hour."""
         self.name += "-weather"
@@ -223,7 +281,7 @@ class HourlyDialog(WeatherDialog):
         )
         self._add_location()
 
-    def build_temperature_dialog(self, _ = None):
+    def build_temperature_dialog(self, _=None):
         """Build the components necessary to speak the hourly temperature."""
         self.name += "-temperature"
         self.data = dict(

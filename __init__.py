@@ -23,8 +23,8 @@ from datetime import datetime
 from time import sleep
 from typing import List
 
-from lingua_franca.parse import extract_number
-from lingua_franca.format import (
+from ovos_number_parser import extract_number
+from ovos_date_parser import (
     nice_time,
     nice_weekday,
     get_date_strings
@@ -847,7 +847,7 @@ class WeatherSkill(OVOSSkill):
                     weatherCondition=day.condition.animated_code,
                     highTemperature=day.temperature_high,
                     lowTemperature=day.temperature_low,
-                    date=nice_weekday(day.date_time, self.lang)[:3],
+                    date=nice_weekday(day.date_time, lang=self.lang)[:3],
                 )
             )
         self.gui["forecast"] = dict(all=display_data)
@@ -1049,7 +1049,7 @@ class WeatherSkill(OVOSSkill):
             the value to display on the screen
         """
         return nice_time(dt,
-                         self.lang,
+                         lang=self.lang,
                          speech=False,
                          use_24hour = self.use_24h,
                          use_ampm = not self.use_24h)

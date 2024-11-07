@@ -17,8 +17,8 @@ from typing import List
 from itertools import islice
 
 import pytz
-from lingua_franca.format import nice_date
-from lingua_franca.parse import extract_datetime
+
+from ovos_date_parser import  nice_date, extract_datetime
 from ovos_backend_client.api import GeolocationApi
 from ovos_utils.time import now_local, to_local
 
@@ -65,7 +65,7 @@ def get_utterance_datetime(
     else:
         intent_timezone = get_tz_info(timezone)
         anchor_date = datetime.now(intent_timezone)
-    extract = extract_datetime(utterance, anchor_date, language)
+    extract = extract_datetime(utterance, anchorDate=anchor_date, lang=language)
     if extract is not None:
         utterance_datetime, _ = extract
     return utterance_datetime
