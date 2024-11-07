@@ -39,7 +39,7 @@ from typing import List, Optional
 from ovos_date_parser import nice_time
 from ovos_utils.time import now_local
 from ovos_workshop.resource_files import SkillResources
-
+from ovos_workshop.skills.ovos import join_word_list
 from .intent import WeatherIntent
 from .util import get_speakable_day_of_week, get_time_period
 from .weather import (
@@ -49,65 +49,6 @@ from .weather import (
     Weather,
     WeatherReport
 )
-
-
-def _get_and_word(lang):
-    """ Helper to get word translations
-
-    Args:
-        lang (str, optional): an optional BCP-47 language code, if omitted
-                              the default language will be used.
-
-    Returns:
-        str: translated version of resource name
-    """
-    mapp = {
-        "az": "və",
-        "ca": "i",
-        "cs": "a",
-        "da": "og",
-        "de": "und",
-        "en": "and",
-        "fa": "و",
-        "pl": "oraz",
-        "pt": "e",
-        "sl": "in",
-        "uk": "та"
-    }
-    return mapp.get(lang.split("-")[0]) or ", "
-
-
-def join_list(items: List[str], connector: str, sep: Optional[str] = None,
-              lang: str = '') -> str:
-    """ Join a list into a phrase using the given connector word
-
-    Examples:
-        join_list([1,2,3], "and") ->  "1, 2 and 3"
-        join_list([1,2,3], "and", ";") ->  "1; 2 and 3"
-
-    Args:
-        items (array): items to be joined
-        connector (str): connecting word (resource name), like "and" or "or"
-        sep (str, optional): separator character, default = ","
-        lang (str, optional): an optional BCP-47 language code, if omitted
-                              the default language will be used.
-    Returns:
-        str: the connected list phrase
-    """
-
-    if not items:
-        return ""
-    if len(items) == 1:
-        return str(items[0])
-
-    if not sep:
-        sep = ", "
-    else:
-        sep += " "
-    return (sep.join(str(item) for item in items[:-1]) +
-            " " + _get_and_word(lang) +
-            " " + items[-1])
-
 
 # TODO: MISSING DIALOGS
 #   - current.clear.alternative.local
@@ -486,7 +427,7 @@ class WeeklyDialog(WeatherDialog):
             if daily.condition.category == condition:
                 day = get_speakable_day_of_week(daily.date_time, lang=self.lang)
                 days_with_condition.append(day)
-        self.data.update(days=join_list(days_with_condition, "and"))
+        self.data.update(days=join_word_list(days_with_condition, connector="and", sep=",", lang=self.lang))
 
 
 def get_dialog_for_timeframe(intent_data: WeatherIntent,
