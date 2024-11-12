@@ -32,14 +32,14 @@ convention was applied to the dialog files:
 
 The skill class will use the "name" and "data" attributes to pass to the TTS process.
 """
-# TODO - get rid of relative imports as soon as skills can be properly packaged with arbitrary module structures
-from typing import List
 from os.path import dirname
+# TODO - get rid of relative imports as soon as skills can be properly packaged with arbitrary module structures
+from typing import List, Optional
 
-from lingua_franca.format import join_list, nice_time
+from ovos_date_parser import nice_time
 from ovos_utils.time import now_local
 from ovos_workshop.resource_files import SkillResources
-
+from ovos_workshop.skills.ovos import join_word_list
 from .intent import WeatherIntent
 from .util import get_speakable_day_of_week, get_time_period
 from .weather import (
@@ -49,7 +49,6 @@ from .weather import (
     Weather,
     WeatherReport
 )
-
 
 # TODO: MISSING DIALOGS
 #   - current.clear.alternative.local
@@ -77,7 +76,7 @@ class WeatherDialog:
 
     def translate(self, dialog, data=None):
         data = data or dict()
-        return self.resources.render_dialog(dialog, data=data)   
+        return self.resources.render_dialog(dialog, data=data)
 
     def _add_location(self):
         """Add location information to the dialog."""
@@ -212,7 +211,7 @@ class HourlyDialog(WeatherDialog):
         super().__init__(intent_data)
         self.weather = weather
         self.name = HOURLY
-    
+
     def build_weather_dialog(self):
         """Build the components necessary to speak the forecast for a hour."""
         self.name += "-weather"
@@ -223,7 +222,7 @@ class HourlyDialog(WeatherDialog):
         )
         self._add_location()
 
-    def build_temperature_dialog(self, _ = None):
+    def build_temperature_dialog(self, _=None):
         """Build the components necessary to speak the hourly temperature."""
         self.name += "-temperature"
         self.data = dict(
@@ -428,7 +427,7 @@ class WeeklyDialog(WeatherDialog):
             if daily.condition.category == condition:
                 day = get_speakable_day_of_week(daily.date_time, lang=self.lang)
                 days_with_condition.append(day)
-        self.data.update(days=join_list(days_with_condition, "and"))
+        self.data.update(days=join_word_list(days_with_condition, connector="and", sep=",", lang=self.lang))
 
 
 def get_dialog_for_timeframe(intent_data: WeatherIntent,

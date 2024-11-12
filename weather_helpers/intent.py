@@ -17,8 +17,7 @@
 from datetime import timedelta
 
 from ovos_utils.time import now_local
-from lingua_franca.parse import normalize
-
+from ovos_utterance_normalizer import UtteranceNormalizerPlugin
 from .util import (
     get_utterance_datetime,
     get_geolocation,
@@ -40,9 +39,8 @@ class WeatherIntent:
         :param language: The configured language of the device
         """
         self.message = message
-        self.utterance = normalize(message.data["utterance"],
-                                   weather_config.lang,
-                                   remove_articles=False)
+        normalizer = UtteranceNormalizerPlugin.get_normalizer(lang=weather_config.lang)
+        self.utterance = normalizer.normalize(message.data["utterance"])
         self.location = message.data.get("location")
         self.config = weather_config
         self.scale = None
