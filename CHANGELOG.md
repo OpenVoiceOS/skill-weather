@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.1.6a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.6a1) (2024-11-12)
+## [0.1.7a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.7a1) (2024-11-15)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.5...0.1.6a1)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.6...0.1.7a1)
 
 **Merged pull requests:**
 
-- fix: drop lingua-franca [\#85](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/85) ([JarbasAl](https://github.com/JarbasAl))
+- fix: skill.json [\#89](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/89) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
