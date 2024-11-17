@@ -55,7 +55,7 @@
     "il sole tramonterà a {time} {day}",
     "il tramonto sarà a {time} {day}",
     "{day} il sole tramonterà a {time}",
-    null
+    "{day} il sole tramonterà a {time}"
   ],
   "/dialog/daily/daily-temperature-low-local.dialog": [
     "{day} la temperatura sarà di {temperature} gradi.",
@@ -187,16 +187,16 @@
   ],
   "/dialog/current/current-condition-expected-location.dialog": [
     "Sì, sarà {condition} a {location}",
-    null
+    "Sì, sarà {condition} a {location}"
   ],
   "/dialog/current/current-sunset-future-local.dialog": [
     "il sole tramonterà a {time} oggi",
     "il tramonto sarà a {time} oggi",
-    null
+    "oggi il tramonto sarà alle {time}"
   ],
   "/dialog/current/current-condition-expected-local.dialog": [
     "Si, ci sarà {condition}",
-    null
+    "Si, ci sarà {condition}"
   ],
   "/dialog/current/current-wind-strong-location.dialog": [
     "Attualmente il vento proviene da {direction} a {speed} {speed_unit} a {location}, una buona giornata per stare in casa.",
@@ -214,7 +214,7 @@
   "/dialog/current/current-sunset-past-local.dialog": [
     "il tramonto era a {time} oggi",
     "il sole è tramontato a {time} oggi",
-    null
+    "il sole è tramontato a {time} oggi"
   ],
   "/dialog/current/current-weather-location.dialog": [
     "{location} ha {condition} e attualmente è {temperature} gradi.",
