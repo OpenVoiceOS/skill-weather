@@ -91,7 +91,7 @@ class WeatherIntent:
             if self.location is None:
                 self._geolocation = dict()
             else:
-                self._geolocation = get_geolocation(self.location)
+                self._geolocation = get_geolocation(self.location, lang=self.config.lang)
         return self._geolocation
 
     @property
