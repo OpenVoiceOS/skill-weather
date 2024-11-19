@@ -13,13 +13,12 @@
 # limitations under the License.
 """Utility functions for the weather skill."""
 from datetime import datetime, timedelta, tzinfo
-from typing import List
 from itertools import islice
+from typing import List
 
 import pytz
-
-from ovos_date_parser import  nice_date, extract_datetime
-from ovos_backend_client.api import GeolocationApi
+from ovos_date_parser import nice_date, extract_datetime
+from ovos_utils.geolocation import get_geolocation as _get_geo
 from ovos_utils.time import now_local, to_local
 
 
@@ -83,11 +82,12 @@ def get_tz_info(timezone: str) -> tzinfo:
     return pytz.timezone(timezone)
 
 
-def get_geolocation(location: str):
+def get_geolocation(location: str, lang: str = "en"):
     """Retrieve the geolocation information about the requested location.
 
     Args:
         location: a location specified in the utterance
+        lang: lang to return country/region in
 
     Returns:
         A deserialized JSON object containing geolocation information for the
@@ -96,8 +96,7 @@ def get_geolocation(location: str):
     Raises:
         LocationNotFound error if the API returns no results.
     """
-    geolocation_api = GeolocationApi()
-    geolocation = geolocation_api.get_geolocation(location)
+    geolocation = _get_geo(location, lang=lang)
 
     if geolocation is None:
         raise LocationNotFoundError(f"Location {location} is unknown")
@@ -106,7 +105,7 @@ def get_geolocation(location: str):
     return {
         "city": geolocation["city"]["name"],
         "region": geolocation["city"]["state"]["name"],
-        "country":  geolocation["city"]["state"]["country"]["name"],
+        "country": geolocation["city"]["state"]["country"]["name"],
         "latitude": geolocation["coordinate"]["latitude"],
         "longitude": geolocation["coordinate"]["longitude"],
         "timezone": geolocation["timezone"]["code"]

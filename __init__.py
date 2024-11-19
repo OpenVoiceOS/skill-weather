@@ -949,7 +949,7 @@ class WeatherSkill(OVOSSkill):
 
     def _get_weather_config(self, message=None):
         sess = SessionManager.get(message)
-        cfg = {"lang": sess. lang,
+        cfg = {"lang": sess.lang,
                "system_unit": sess.system_unit,
                "location": sess.location_preferences,
                "date_format": sess.date_format,
