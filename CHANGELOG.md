@@ -1,8 +1,8 @@
 # Changelog
 
-## [0.1.12a1](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.12a1) (2024-11-25)
+## [0.1.12a2](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.12a2) (2024-11-25)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.11...0.1.12a1)
+[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.11...0.1.12a2)
 
 **Merged pull requests:**
 
