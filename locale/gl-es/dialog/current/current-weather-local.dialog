@@ -1,3 +1,3 @@
-Actualmente, está {condition} e fai {temp} graos.
-Neste momento está {condition} e fai {temp} graos {scale}.
-Neste momento, está {condition} e fai {temp} graos.
+Arestora. hai {condition} e {temperature} graos.
+Hai {condition} e {temperature} graos {temperature_unit}.
+Hai {condition} e {temperature} graos.

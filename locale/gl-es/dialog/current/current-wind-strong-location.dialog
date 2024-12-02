@@ -1,3 +1,3 @@
-Está {wind} {wind_unit} en {location}, un boa día para estar na casa
-O vento será forte hoxe en {location}, {wind} {wind_unit}
-{location} terá vento bastante forte hoxe, {wind} {wind_unit}
+Nestes momentos. O vento sopra do {direction} a {speed} {speed_unit} en {location}. O mellor é ficar na casa
+O vento sopra hoxe moi forte do {direction} en {location}. {speed} {speed_unit}
+{location} terá ventos fortes hoxe. {speed} {speed_unit}
