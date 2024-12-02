@@ -1,0 +1,3 @@
+{day}(|e)an iragarpenak {high_temperature}(|e)ko maximoa eta {low_temperature}(|e)ko minimoa eman ditu {location}(|e)n
+{day}(|e)an {condition} izango da, {high_temperature}(|e)ko maximoarekin eta {low_temperature}(|e)ko minimoarekin {location}(|e)n
+{day}(|e)an. {location}(|e)n {high_temperature}(|e)ko maximoa eta {low_temperature}(|e)ko minimoa izango dira, eta {condition} izango da
