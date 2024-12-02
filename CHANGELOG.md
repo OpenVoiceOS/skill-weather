@@ -1,13 +1,25 @@
 # Changelog
 
-## [0.1.12a2](https://github.com/OpenVoiceOS/skill-ovos-weather/tree/0.1.12a2) (2024-11-25)
+## [0.1.12a3](https://github.com/OpenVoiceOS/ovos-skill-weather/tree/0.1.12a3) (2024-12-02)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-weather/compare/0.1.11...0.1.12a2)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-weather/compare/0.1.12a2...0.1.12a3)
 
 **Merged pull requests:**
 
-- da-dk/translate [\#100](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/100) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-- Add Catalan translation [\#99](https://github.com/OpenVoiceOS/skill-ovos-weather/pull/99) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- import galician translations [\#105](https://github.com/OpenVoiceOS/ovos-skill-weather/pull/105) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.12a2](https://github.com/OpenVoiceOS/ovos-skill-weather/tree/0.1.12a2) (2024-11-25)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-weather/compare/0.1.12a1...0.1.12a2)
+
+## [0.1.12a1](https://github.com/OpenVoiceOS/ovos-skill-weather/tree/0.1.12a1) (2024-11-25)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-weather/compare/0.1.11...0.1.12a1)
+
+**Merged pull requests:**
+
+- da-dk/translate [\#100](https://github.com/OpenVoiceOS/ovos-skill-weather/pull/100) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- Add Catalan translation [\#99](https://github.com/OpenVoiceOS/ovos-skill-weather/pull/99) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 
 
