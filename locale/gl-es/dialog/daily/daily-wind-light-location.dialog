@@ -1,2 +1,2 @@
-En {location} {day} non haberá vento
-{day} non será un día con moito vento en {location}
+Haberá un vento feble do {direction} en {location} {day} a {speed} {speed_unit}
+Non ventará moito en {location} {day}

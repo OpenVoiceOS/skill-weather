@@ -1,2 +1,2 @@
-O vento estará forte como {wind} {wind_unit} {day}
-O vento estará {wind} {wind_unit} {day}
+Haberá un vento forte do {direction} de {speed} {speed_unit} {day}
+O vento chegará a {speed} {speed_unit} {day}

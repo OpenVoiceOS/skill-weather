@@ -1,43 +1,46 @@
 {
     "/vocabulary/location.voc": [
-        "Seattle",
-        "Los Angeles california|los angeles|la",
         "Lawrence kansas",
-        "portland oregon|portland",
-        "spokane",
-        "new york",
+        "Os Ánxeles california|os ánxeles|la",
+        "Seattle",
+        "atlanta",
+        "austin",
+        "berlín",
+        "boston",
         "chicago",
         "houston",
-        "austin",
+        "kansas city",
+        "portland oregón|portland",
         "san diego",
         "san francisco",
-        "san jose",
-        "boston",
-        "washington dc",
-        "kansas city",
-        "atlanta"
+        "san josé",
+        "spokane"
     ],
     "/vocabulary/sunrise.voc": [
         "amencer",
-        "amencer",
-        "aurora",
+        "abrir o día",
+        "abrir o día",
         "amencer",
         "amencer"
     ],
     "/vocabulary/forecast.voc": [
-        "previsi\u00f3n"
+        "previsión"
+    ],
+    "/vocabulary/outside.voc": [
+        "fóra",
+        "fóra"
     ],
     "/vocabulary/sunset.voc": [
-        "posta do sol",
-        "ocaso",
-        "crep\u00fasculo"
+        "crepúsculo",
+        "solpor",
+        "solpor"
     ],
     "/vocabulary/weather.voc": [
-        "(tempo|clima)"
+        "tempo"
     ],
     "/vocabulary/unit/unit.voc": [
-        "fahrenheit",
-        "celsius"
+        "centígrados",
+        "fahrenheit"
     ],
     "/vocabulary/unit/fahrenheit.voc": [
         "fahrenheit"
@@ -46,158 +49,190 @@
         "como"
     ],
     "/vocabulary/query/when.voc": [
+        "que hora",
         "cando",
-        "cando \u00e9",
-        "cando ser\u00e1",
-        "cando \u00e9",
-        "a que hora"
+        "cando é",
+        "cando será",
+        "cando"
     ],
     "/vocabulary/query/query.voc": [
+        "dáme",
         "como",
-        "cal \u00e9",
-        "que \u00e9",
-        "cal ser\u00e1",
-        "c\u00f3nta(me|nos) (sobre|)",
-        "d\u00e1me"
+        "(dime|dinos) (acerca de|)",
+        "que",
+        "que é",
+        "que será",
+        "que é"
     ],
     "/vocabulary/query/confirm-query.voc": [
-        "\u00e9 isto",
-        "ser\u00e1 isto",
+        "teñen",
+        "ir",
+        "porse",
+        "é",
         "hai",
-        "haber\u00e1",
-        "ser\u00e1",
-        "indo",
-        "imos",
-        "eles te\u00f1en"
+        "fará",
+        "haberá",
+        "teremos"
     ],
     "/vocabulary/query/confirm-query-current.voc": [
-        "\u00e9 isto",
+        "é",
         "hai"
     ],
     "/vocabulary/query/confirm-query-future.voc": [
-        "ser\u00e1 isto",
-        "haber\u00e1",
-        "ser\u00e1",
-        "conseguir\u00e1",
-        "isto vai",
-        "isto vai ser",
-        "vai conseguir",
-        "haber\u00e1"
+        "vai",
+        "vai estar",
+        "vai poñerse",
+        "fará",
+        "estará",
+        "porase",
+        "haberá",
+        "haberá"
+    ],
+    "/vocabulary/date-time/number-days.voc": [
+        "2 días",
+        "3 días",
+        "4 días",
+        "5 días",
+        "6 días",
+        "cinco días",
+        "catro días",
+        "2 días seguintes",
+        "3 días seguintes",
+        "4 días seguintes",
+        "5 días seguintes",
+        "6 días seguintes",
+        "par de días seguintes",
+        "seguinte par de días",
+        "próximos días",
+        "próximos cinco días",
+        "próximos catro días",
+        "próximos seis días",
+        "próximos tres días",
+        "próximos dous días",
+        "seis días",
+        "tres días",
+        "dous días"
     ],
     "/vocabulary/date-time/today.voc": [
         "hoxe",
         "de hoxe"
+    ],
+    "/vocabulary/date-time/few.voc": [
+        "poucas"
     ],
     "/vocabulary/date-time/now.voc": [
         "actual",
         "agora"
     ],
     "/vocabulary/date-time/later.voc": [
-        "pr\u00f3xima hora",
-        "pr\u00f3ximas horas",
-        "poucas horas",
-        "pr\u00f3ximas poucas horas",
         "par de horas",
-        "pr\u00f3ximo par de horas",
-        "m\u00e1is tarde"
+        "poucas horas",
+        "máis tarde",
+        "seguinte par de horas",
+        "unhas horas despois",
+        "hora seguinte",
+        "horas seguintes"
     ],
     "/vocabulary/date-time/week.voc": [
         "semana",
-        "semanalmente"
+        "semanal"
     ],
     "/vocabulary/date-time/weekend.voc": [
         "fin de semana"
     ],
     "/vocabulary/date-time/couple.voc": [
-        "pouco",
         "par"
     ],
     "/vocabulary/date-time/next.voc": [
-        "pr\u00f3xim(o|a)",
-        "novamente"
+        "de novo",
+        "seguinte"
     ],
     "/vocabulary/date-time/relative-time.voc": [
-        "ma\u00f1\u00e1",
         "tarde",
-        "tardi\u00f1a",
+        "serán",
+        "medianoite",
+        "mañá",
         "noite",
-        "esta noite",
-        "durante a noite"
+        "mediodía",
+        "hoxe á noite"
     ],
     "/vocabulary/date-time/relative-day.voc": [
-        "hoxe",
-        "hoxe",
-        "de hoxe",
-        "de hoxe",
-        "ma\u00f1\u00e1",
-        "ma\u00f1\u00e1",
-        "de ma\u00f1\u00e1",
-        "de ma\u00f1\u00e1",
+        "días",
+        "venres",
+        "luns",
+        "venres",
+        "luns",
+        "sábado",
+        "domingo",
+        "xoves",
+        "martes",
+        "mércores",
+        "sábado",
+        "domingo",
+        "xoves",
+        "mañá",
+        "de mañá",
+        "martes",
+        "mércores",
         "onte",
-        "onte",
-        "de onte",
         "de onte"
     ],
     "/vocabulary/temperature/cold.voc": [
-        "fr\u00edo",
-        "fr\u00edo",
-        "conxelando",
-        "fr\u00edo"
+        "fresco",
+        "frío",
+        "frío",
+        "xeado"
     ],
     "/vocabulary/temperature/temperature.voc": [
-        "fr\u00edo",
-        "fr\u00edo",
-        "fr\u00edo",
-        "morno",
-        "quente",
+        "temperatura",
         "temperatura"
     ],
     "/vocabulary/temperature/low.voc": [
         "baixa",
-        "m\u00ednima",
-        "m\u00ednimo",
-        "m\u00ednima"
+        "máis baixa",
+        "mín.",
+        "mínima"
     ],
     "/vocabulary/temperature/high.voc": [
         "alta",
-        "m\u00e1xima",
-        "max",
-        "m\u00e1ximo"
+        "máis alta",
+        "máx.",
+        "máxima"
     ],
     "/vocabulary/temperature/hot.voc": [
-        "morno",
-        "quente"
+        "quente",
+        "morno"
     ],
     "/vocabulary/condition/fog.voc": [
-        "n\u00e9boa",
-        "bretemoso",
+        "neboeira",
         "bruma",
-        "bretemoso"
-    ],
-    "/vocabulary/condition/precipitation.voc": [
-        "choiva",
-        "neve",
-        "precipitaci\u00f3n",
-        "chuvioso",
-        "nevado",
-        "chovendo",
-        "nevando",
-        "chuviscada"
-    ],
-    "/vocabulary/condition/humidity.voc": [
-        "h\u00famido",
-        "humidade",
+        "borraxeira",
         "neboento"
     ],
+    "/vocabulary/condition/precipitation.voc": [
+        "chuvisca",
+        "precipitación",
+        "chuvia",
+        "chovendo",
+        "chuvioso",
+        "neve",
+        "nevando",
+        "nevado"
+    ],
+    "/vocabulary/condition/humidity.voc": [
+        "húmido",
+        "humidade",
+        "vaporoso"
+    ],
     "/vocabulary/condition/snow.voc": [
-        "(neve|nevando|granizo|ca\u00edndo granizo)"
+        "(neve|nevando|sarabia|sarabiando)"
     ],
     "/vocabulary/condition/clear.voc": [
-        "(borro|soleado|con sol)",
-        "clima bo"
+        "(despexado|solleiro|sol)",
+        "(bo) tempo (agradable)"
     ],
     "/vocabulary/condition/rain.voc": [
-        "(chuvia leve|chuvia|chovendo|chuvioso|chuvisco|precipitaci\u00f3n)"
+        "(orballo|chuvia|chovendo|chuvioso|chuvisca|precipitación)"
     ],
     "/vocabulary/condition/clouds.voc": [
         "(nubrado|nube|nubes|poucas nubes|nubes dispersas)"
@@ -206,12 +241,12 @@
         "(tempestade|tormentoso|tormenta)"
     ],
     "/vocabulary/condition/windy.voc": [
+        "soprando",
+        "con vento",
+        "refachos",
         "vento",
-        "ventoso",
-        "ventos",
         "velocidade do vento",
-        "brisa",
-        "raxada",
-        "soprando"
+        "ventos",
+        "ventoso"
     ]
 }

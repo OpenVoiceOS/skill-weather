@@ -1,2 +1,2 @@
-Non hai vento en {location}
-Non temos moito vento en {location} hoxe
+En {location} hoxe hai vento feble do {direction} a {speed} {speed_unit}
+Hai vento feble en {location} a {speed} {speed_unit} do {direction}
