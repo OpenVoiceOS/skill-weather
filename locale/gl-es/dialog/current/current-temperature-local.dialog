@@ -1,3 +1,3 @@
-Agora fai {temp} graos.
-Neste momento fai {temp} graos {scale}.
-Neste momento fai {temp} graos.
+Arestora. hai {temperature} graos.
+Nestes momentos hai {temperature} graos {temperature_unit}.
+Nestes momentos hai {temperature} graos.

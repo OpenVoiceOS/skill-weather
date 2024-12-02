@@ -1,5 +1,5 @@
-A previsión para o {day} é: máxima de {temp_max} e mínima de {temp_min}.
-o {day} espérase{condition}, cunha máxima de {temp_max} e mínima de {temp_min}
-{day} a máxima será de {temp_max} e a mínima {temp_min}, con {condition}
-{day} espérase {condition}, cunha máxima de {temp_max} e mínima de {temp_min}
-{day} estará {condition}, cunha máxima de {temp_max} e mínima de {temp_min}
+A previsión para {day} é {condition} cunha máxima de {high_temperature} e unha mínima de {low_temperature}
+Prevese {condition}. cunha máxima de {high_temperature} e unha mínima de {low_temperature} {day}
+{day} a máxima será de {high_temperature} e a mínima de {low_temperature}. estará {condition}
+{day} estará {condition} cunha máxima de {high_temperature} e unha mínima de {low_temperature}
+{day} prevese {condition}. cunha máxima de {high_temperature} e unha mínima de {low_temperature}

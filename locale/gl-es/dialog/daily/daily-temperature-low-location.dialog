@@ -1,2 +1,2 @@
-{day} a mínima será de {temp_min} graos en {location}
-{day}, {location} terá unha mínima de {temp} graos
+{day} chegarase a unha mínima de {temperature} graos en {location}
+{day}. {location} rexistrará unha mínima de {temperature} graos

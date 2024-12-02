@@ -1,2 +1,2 @@
-o {day} a temperatura será de {temp} graos.
-{day} vai facer {temp}
+{day} a temperatura será de {temperature} graos.
+{day} haberá {temperature}
