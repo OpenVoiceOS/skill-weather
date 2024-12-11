@@ -82,7 +82,7 @@
     "{day} werden wir maximal {high_temperature} und minimal {low_temperature} Grad haben, {condition} wird erwartet",
     "Die Vorhersage {day} sieht ein Maximum von {high_temperature} und ein Minimum von {low_temperature} grad, {condition} ist vorausgesagt",
     "{day} wird eine {condition} mit einem Maximum von {high_temperature} and einem Minimum von {low_temperature} grad sein",
-    null
+    "Die vorhersage für  {day} ist {condition} mit einer höchsttemperatur von {high_temperature} und einer Tiefsttemperatur von {low_temperature} grad"
   ],
   "/dialog/daily/daily-sunrise-local.dialog": [
     "sonnenaufgang ist um {time} {day}",
