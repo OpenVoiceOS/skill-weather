@@ -7,7 +7,7 @@
   ],
   "/dialog/daily/daily-precipitation-next-local.dialog": [
     "{day} ist mit einer wahrscheinlichkeit von {percent} mit {precipitation} zu rechnen.",
-    "Die Vorhersage sagt eine Wahrscheinlichkeit von {precipitation} {percent} für {day} voraus."
+    "Die Vorhersage ist mit einer Wahrscheinlichkeit von {precipitation} {percent} für {day}."
   ],
   "/dialog/daily/daily-precipitation-next-none-local.dialog": [
     "in den nächsten 7 tagen nicht.",
@@ -20,7 +20,7 @@
   "/dialog/daily/daily-sunrise-location.dialog": [
     "sonnenaufgang ist in {location} um {time} {day}",
     "{day} geht die sonne in {location} um {time} auf",
-    null
+    "{day} wird die sonne um  {time} in {location} aufgehen"
   ],
   "/dialog/daily/daily-precipitation-next-location.dialog": [
     "in {location} ist zu {percent} mit {precipitation} für {day} zu rechnen",
@@ -28,17 +28,17 @@
   ],
   "/dialog/daily/daily-humidity-local.dialog": [
     "Für {day} ist mit Luftfeuchte von {percent} zu rechnen",
-    null
+    "für {day} lautete die vorhersage über die luftfeuchtigkeit auf {percent}"
   ],
   "/dialog/daily/daily-sunset-location.dialog": [
-    "sonnenuntergang ist in {location} um {time} {day}",
+    "der sonnenuntergang ist in {location} um {time} {day}",
     "{day} geht die sonne in {location} um {time} unter",
-    null
+    "{day} wird die sonne um {time} in {location} untergehen"
   ],
   "/dialog/daily/daily-weather-location.dialog": [
     "{day} wird {condition} in {location} erwartet, mit maximal {high_temperature} und minimal {low_temperature} Grad",
     "in {location} werden für {day} Höchstwerte von {high_temperature} und Minimalwerte von {low_temperature} Grad und {condition} erwartet",
-    "Die Vorhersage für {day} in {location} ist {condition} und {high_temperature} Grad als höchster und {low_temperature} Grad als niedrigster Wert"
+    "Die Vorhersage für {day} in {location} ist {high_temperature} Grad als höchster und {low_temperature} Grad als niedrigster Wert"
   ],
   "/dialog/daily/daily-temperature-high-low-location.dialog": [
     "Die Vorhersage für den heutigen Tag in {location} ist ein Hoch von {high_temperature} und ein Tief von {low_temperature}."
@@ -54,12 +54,12 @@
   "/dialog/daily/daily-sunset-local.dialog": [
     "sonnenuntergang ist um {time} {day}",
     "{day} geht die sonne um {time} unter",
-    null,
-    null
+    "der sonnenuntergang wird um {time} {day} sein",
+    "{day} ist der sonnenuntergang um {time}"
   ],
   "/dialog/daily/daily-temperature-low-local.dialog": [
     "{day} wird eine Tiefsttemperatur von {temperature} Grad erreicht.",
-    null
+    "{day} beträgt die {temperature} grad (celsius | )"
   ],
   "/dialog/daily/daily-temperature-local.dialog": [
     "{day} wird es {temperature} Grad.",
@@ -81,13 +81,13 @@
     "{day} wird {condition} vorausgesagt, mit maximal {high_temperature} und minimal {low_temperature} grad.",
     "{day} werden wir maximal {high_temperature} und minimal {low_temperature} Grad haben, {condition} wird erwartet",
     "Die Vorhersage {day} sieht ein Maximum von {high_temperature} und ein Minimum von {low_temperature} grad, {condition} ist vorausgesagt",
-    null,
-    null
+    "{day} wird eine {condition} mit einem Maximum von {high_temperature} and einem Minimum von {low_temperature} grad sein",
+    "Die vorhersage für  {day} ist {condition} mit einer höchsttemperatur von {high_temperature} und einer Tiefsttemperatur von {low_temperature} grad"
   ],
   "/dialog/daily/daily-sunrise-local.dialog": [
     "sonnenaufgang ist um {time} {day}",
     "{day} geht die sonne um {time} auf",
-    null
+    "{day} wird die sonne um {time} aufgehen"
   ],
   "/dialog/daily/daily-wind-moderate-location.dialog": [
     "{day} wird in {location} moderater Wind erwartet, etwa {speed} {speed_unit} von {direction}.",
@@ -101,7 +101,7 @@
   "/dialog/daily/daily-wind-moderate-local.dialog": [
     "{day} ist mit leichtem Wind mit {speed} {speed_unit} von {direction} zu erwarten.",
     "Es ist {day} etwas windig, {speed} {speed_unit} von {direction}.",
-    null
+    "es ist ein moderater wind mit einer windgeschwindigkeit von  {speed} {speed_unit} {day} zu erwarten"
   ],
   "/dialog/daily/daily-wind-strong-location.dialog": [
     "{day} wird in {location} starker wind mit {speed} {speed_unit} von {direction} erwartet.",

@@ -14,26 +14,26 @@
     "San Jose",
     "Boston",
     "Washington D C",
-    "Kansas City"
+    "Berlin"
   ],
   "/vocabulary/sunrise.voc": [
     "Sonnenaufgang",
-    "sonne auf",
+    "geht die Sonne auf",
     "Sonne aufgehen",
-    "Dämmerung",
+    "Morgendämmerung",
     "Tagesanbruch"
   ],
   "/vocabulary/forecast.voc": [
     "Vorhersage"
   ],
   "/vocabulary/outside.voc": [
-    "außerhalb",
+    "draußen",
     "außen"
   ],
   "/vocabulary/sunset.voc": [
     "Sonnenuntergang",
-    "sonne unter",
-    "Sonne untergehen"
+    "geht die Sonne unter",
+    "Sonnenuntergang\nAbenddämmerung"
   ],
   "/vocabulary/weather.voc": [
     "Wetter"
@@ -53,14 +53,14 @@
     "wann wird (es|)",
     "wann ist (es|)",
     "wann war (es|)",
-    "wie viel Uhr"
+    "wie viel Uhr\num wie viel uhr"
   ],
   "/vocabulary/query/query.voc": [
     "wie",
     "was ist",
+    "was ist",
     "was wird",
-    "erzähle (mir|uns) (etwas über|)",
-    "gib mir",
+    "sag was (zu| über)",
     "Gib mir",
     "Was"
   ],
@@ -93,21 +93,21 @@
     "zwei Tage",
     "in den nächsten zwei tagen",
     "in den nächsten 2 tagen",
-    "3 Tage",
-    "drei Tage",
+    "in den nächsten tagen",
+    "in den nächsten tagen",
     "in den nächsten drei tagen",
     "in den nächsten 3 tagen",
-    "4 Tage",
-    "vier Tage",
-    "in den nächsten vier tagen",
+    "die nächsten 3 tage",
+    "nächsten drei tage",
+    "in den nächsten paar tagen",
     "in den nächsten 4 tagen",
+    "4 Tage",
+    "nächsten 4 Tage",
+    "in den nächsten vier tagen",
+    "in den nächsten 5 tagen",
     "5 Tage",
     "fünf Tage",
     "in den nächsten fünf tagen",
-    "in den nächsten 5 tagen",
-    "6 Tage",
-    "sechs Tage",
-    "in den nächsten sechs tagen",
     "in den nächsten 6 tagen",
     "sechs Tage|",
     "nächsten 6 Tage",
@@ -115,7 +115,7 @@
   ],
   "/vocabulary/date-time/today.voc": [
     "heute",
-    "heutig"
+    "heute"
   ],
   "/vocabulary/date-time/few.voc": [
     "wenige"
@@ -129,7 +129,7 @@
     "nächsten Stunden",
     "einige(n) Stunden",
     "nächsten paar Stunden",
-    "einige Stunden",
+    "einige Stunden\nein paar stunden",
     "nächsten Stunden",
     "später"
   ],
@@ -149,46 +149,46 @@
   ],
   "/vocabulary/date-time/relative-time.voc": [
     "früh",
-    "morgens",
     "mittag",
-    "mittags",
     "nachmittag",
-    "nachmittags",
-    "abend"
+    "abend",
+    "nacht",
+    "heute abend",
+    "mitternacht"
   ],
   "/vocabulary/date-time/relative-day.voc": [
     "morgen",
     "morgige",
-    "montag",
-    "montags",
+    "gestern",
+    "gestrig",
+    "am montag",
     "am montag",
     "dienstag",
-    "dienstags",
     "am dienstag",
     "mittwoch",
     "mittwochs",
-    "am mittwoch",
     "donnerstag",
-    "donnerstags",
     "am donnerstag",
     "freitag",
-    "freitags",
     "am freitag",
-    "samstag",
-    "samstags"
+    "samstag\nsonnabend",
+    "am samstag",
+    "sonntag",
+    "am sonntag",
+    "tage"
   ],
   "/vocabulary/temperature/cold.voc": [
     "kalt",
     "kühl",
-    "Einfrieren",
-    "Cool"
-  ],
-  "/vocabulary/temperature/temperature.voc": [
-    "kalt",
+    "frierend",
     "kühl"
   ],
+  "/vocabulary/temperature/temperature.voc": [
+    "temperatur",
+    "temperatur"
+  ],
   "/vocabulary/temperature/low.voc": [
-    "Tiefstwert",
+    "niedrig",
     "Tiefsttemperatur",
     "niedrigste",
     "tief"
@@ -212,7 +212,7 @@
   "/vocabulary/condition/precipitation.voc": [
     "Niederschlag",
     "Schnee",
-    "[UNUSED]",
+    "Niederschlag",
     "regnerisch",
     "schneebedeckt",
     "regnet",
@@ -238,15 +238,15 @@
     "bewölkt"
   ],
   "/vocabulary/condition/thunderstorm.voc": [
-    "gewitter"
+    "stürmisch"
   ],
   "/vocabulary/condition/windy.voc": [
     "Wind",
     "windig",
     "windet",
-    "Winde",
-    "Sturm",
-    "stürmt",
-    "stürmen"
+    "Windgeschwindigkeit",
+    "Briese",
+    "stürmisch",
+    "weht"
   ]
 }
