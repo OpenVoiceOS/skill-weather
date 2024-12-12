@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.1.13a1](https://github.com/OpenVoiceOS/ovos-skill-weather/tree/0.1.13a1) (2024-12-04)
+## [0.1.14a1](https://github.com/OpenVoiceOS/ovos-skill-weather/tree/0.1.14a1) (2024-12-12)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-weather/compare/0.1.12...0.1.13a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-weather/compare/0.1.13...0.1.14a1)
 
 **Merged pull requests:**
 
-- de-de/translate [\#109](https://github.com/OpenVoiceOS/ovos-skill-weather/pull/109) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- adjusting German translation from joergz2 [\#111](https://github.com/OpenVoiceOS/ovos-skill-weather/pull/111) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 
 
