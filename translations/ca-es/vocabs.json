@@ -27,8 +27,8 @@
     "previsió"
   ],
   "/vocabulary/outside.voc": [
-    null,
-    null
+    "fora\nexterior",
+    "fora\nexterior"
   ],
   "/vocabulary/sunset.voc": [
     "posta de sol",
@@ -46,13 +46,13 @@
     "fahrenheit"
   ],
   "/vocabulary/query/how.voc": [
-    null
+    "com"
   ],
   "/vocabulary/query/when.voc": [
     "quan",
-    null,
-    null,
-    null,
+    "quan és",
+    "quan serà",
+    "quan és",
     "a quina hora\na quin hora"
   ],
   "/vocabulary/query/query.voc": [
@@ -60,14 +60,14 @@
     "què és",
     "què és",
     "què serà\nquè farà",
-    null,
-    null,
-    null
+    "(parla|explica)('m|'ns) (sobre|de|)",
+    "dóna'm",
+    "què"
   ],
   "/vocabulary/query/confirm-query.voc": [
-    null,
+    "és",
     "serà",
-    null,
+    "hi ha",
     "hi haurà",
     "existeix",
     "existiran",
@@ -91,13 +91,13 @@
   "/vocabulary/date-time/number-days.voc": [
     "2 dies",
     "dos dies",
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
+    "els propers 2 dies\nels 2 dies següents",
+    "els propers dos dies\nels dos dies següents",
+    "els propers dies\nel proper parell de dies\nen uns dies",
+    "els propers dies",
+    "3 dies",
+    "tres dies",
+    "els propers 3 dies",
     "els pròxims 3 dies",
     "els propers dies",
     "4 dies",
